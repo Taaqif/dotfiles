@@ -1,0 +1,5 @@
+require "user.options"
+require "user.theme"
+require "user.keymaps"
+require "user.plugins"
+-- require "user.nvim-tree"
