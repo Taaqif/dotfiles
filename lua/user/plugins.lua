@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "rcarriga/nvim-notify"
   use "moll/vim-bbye"
+  use "svermeulen/vim-cutlass"
   use {
     "lewis6991/impatient.nvim",
     config = function()
@@ -53,7 +54,11 @@ return packer.startup(function(use)
     end
   }
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim"
+  use {
+      "numtostr/Comment.nvim",
+    config = function()
+        require("user.config._comment")
+      end}
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
@@ -84,6 +89,30 @@ return packer.startup(function(use)
       require("user.config._nvimtree")
     end
   }
+  use {
+    "max397574/better-escape.nvim",
+    config = function()
+        require("better_escape").setup()
+      end
+  }
+use {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+        require("colorizer").setup()
+      end
+  }
+use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+        require("user.config._indentline")
+      end
+  }
+    -- use {
+    --     "karb94/neoscroll.nvim",
+    --     config = function ()
+    --          require('neoscroll').setup()
+    --     end
+    -- }
   -- cmp
 
   -- lsp
@@ -97,13 +126,13 @@ return packer.startup(function(use)
   --   end
   -- }
 
-  -- -- telescope
-  -- use "nvim-telescope/telescope.nvim"
-  -- -- treesitter
-  -- use {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   run = ":TSUpdate",
-  -- }
+  -- telescope
+  use "nvim-telescope/telescope.nvim"
+  -- treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
 
   -- GIT
   use {

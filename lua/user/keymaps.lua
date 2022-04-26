@@ -33,7 +33,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+--keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -58,3 +58,9 @@ keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+
+-- cutlass
+keymap("n", "x", "d", opts)
+keymap("n", "x", "d", opts)
+keymap("n", "xx", "dd", opts)
+keymap("n", "X", "D", opts)
