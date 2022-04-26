@@ -1,6 +1,8 @@
 local nvim_tree = require "nvim-tree"
 local nvim_tree_config = require "nvim-tree.config"
 local tree_cb = nvim_tree_config.nvim_tree_callback
+vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+
 nvim_tree.setup {
   update_to_buf_dir = {
     enable = false,
