@@ -31,7 +31,7 @@ end
 
 -- Have packer use a popup window
 packer.init {
-  package_root = install_path,
+  -- package_root = require("packer.util").join_paths(vim.fn.stdpath('data'), 'site', 'packer'),
   display = {
     open_fn = function()
       return require("packer.util").float { border = "rounded" }
@@ -45,12 +45,13 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "rcarriga/nvim-notify"
-  -- use {
-  --    "lewis6991/impatient.nvim",
-  --    config = function()
-  --        require('impatient')
-  --    end
-  --}
+  use "moll/vim-bbye"
+  use {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require('impatient')
+    end
+  }
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
   use {
@@ -60,43 +61,59 @@ return packer.startup(function(use)
     end
   }
   use {
-    "kyazdani42/nvim-tree.lua",
+    'akinsho/bufferline.nvim',
     config = function()
-      require("user.config.nvimtree")
+      require("user.config._bufferline")
     end
   }
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
-      require('user.config.lualine')
-    end
-  }
-  use {
-    'akinsho/bufferline.nvim',
-    config = function()
-      require("user.config.bufferline")
+      require('user.config._lualine')
     end
   }
   use {
     "folke/which-key.nvim",
     config = function()
-      require("user.config.whichkey")
+      require("user.config._whichkey")
+    end
+  }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+      require("user.config._nvimtree")
     end
   }
   -- cmp
 
   -- lsp
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
-  use "tamago324/nlsp-settings.nvim"
-  use "jose-elias-alvarez/null-ls.nvim"
-  -- telescope
-  use "nvim-telescope/telescope.nvim"
-  -- treesitter
+  -- use {
+  --   "neovim/nvim-lspconfig",
+  --   "williamboman/nvim-lsp-installer",
+  --   "tamago324/nlsp-settings.nvim",
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   config = function()
+  --     require("user.config._lsp")
+  --   end
+  -- }
+
+  -- -- telescope
+  -- use "nvim-telescope/telescope.nvim"
+  -- -- treesitter
+  -- use {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   run = ":TSUpdate",
+  -- }
+
+  -- GIT
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("user.config._gitsigns")
+    end
   }
+  use "tpope/vim-fugitive"
+
   --themes
   use "luisiacc/gruvbox-baby"
   -- Automatically set up your configuration after cloning packer.nvim
