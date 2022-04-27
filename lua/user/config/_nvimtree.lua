@@ -4,64 +4,27 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
 
 nvim_tree.setup {
-  update_to_buf_dir = {
-    enable = false,
-  },
-  -- disable_netrw = true,
-  -- hijack_netrw = true,
-  -- open_on_setup = false,
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
-  -- auto_close = true,
-  -- open_on_tab = false,
-  -- hijack_cursor = false,
-  update_cwd = true,
-  -- update_to_buf_dir = {
-  --   enable = true,
-  --   auto_open = true,
-  -- },
-  -- --   error
-  -- --   info
-  -- --   question
-  -- --   warning
-  -- --   lightbulb
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
-  -- system_open = {
-  --   cmd = nil,
-  --   args = {},
-  -- },
-  -- filters = {
-  --   dotfiles = false,
-  --   custom = {},
-  -- },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
-  view = {
-    width = 30,
-    height = 30,
-    hide_root_folder = false,
-    side = "left",
-    auto_resize = true,
-    mappings = {
+    filters = {
+      dotfiles = false,
+   },
+   disable_netrw = true,
+   hijack_netrw = true,
+   ignore_ft_on_setup = { "dashboard" },
+   auto_close = false,
+   open_on_tab = false,
+   hijack_cursor = true,
+   hijack_unnamed_buffer_when_opening = false,
+   update_cwd = true,
+   update_focused_file = {
+      enable = true,
+      update_cwd = false,
+   },
+   view = {
+      allow_resize = true,
+      side = "left",
+      width = 25,
+      hide_root_folder = false,
+          mappings = {
       custom_only = false,
       list = {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
@@ -69,22 +32,20 @@ nvim_tree.setup {
         { key = "v", cb = tree_cb "vsplit" },
       },
     },
-    number = false,
-    relativenumber = false,
-  },
-  -- trash = {
-  --   cmd = "trash",
-  --   require_confirm = true,
-  -- },
-  quit_on_open = 0,
-  git_hl = 1,
-  -- disable_window_picker = 0,
-  -- root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
-  },
+
+   },
+   git = {
+      enable = true,
+      ignore = false,
+   },
+   actions = {
+      open_file = {
+         resize_window = true,
+      },
+   },
+   renderer = {
+      indent_markers = {
+         enable = true,
+      }
+   }
 }

@@ -55,10 +55,10 @@ return packer.startup(function(use)
   }
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use {
-      "numtostr/Comment.nvim",
+    "numtostr/Comment.nvim",
     config = function()
-        require("user.config._comment")
-      end}
+      require("user.config._comment")
+    end }
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
@@ -92,27 +92,21 @@ return packer.startup(function(use)
   use {
     "max397574/better-escape.nvim",
     config = function()
-        require("better_escape").setup()
-      end
+      require("better_escape").setup()
+    end
   }
-use {
+  use {
     "norcalli/nvim-colorizer.lua",
     config = function()
-        require("colorizer").setup()
-      end
+      require("colorizer").setup()
+    end
   }
-use {
+  use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-        require("user.config._indentline")
-      end
+      require("user.config._indentline")
+    end
   }
-    -- use {
-    --     "karb94/neoscroll.nvim",
-    --     config = function ()
-    --          require('neoscroll').setup()
-    --     end
-    -- }
   -- cmp
 
   -- lsp
@@ -127,7 +121,16 @@ use {
   -- }
 
   -- telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+      "nvim-telescope/telescope.nvim",
+      "nvim-telescope/telescope-media-files.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      {"nvim-telescope/telescope-fzf-native.nvim",run = 'make'},
+      "nvim-telescope/telescope-file-browser.nvim",
+      config = function()
+        require("user.config._telescope")
+      end
+  }
   -- treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
