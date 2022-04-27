@@ -54,7 +54,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
 -- Custom
-keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
+-- keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)h
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)

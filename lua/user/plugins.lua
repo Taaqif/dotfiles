@@ -1,7 +1,7 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/packer/packer/start/packer.nvim"
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -110,31 +110,37 @@ return packer.startup(function(use)
   -- cmp
 
   -- lsp
-  -- use {
-  --   "neovim/nvim-lspconfig",
-  --   "williamboman/nvim-lsp-installer",
-  --   "tamago324/nlsp-settings.nvim",
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   config = function()
-  --     require("user.config._lsp")
-  --   end
-  -- }
+  use {
+    "neovim/nvim-lspconfig",
+    "williamboman/nvim-lsp-installer",
+    "tamago324/nlsp-settings.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+    end
+  }
 
   -- telescope
   use {
-      "nvim-telescope/telescope.nvim",
+      {"nvim-telescope/telescope.nvim",
+      config = function()
+        require("user.config._telescope")
+      end},
       "nvim-telescope/telescope-media-files.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       {"nvim-telescope/telescope-fzf-native.nvim",run = 'make'},
       "nvim-telescope/telescope-file-browser.nvim",
-      config = function()
-        require("user.config._telescope")
-      end
   }
   -- treesitter
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+      {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+      config = function()
+          require("user.config._treesitter")
+      end
+      },
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        "p00f/nvim-ts-rainbow",
   }
 
   -- GIT
@@ -145,6 +151,14 @@ return packer.startup(function(use)
     end
   }
   use "tpope/vim-fugitive"
+
+  -- Terminal
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("user.config._terminal")
+    end,
+  }
 
   --themes
   use "luisiacc/gruvbox-baby"
