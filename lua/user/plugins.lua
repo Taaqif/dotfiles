@@ -53,6 +53,12 @@ return packer.startup(function(use)
       require('impatient')
     end
   }
+  use {
+      "antoinemadec/FixCursorHold.nvim",
+      config = function()
+        vim.g.cursorhold_updatetime = 100
+      end,
+    }
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use {
     "numtostr/Comment.nvim",
@@ -115,9 +121,15 @@ return packer.startup(function(use)
     "williamboman/nvim-lsp-installer",
     "tamago324/nlsp-settings.nvim",
     "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-    end
   }
+  use {
+      "MunifTanjim/prettier.nvim",
+    config = function()
+        require("prettier").setup({
+        bin = 'prettier'})
+        -- require("user.config._null_ls")
+    end
+}
 
   -- telescope
   use {
