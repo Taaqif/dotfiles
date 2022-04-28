@@ -39,7 +39,7 @@ packer.init {
     },
 }
 local function configure(name)
-  return require(string.format('user.config.%s', name))
+    return require(string.format('user.config.%s', name))
 end
 
 -- Install your plugins here
@@ -131,45 +131,49 @@ return packer.startup(function(use)
     }
     -- cmp
     use {
-    'hrsh7th/nvim-cmp',
-    config = function()
-        require("user.config._cmp")
-    end,
-    requires = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-emoji',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-path',
-      'onsails/lspkind-nvim', -- Enables icons on completions
-      { -- Snippets
-        'L3MON4D3/LuaSnip',
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require("user.config._cmp")
+        end,
         requires = {
-          'saadparwaiz1/cmp_luasnip',
-          'rafamadriz/friendly-snippets',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-emoji',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-path',
+            'onsails/lspkind-nvim', -- Enables icons on completions
+            { -- Snippets
+                'L3MON4D3/LuaSnip',
+                requires = {
+                    'saadparwaiz1/cmp_luasnip',
+                    'rafamadriz/friendly-snippets',
+                },
+            },
         },
-      },
-    },
-}
+    }
     -- lsp
     use {
         "neovim/nvim-lspconfig",
         "williamboman/nvim-lsp-installer",
         "tamago324/nlsp-settings.nvim",
         "jose-elias-alvarez/null-ls.nvim",
+        'b0o/schemastore.nvim', -- JSON schema for jsonls
+        'ray-x/lsp_signature.nvim',
+        'jose-elias-alvarez/nvim-lsp-ts-utils',
+        'RRethy/vim-illuminate',
     }
     -- telescope
     use {
         "nvim-telescope/telescope.nvim",
-            config = function()
-                require("user.config._telescope")
-            end,
-            requires = {
-        "nvim-telescope/telescope-media-files.nvim",
-        "nvim-telescope/telescope-ui-select.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", run = 'make' },
-        "nvim-telescope/telescope-file-browser.nvim",
-            }
+        config = function()
+            require("user.config._telescope")
+        end,
+        requires = {
+            "nvim-telescope/telescope-media-files.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", run = 'make' },
+            "nvim-telescope/telescope-file-browser.nvim",
+        }
     }
     -- treesitter
     use {
