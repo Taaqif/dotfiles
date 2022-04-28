@@ -37,15 +37,15 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17", -- the font used in graphical neovim applications
 -- Enable powershell as your default shell
-shell = "pwsh.exe -NoLogo",
-shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+-- shell = "pwsh.exe -NoLogo -NoProfile -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+-- shellcmdflag =
+--   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
 }
-vim.cmd [[
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
-  ]]
+-- vim.cmd [[
+-- 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- 		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+-- 		set shellquote= shellxquote=
+--   ]]
 
 for k, v in pairs(options) do
   vim.opt[k] = v

@@ -17,6 +17,7 @@ null_ls.setup({
 
         -- formatting sources
         -- null_ls.builtins.formatting
+        formatting.prettier
 
         -- hover sources
         -- null_ls.builtins.hover
