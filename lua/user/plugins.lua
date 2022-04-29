@@ -46,7 +46,20 @@ end
 return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use {
+        "lewis6991/impatient.nvim",
+        config = function()
+            require('impatient')
+        end
+    }
+    use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require("user.config._alpha")
+    end
+}
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "tpope/vim-surround"
     use {
         "rcarriga/nvim-notify",
         config = function()
@@ -64,9 +77,16 @@ return packer.startup(function(use)
     use "moll/vim-bbye"
     use "svermeulen/vim-cutlass"
     use {
-        "lewis6991/impatient.nvim",
+        "windwp/nvim-spectre",
         config = function()
-            require('impatient')
+            require('spectre').setup({
+            })
+        end
+    }
+    use {
+        "filipdutescu/renamer.nvim",
+        config = function ()
+            require('renamer').setup {}
         end
     }
     use {
@@ -96,7 +116,6 @@ return packer.startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         config = function()
-            require('user.config._lualine')
         end
     }
     use {
