@@ -1,4 +1,6 @@
 local telescope = require "telescope"
+local action_layout = require("telescope.actions.layout")
+
 telescope.load_extension "media_files"
 telescope.setup{
     defaults = {
@@ -31,7 +33,7 @@ telescope.setup{
          height = 0.80,
          preview_cutoff = 120,
       },
-      file_sorter = require("telescope.sorters").get_fuzzy_file,
+      file_sorter = require("telescope.sorters").get_fzy_sorter,
       file_ignore_patterns = { "node_modules" },
       generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
       path_display = { "truncate" },
@@ -46,6 +48,11 @@ telescope.setup{
       qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
       -- Developer configurations: Not meant for general override
       buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+      mappings = { 
+      i = {
+        ["?"] = action_layout.toggle_preview,
+      },
+    },
    },
     extensions = {
     media_files = {
@@ -76,3 +83,4 @@ telescope.load_extension('fzf')
 telescope.load_extension "file_browser"
 telescope.load_extension("ui-select")
 telescope.load_extension("notify")
+telescope.load_extension("live_grep_raw")
