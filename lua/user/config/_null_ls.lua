@@ -8,22 +8,15 @@ null_ls.setup({
     sources = {
 
         -- code action sources
-        -- null_ls.builtins.code_actions
-        -- code_actions.eslint,
 
         -- diagnostic sources
-        -- null_ls.builtins.diagnostics
-        -- diagnostics.eslint,
 
         -- formatting sources
-        -- null_ls.builtins.formatting
         formatting.stylua,
-        formatting.prettier
+        formatting.prettierd
 
         -- hover sources
-        -- null_ls.builtins.hover
 
         -- completion sources
-        -- null_ls.builtins.completion
     },
 })
