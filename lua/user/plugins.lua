@@ -53,6 +53,13 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"Darazaki/indent-o-matic",
+		config = function()
+			require('indent-o-matic').setup{
+			}
+		end,
+	})
+	use({
 		"goolord/alpha-nvim",
 		config = function()
 			require("user.config._alpha")
@@ -60,6 +67,7 @@ return packer.startup(function(use)
 	})
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("tpope/vim-surround")
+	use("tpope/vim-repeat")
 	use({
 		"rcarriga/nvim-notify",
 		config = function()
