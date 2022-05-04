@@ -9,6 +9,31 @@ local signs = {
 	{ name = "DiagnosticSignInfo", text = "" },
 }
 
+local servers_config = {
+    -- https://github.com/pedro757/emmet
+    -- npm i -g ls_emmet (In order to override the default emmet-ls)
+    emmet_ls = {
+      cmd = { 'ls_emmet', '--stdio' },
+      filetypes = { 'html', 'css', 'scss', 'sass', 'javascript', 'javascriptreact', 'typescriptreact' },
+    },
+    jsonls = {
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+        },
+      },
+    },
+    sumneko_lua = {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
+          },
+        },
+      },
+    },
+  }
+
 for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
@@ -82,6 +107,14 @@ function on_attach(client, bufnr)
 	if client.name ~= "null-ls" then
 		client.resolved_capabilities.document_formatting = false
 	end
+
+	if client.name == 'tsserver' then
+    local ts_utils = require 'nvim-lsp-ts-utils'
+    if ts_utils then
+      ts_utils.setup {}
+      ts_utils.setup_client(client)
+    end
+  end
 end
 
 local global_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -96,7 +129,8 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 })
 
 lsp_installer.on_server_ready(function(server)
-	server:setup({
-		on_attach = on_attach,
-	})
+	local config = servers_config[server.name] or {}
+	config.capabilities = global_capabilities
+	config.on_attach = on_attach
+	server:setup(config)
 end)
