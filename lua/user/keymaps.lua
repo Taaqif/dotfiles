@@ -36,6 +36,9 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 keymap("i", "<c-z>", "<c-o>:u<CR>", opts)
 -- keymap("i", "<C-w>", "<C-\><C-o>dB", opts)
 keymap("i", "<C-BS>", "<C-\\><C-o>dB", opts)
+-- keymap("i", "<C-BS>", "<C-\\><C-o>dB", opts)
+-- keymap("i", "<C-v>", "<c-r>*", opts)
+keymap("i", "<C-v>", "<esc>:set paste<cr>a<c-r>=getreg('*')<cr><esc>:set nopaste<cr>mi`[=`]`ia", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -52,7 +55,10 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-
+keymap("t", "<C-h>" , "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>" , "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>" , "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>" , "<C-\\><C-N><C-w>l", term_opts)
 -- Custom
 -- keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)h
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
@@ -64,3 +70,7 @@ keymap("n", "x", "d", opts)
 keymap("n", "x", "d", opts)
 keymap("n", "xx", "dd", opts)
 keymap("n", "X", "D", opts)
+
+
+-- command mode
+keymap("c", "<C-v>", "<c-r>*", opts)

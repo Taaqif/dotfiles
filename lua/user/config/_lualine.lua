@@ -89,8 +89,5 @@ local config = {
 	},
 	tabline = {},
 	extensions = {},
-	-- options = {
-	-- 		theme = "gruvbox"
-	-- }
 }
 require("lualine").setup(config)

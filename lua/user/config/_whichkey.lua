@@ -44,6 +44,7 @@ local setup = {
 	},
 	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
 	show_help = false, -- show help message on the command line when the popup is visible
+	triggers = "auto",
 	triggers_blacklist = {
 		i = { "j", "k" },
 		v = { "j", "k" },
@@ -63,7 +64,7 @@ local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	-- b = { "<cmd>JABSOpen<cr>", "Buffers" },
 	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope.builtin').buffers()<cr>",
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },

@@ -5,8 +5,8 @@ vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(
 
 nvim_tree.setup {
     filters = {
-        dotfiles = false,
-        custom = { '.git' }
+        -- dotfiles = false,
+        custom = { '^\\.git$' }
     },
     disable_netrw = true,
     hijack_netrw = true,

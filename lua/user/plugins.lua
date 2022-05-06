@@ -55,8 +55,7 @@ return packer.startup(function(use)
 	use({
 		"Darazaki/indent-o-matic",
 		config = function()
-			require('indent-o-matic').setup{
-			}
+			require("indent-o-matic").setup({})
 		end,
 	})
 	use({
@@ -67,6 +66,7 @@ return packer.startup(function(use)
 	})
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("tpope/vim-surround")
+	use("mg979/vim-visual-multi")
 	use("tpope/vim-repeat")
 	use("AndrewRadev/switch.vim")
 	use({
@@ -77,14 +77,14 @@ return packer.startup(function(use)
 				-- Minimum level to show
 				level = "info",
 
-				-- Animation style (see below for details)
+				-- Animation style (see besuuslow for details)
 				stages = "fade_in_slide_out",
 			})
 			vim.notify = _notify
 		end,
 	})
 	use("moll/vim-bbye")
-	use("svermeulen/vim-cutlass")
+	use("svermeulen/vim-cutlass") 
 	use({
 		"windwp/nvim-spectre",
 		config = function()
@@ -99,9 +99,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"antoinemadec/FixCursorHold.nvim",
-		config = function()
-			vim.g.cursorhold_updatetime = 100
-		end,
+		config = function() end,
 	})
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({
@@ -157,8 +155,18 @@ return packer.startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({
+				"css",
+				"javascript",
+				"scss",
+				html = {
+					mode = "foreground",
+				},
+			})
 		end,
+	})
+	use({
+		"stevearc/dressing.nvim",
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -245,6 +253,7 @@ return packer.startup(function(use)
 
 	--themes
 	use("luisiacc/gruvbox-baby")
+	use("sainnhe/gruvbox-material")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
