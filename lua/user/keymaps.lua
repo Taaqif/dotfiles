@@ -44,11 +44,14 @@ keymap("i", "<C-v>", "<esc>:set paste<cr>a<c-r>=getreg('*')<cr><esc>:set nopaste
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+-- Don't copy the replaced text after pasting in visual mode
+-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+keymap("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -67,7 +70,7 @@ keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 
 -- cutlass
 keymap("n", "x", "d", opts)
-keymap("n", "x", "d", opts)
+keymap("x", "x", "d", opts)
 keymap("n", "xx", "dd", opts)
 keymap("n", "X", "D", opts)
 

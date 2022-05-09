@@ -130,10 +130,10 @@ return packer.startup(function(use)
 			require("trouble").setup({})
 		end,
 	})
-	use({
-		"github/copilot.vim",
-		config = function() end,
-	})
+	-- use({
+	-- 	"github/copilot.vim",
+	-- 	config = function() end,
+	-- })
 	use({
 		"folke/which-key.nvim",
 		config = function()
