@@ -101,7 +101,6 @@ return packer.startup(function(use)
 		"antoinemadec/FixCursorHold.nvim",
 		config = function() end,
 	})
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({
 		"numtostr/Comment.nvim",
 		config = function()
@@ -118,6 +117,14 @@ return packer.startup(function(use)
 		"akinsho/bufferline.nvim",
 		config = function()
 			require("user.config._bufferline")
+		end,
+	})
+	use({
+		"windwp/nvim-autopairs",
+		config = function() 
+			require('nvim-autopairs').setup({
+				disable_filetype = { "TelescopePrompt" , "vim" },
+			})
 		end,
 	})
 	use({
@@ -159,6 +166,7 @@ return packer.startup(function(use)
 				"css",
 				"javascript",
 				"scss",
+				"lua",
 				html = {
 					mode = "foreground",
 				},
@@ -232,6 +240,7 @@ return packer.startup(function(use)
 		},
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		"p00f/nvim-ts-rainbow",
+		"windwp/nvim-ts-autotag"
 	})
 
 	-- GIT

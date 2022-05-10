@@ -1,18 +1,21 @@
- local ts_config = require("nvim-treesitter.configs")
+local ts_config = require("nvim-treesitter.configs")
 
-  require("nvim-treesitter.configs").setup {
-    ensure_installed = {
-      "lua",
-      "vim",
-   },
-   highlight = {
-      enable = true,
-   },
-   context_commentstring = {
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"lua",
+		"vim",
+	},
+	highlight = {
+		enable = true,
+	},
+  autotag = {
+    enable = true,
+  },
+	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
 	},
-    rainbow = {
+	rainbow = {
 		enable = true,
 		colors = {
 			"Gold",
@@ -24,4 +27,4 @@
 		},
 		disable = { "html" },
 	},
- }
+})
