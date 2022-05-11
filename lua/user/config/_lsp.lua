@@ -1,7 +1,7 @@
 local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 local nlspsettings = require("nlspsettings")
-
+local util = lspconfig.util;
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -10,29 +10,26 @@ local signs = {
 }
 
 local servers_config = {
-    -- https://github.com/pedro757/emmet
-    -- npm i -g ls_emmet (In order to override the default emmet-ls)
-    emmet_ls = {
-      cmd = { 'ls_emmet', '--stdio' },
-      filetypes = { 'html', 'css', 'scss', 'sass', 'javascript', 'javascriptreact', 'typescriptreact' },
-    },
-    jsonls = {
-      settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-        },
-      },
-    },
-    sumneko_lua = {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' },
-          },
-        },
-      },
-    },
-  }
+	emmet_ls = {
+		filetypes = { "html", "css", "scss", "sass", "javascript", "javascriptreact", "typescriptreact" },
+	},
+	jsonls = {
+		settings = {
+			json = {
+				schemas = require("schemastore").json.schemas(),
+			},
+		},
+	},
+	sumneko_lua = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+			},
+		},
+	},
+}
 
 for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -108,13 +105,13 @@ function on_attach(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
-	if client.name == 'tsserver' then
-    local ts_utils = require 'nvim-lsp-ts-utils'
-    if ts_utils then
-      ts_utils.setup {}
-      ts_utils.setup_client(client)
-    end
-  end
+	if client.name == "tsserver" then
+		local ts_utils = require("nvim-lsp-ts-utils")
+		if ts_utils then
+			ts_utils.setup({})
+			ts_utils.setup_client(client)
+		end
+	end
 end
 
 local global_capabilities = vim.lsp.protocol.make_client_capabilities()

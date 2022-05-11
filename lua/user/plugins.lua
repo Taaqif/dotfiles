@@ -227,6 +227,7 @@ return packer.startup(function(use)
 			"nvim-telescope/telescope-live-grep-raw.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			"nvim-telescope/telescope-file-browser.nvim",
+			"nvim-treesitter/playground"
 		},
 	})
 	-- treesitter

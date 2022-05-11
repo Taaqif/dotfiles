@@ -16,7 +16,7 @@ local function has_value(tab, val)
 		end
 	end
 
-	return false
+	return fal
 end
 local function list_registered_providers_names(filetype)
 	local s = require("null-ls.sources")

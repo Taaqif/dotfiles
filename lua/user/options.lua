@@ -46,7 +46,7 @@ local options = {
 	formatoptions = o.formatoptions + {
 		c = false,
 		o = false, -- O and o, don't continue comments
-		r = true, -- Pressing Enter will continue comments
+		r = false, -- Pressing Enter will continue comments
 	},
 }
 -- vim.cmd [[
@@ -61,3 +61,6 @@ end
 
 --hide tilde for blank lines
 vim.cmd("let &fcs='eob: '")
+
+-- set switchbuff to current buffer
+vim.cmd("set switchbuf=uselast")
