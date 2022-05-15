@@ -1,10 +1,17 @@
-require('gitsigns').setup {
+local ok, gitsigns = pcall(require, "gitsigns")
+
+if not ok then
+    return
+end
+
+
+gitsigns.setup {
     signs = {
-    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        add = { hl = 'GitSignsAdd', text = '▎' },
+        change = { hl = 'GitSignsChange', text = '▎' },
+        delete = { hl = 'GitSignsDelete', text = '契' },
+        topdelete = { hl = 'GitSignsDelete', text = '契' },
+        changedelete = { hl = 'GitSignsChange', text = '▎' },
   },
   current_line_blame_formatter_opts = {
     relative_time = true,

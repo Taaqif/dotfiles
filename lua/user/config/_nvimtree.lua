@@ -1,8 +1,27 @@
-local nvim_tree = require "nvim-tree"
+local ok, nvim_tree = pcall(require, "nvim-tree")
+
+if not ok then
+    return
+end
+
 local nvim_tree_config = require "nvim-tree.config"
 local tree_cb = nvim_tree_config.nvim_tree_callback
-vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+local g = vim.g
 
+g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+g.nvim_tree_icons = {
+    default = "",
+    symlink = "",
+    git = {
+        deleted = "",
+        ignored = "◌",
+        renamed = "➜",
+        staged = "✓",
+        unmerged = "",
+        unstaged = "✗",
+        untracked = "★",
+    },
+}
 nvim_tree.setup {
     filters = {
         -- dotfiles = false,

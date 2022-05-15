@@ -1,39 +1,27 @@
--- https://github.com/microsoft/vscode/blob/main/src/vs/base/common/codicons.ts
--- go to the above and then enter <c-v>u<unicode> and the symbold should appear
--- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
--- find more here: https://www.nerdfonts.com/cheat-sheet
-  -- elseif vim.fn.has "mac" == 1 then
   return {
     kind = {
       Text = "",
-      -- Method = "m",
-      -- Function = "",
-      -- Constructor = "",
+      Function = "",
+      Constructor = "",
       Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "",
-      -- Variable = "",
-      Variable = "",
+      Field = "ﰠ",
+      Variable = "",
       Class = "",
       Interface = "",
-      -- Module = "",
       Module = "",
       Property = "",
-      Unit = "",
+      Unit = "塞",
       Value = "",
       Enum = "",
-      -- Keyword = "",
-      Keyword = "",
-      -- Snippet = "",
-      Snippet = "",
+      Keyword = "",
+      Snippet = "",
       Color = "",
       File = "",
       Reference = "",
       Folder = "",
       EnumMember = "",
-      Constant = "",
-      Struct = "",
+      Constant = "",
+      Struct = "פּ",
       Event = "",
       Operator = "",
       TypeParameter = "",
@@ -103,4 +91,5 @@
       Tag = "",
       Watch = "",
     },
+    files = {}
   }

@@ -1,4 +1,11 @@
-require("toggleterm").setup{
+local ok, toggleterm = pcall(require, "toggleterm")
+
+if not ok then
+    return
+end
+
+
+toggleterm.setup{
     size = 6,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,

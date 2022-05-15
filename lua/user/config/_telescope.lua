@@ -1,4 +1,9 @@
-local telescope = require "telescope"
+local ok, telescope = pcall(require, "telescope")
+
+if not ok then
+	return
+end
+
 local action_layout = require("telescope.actions.layout")
 
 telescope.load_extension "media_files"
@@ -52,6 +57,7 @@ telescope.setup{
       i = {
         ["?"] = action_layout.toggle_preview,
       },
+      n = { ["q"] = require("telescope.actions").close },
     },
    },
     extensions = {
@@ -79,8 +85,20 @@ telescope.setup{
     }
   }
 }
-telescope.load_extension('fzf')
-telescope.load_extension "file_browser"
-telescope.load_extension("ui-select")
-telescope.load_extension("notify")
-telescope.load_extension("live_grep_raw")
+local extensions = { 
+    "fzf", 
+ "themes", 
+ "terms",
+'fzf',
+"file_browser",
+"ui-select",
+"notify",
+"live_grep_raw",
+	"projects"
+ }
+
+ pcall(function()
+     for _, ext in ipairs(extensions) do
+         telescope.load_extension(ext)
+     end
+ end)

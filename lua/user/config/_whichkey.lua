@@ -1,4 +1,10 @@
-local which_key = require("which-key")
+local ok, which_key = pcall(require, "which-key")
+
+if not ok then
+	return
+end
+
+
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -62,15 +68,15 @@ local opts = {
 
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	-- b = { "<cmd>JABSOpen<cr>", "Buffers" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers()<cr>",
-		"Buffers",
-	},
+	b = { "<cmd>JABSOpen<cr>", "Buffers" },
+	-- ["b"] = {
+	-- 	"<cmd>lua require('telescope.builtin').buffers()<cr>",
+	-- 	"Buffers",
+	-- },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
-	["Q"] = { "<cmd>qa!<CR>", "Quit" },
+	["Q"] = { "<cmd>qa<CR>", "Quit" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
@@ -81,7 +87,7 @@ local mappings = {
 	-- },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-	["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
+	-- ["R"] = { '<cmd>lua require("renamer").rename()<cr>', "Rename" },
 
 	p = {
 		name = "Packer",
@@ -127,6 +133,7 @@ local mappings = {
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		S = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
 		u = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
 			"Undo Stage Hunk",
@@ -143,9 +150,9 @@ local mappings = {
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
+		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Diagnostics" },
 		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
+			"<cmd>TroubleToggle workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },

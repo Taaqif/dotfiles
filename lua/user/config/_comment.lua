@@ -1,4 +1,10 @@
-require("comment").setup {
+local ok, comment = pcall(require, "Comment")
+
+if not ok then
+  return
+end
+
+comment.setup {
   -- pre_hook = function(ctx)
   --
   --     if vim.bo.filetype == 'typescriptreact' then

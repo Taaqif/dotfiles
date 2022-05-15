@@ -36,7 +36,6 @@ local options = {
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	guifont = "CaskaydiaCove NF:h11", -- the font used in graphical neovim applications
 	-- Enable powershell as your default shell
 	-- shell = "pwsh.exe -NoLogo -NoProfile -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
 	-- shellcmdflag =
@@ -48,6 +47,7 @@ local options = {
 		o = false, -- O and o, don't continue comments
 		r = false, -- Pressing Enter will continue comments
 	},
+	background = 'dark'
 }
 -- vim.cmd [[
 -- 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -64,3 +64,6 @@ vim.cmd("let &fcs='eob: '")
 
 -- set switchbuff to current buffer
 vim.cmd("set switchbuf=uselast")
+
+--gui font
+vim.cmd("let &guifont = 'OperatorMonoSSmLig Nerd Font:h11'")

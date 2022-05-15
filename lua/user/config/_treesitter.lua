@@ -1,30 +1,28 @@
-local ts_config = require("nvim-treesitter.configs")
+local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
 
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"lua",
-		"vim",
-	},
-	highlight = {
+if not ok then
+	return
+end
+
+treesitter_config.setup({
+	-- ensure_installed = "all",
+	highlight = 
+		{
 		enable = true,
 	},
-  autotag = {
-    enable = true,
-  },
+	indent = { enable = true },
+	autopairs = { enable = true },
+autotag = {
+		enable = true,
+	},
+	matchup = {
+		enable = true,
+	},
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
 	},
 	rainbow = {
 		enable = true,
-		colors = {
-			"Gold",
-			"Orchid",
-			"DodgerBlue",
-			-- "Cornsilk",
-			-- "Salmon",
-			-- "LawnGreen",
-		},
-		disable = { "html" },
 	},
 })

@@ -1,7 +1,19 @@
-local lsp_installer = require("nvim-lsp-installer")
-local lspconfig = require("lspconfig")
-local nlspsettings = require("nlspsettings")
-local util = lspconfig.util;
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+
+local nlspsettings_ok, nlspsettings = pcall(require, "nlspsettings")
+local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
+local illuminate_ok, illuminate = pcall(require, "illuminate")
+
+
+if not lspconfig_ok or not lsp_installer_ok or not nlspsettings_ok then
+	return
+end
+
+require("user.config._null_ls")
+
+local util = lspconfig.util
+
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -69,6 +81,10 @@ nlspsettings.setup({
 	loader = "json",
 })
 
+if lsp_format_ok then
+	lsp_format.setup({})
+end
+
 function on_attach(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
@@ -78,28 +94,51 @@ function on_attach(client, bufnr)
 
 	local function map(key, cmd)
 		local opts = { noremap = true, silent = true }
-		vim.api.nvim_buf_set_keymap(0, "n", key, "<cmd>lua " .. cmd .. "<CR>", opts)
+		vim.api.nvim_buf_set_keymap(0, "n", key, "<cmd>" .. cmd .. "<CR>", opts)
 	end
 
-	map("gD", "vim.lsp.buf.declaration()")
-	map("gd", "vim.lsp.buf.definition()")
-	map("K", "vim.lsp.buf.hover()")
-	map("gI", "vim.lsp.buf.implementation()")
-	map("gr", "vim.lsp.buf.references()")
-	map("gl", "vim.diagnostic.open_float()")
-	map("[d", "vim.diagnostic.goto_prev()")
-	map("]d", "vim.diagnostic.goto_next()")
+	map("gD", "lua vim.lsp.buf.declaration()")
+	map("gd", "lua vim.lsp.buf.definition()")
+	map("K", "lua vim.lsp.buf.hover()")
+	map("gI", "TroubleToggle lsp_implementations")
+	map("gr", "TroubleToggle lsp_references")
+	-- map("gI", "lua vim.lsp.buf.implementation()")
+	-- map("gr", "lua vim.lsp.buf.references()")
+	map("gl", "lua vim.diagnostic.open_float()")
+	map("[d", "lua vim.diagnostic.goto_prev()")
+	map("]d", "lua vim.diagnostic.goto_next()")
 	-- map("<leader>q", "vim.diagnostic.setloclist()")
 
 	local lsp_signature = require("lsp_signature")
 	if lsp_signature then
-		lsp_signature.on_attach()
+		local options = {
+			bind = true,
+			doc_lines = 0,
+			floating_window = true,
+			fix_pos = true,
+			hint_enable = true,
+			hint_prefix = " ",
+			hint_scheme = "String",
+			hi_parameter = "Search",
+			max_height = 22,
+			max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+			handler_opts = {
+				border = "single", -- double, single, shadow, none
+			},
+			zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
+			padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
+		}
+		lsp_signature.on_attach(options)
 	end
 
-	local illuminate = require("illuminate")
-	if illuminate then
+	if illuminate_ok then
 		illuminate.on_attach(client)
 	end
+
+	if lsp_format_ok then
+		lsp_format.on_attach(client)
+	end
+
 
 	if client.name ~= "null-ls" then
 		client.resolved_capabilities.document_formatting = false

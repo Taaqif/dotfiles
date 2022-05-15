@@ -1,3 +1,9 @@
+local ok, lualine = pcall(require, "lualine")
+
+if not ok then
+	return
+end
+
 local colors = {
 	yellow = "#ECBE7B",
 	cyan = "#008080",
@@ -16,7 +22,7 @@ local function has_value(tab, val)
 		end
 	end
 
-	return fal
+	return false
 end
 local function list_registered_providers_names(filetype)
 	local s = require("null-ls.sources")
@@ -50,7 +56,7 @@ local function lsp_client_names()
 			end
 		end
 	end
-	if next(table) == nil then
+	if next(client_names) == nil then
 		return "No LSP"
 	else
 		return "[" .. table.concat(client_names, ",") .. "]"
@@ -77,11 +83,27 @@ local function tab_space_width()
 	return "SPC:" .. size
 end
 
+local function display_lsp_status()
+	-- if #vim.lsp.buf_get_clients() == 0 then return '' end
+	local status = require'lsp-status'.status()
+	if status == '' then return '' end
+	status = string.gsub(status, '%(', '') -- get rid of opening paren
+	status = string.gsub(status, 'ʪ ', '') -- get rid of ls symbol so we can add it on a lualine component level
+	status = string.gsub(status, '%)', '') -- get rid of closing paren
+	status = string.gsub(status, "^%s*(.-)%s*$", "%1") -- trim
+
+	return status
+end
+local function display_treesitter_status ()
+	local b = vim.api.nvim_get_current_buf()
+	if next(vim.treesitter.highlighter.active[b]) then return "" end
+	return ""
+end
 local config = {
 	options = {
 		icons_enabled = true,
-		theme = "gruvbox",
-		-- theme = vim.g.colors_name or "auto",
+		-- theme = "gruvbox",
+		theme = vim.g.colors_name or "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "NvimTree", "packer", "toggleterm", "TelescopePrompt" },
@@ -111,7 +133,7 @@ local config = {
 		lualine_y = {
 			{
 				lsp_client_names,
-				icon = "",
+				icon = "ʪ",
 			},
 		},
 		lualine_z = {
@@ -136,4 +158,4 @@ local config = {
 	tabline = {},
 	extensions = {},
 }
-require("lualine").setup(config)
+lualine.setup(config)
