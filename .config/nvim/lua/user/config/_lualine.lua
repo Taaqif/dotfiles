@@ -1,5 +1,5 @@
 local ok, lualine = pcall(require, "lualine")
-
+local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
 if not ok then
 	return
 end
@@ -24,6 +24,7 @@ local function has_value(tab, val)
 
 	return false
 end
+
 local function list_registered_providers_names(filetype)
 	local s = require("null-ls.sources")
 	local available_sources = s.get_available(filetype)
@@ -56,6 +57,7 @@ local function lsp_client_names()
 			end
 		end
 	end
+	-- add in auto fomat indicator
 	if next(client_names) == nil then
 		return "No LSP"
 	else
@@ -85,20 +87,35 @@ end
 
 local function display_lsp_status()
 	-- if #vim.lsp.buf_get_clients() == 0 then return '' end
-	local status = require'lsp-status'.status()
-	if status == '' then return '' end
-	status = string.gsub(status, '%(', '') -- get rid of opening paren
-	status = string.gsub(status, 'ʪ ', '') -- get rid of ls symbol so we can add it on a lualine component level
-	status = string.gsub(status, '%)', '') -- get rid of closing paren
+	local status = require("lsp-status").status()
+	if status == "" then
+		return ""
+	end
+	status = string.gsub(status, "%(", "") -- get rid of opening paren
+	status = string.gsub(status, "ʪ ", "") -- get rid of ls symbol so we can add it on a lualine component level
+	status = string.gsub(status, "%)", "") -- get rid of closing paren
 	status = string.gsub(status, "^%s*(.-)%s*$", "%1") -- trim
 
 	return status
 end
-local function display_treesitter_status ()
+
+local function display_treesitter_status()
 	local b = vim.api.nvim_get_current_buf()
-	if next(vim.treesitter.highlighter.active[b]) then return "" end
+	if next(vim.treesitter.highlighter.active[b]) then
+		return ""
+	end
 	return ""
 end
+
+local function autoformat_status()
+
+	if lsp_format_ok and not lsp_format.disabled then
+		return ""
+	else
+		return ""
+	end
+end
+
 local config = {
 	options = {
 		icons_enabled = true,
@@ -135,6 +152,11 @@ local config = {
 				lsp_client_names,
 				icon = "ʪ",
 			},
+			{
+				autoformat_status,
+				separator = "",
+				padding = { left = 1, right = 1 }
+			}
 		},
 		lualine_z = {
 			{ "location", separator = "", padding = { left = 0, right = 1 } },

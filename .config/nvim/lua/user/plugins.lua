@@ -87,6 +87,10 @@ return packer.startup(function(use)
 		config = configure("_spectre"),
 	})
 	use({
+		"unblevable/quick-scope",
+		config = configure("_quickscope")
+	})
+	use({
 		"numToStr/Comment.nvim",
 		config = configure("_comment"),
 	})

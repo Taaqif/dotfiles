@@ -113,7 +113,7 @@ function on_attach(client, bufnr)
 	if lsp_signature then
 		local options = {
 			bind = true,
-			doc_lines = 0,
+			doc_lines = 5,
 			floating_window = true,
 			fix_pos = true,
 			hint_enable = true,
@@ -127,6 +127,7 @@ function on_attach(client, bufnr)
 			},
 			zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
 			padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
+			toggle_key = "<A-k>" 
 		}
 		lsp_signature.on_attach(options)
 	end
