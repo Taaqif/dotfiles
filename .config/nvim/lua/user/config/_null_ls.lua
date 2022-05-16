@@ -16,11 +16,11 @@ null_ls.setup({
         -- code action sources
         -- completion.spell,
         -- diagnostic sources
-        diagnostics.cspell.with({
-            diagnostics_postprocess = function(diagnostic)
-                diagnostic.severity = vim.diagnostic.severity["INFO"]
-            end,
-        }),
+        -- diagnostics.cspell.with({
+        --     diagnostics_postprocess = function(diagnostic)
+        --         diagnostic.severity = vim.diagnostic.severity["INFO"]
+        --     end,
+        -- }),
         -- formatting sources
         formatting.stylua,
         formatting.prettierd

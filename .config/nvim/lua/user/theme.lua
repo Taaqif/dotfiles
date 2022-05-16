@@ -19,4 +19,3 @@ vim.g.gruvbox_material_diagnostic_virtual_text = 1
 
 
 vim.cmd [[colorscheme gruvbox-material]]
-
