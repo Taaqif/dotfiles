@@ -116,6 +116,37 @@ local function autoformat_status()
 	end
 end
 
+local gstatus = {ahead = 0, behind = 0}
+local function update_gstatus()
+	local Job = require'plenary.job'
+	Job:new({
+		command = 'git',
+		args = { 'rev-list', '--left-right', '--count', 'HEAD...@{upstream}' },
+		on_exit = function(job, _)
+			local res = job:result()[1]
+			if type(res) ~= 'string' then gstatus = {ahead = 0, behind = 0}; return end
+			local ok, ahead, behind = pcall(string.match, res, "(%d+)%s*(%d+)")
+			if not ok then ahead, behind = 0, 0 end
+			gstatus = {ahead = ahead, behind = behind}
+		end,
+	}):start()
+end
+
+if _G.Gstatus_timer == nil then
+	_G.Gstatus_timer = vim.loop.new_timer()
+else
+	_G.Gstatus_timer:stop()
+end
+_G.Gstatus_timer:start(0, 2000,  vim.schedule_wrap(update_gstatus))
+
+local display_gstatus_= function ()
+	if(gstatus.ahead > 0 or gstatus > 0) then
+		return gstatus.ahead..' '..gstatus.behind..''
+	else
+		return ""
+	end
+end
+
 local config = {
 	options = {
 		icons_enabled = true,
@@ -131,6 +162,7 @@ local config = {
 		lualine_b = {
 			"branch",
 			"diff",
+			{display_gstatus_},
 			{
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
