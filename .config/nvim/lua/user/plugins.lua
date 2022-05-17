@@ -73,6 +73,12 @@ return packer.startup(function(use)
 			require("nvim-web-devicons").setup()
 		end,
 	})
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
 
 	use("tpope/vim-surround")
 	use("mg979/vim-visual-multi")

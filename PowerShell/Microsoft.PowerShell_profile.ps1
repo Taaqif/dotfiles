@@ -1,10 +1,11 @@
-Import-Module posh-git
+Invoke-Expression (&starship init powershell)
+# Import-Module posh-git
 Import-Module -Name Terminal-Icons
-Import-Module oh-my-posh
-#Import-Module PoshColor
+# Import-Module oh-my-posh
+# #Import-Module PoshColor
 Set-PSReadLineOption -PredictionSource History
-Set-PoshPrompt -Theme bubblesline
-$env:POSH_GIT_ENABLED = $true
+# Set-PoshPrompt -Theme bubblesline
+# $env:POSH_GIT_ENABLED = $true
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward

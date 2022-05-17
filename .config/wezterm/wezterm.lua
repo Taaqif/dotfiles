@@ -54,7 +54,6 @@ return {
   font_hinting = "Full", -- None, Vertical, VerticalSubpixel, Full
   font = wezterm.font("OperatorMonoSSmLig Nerd Font", { style = "Normal", weight = 325 }),
   default_prog = { "pwsh" },
-  use_fancy_tab_bar = true,
   window_padding = {
     left = 4,
     right = 4,
@@ -64,5 +63,6 @@ return {
   launch_menu = launch_menu,
   keys = {
     { key = "l", mods = "ALT", action = "ShowLauncher" },
-  }
+  },
+  use_fancy_tab_bar = true,
 }
