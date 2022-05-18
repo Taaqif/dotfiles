@@ -47,6 +47,9 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     end
   end
 end
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+  return "  " .. tab.tab_index + 1 .. "  "
+end)
 return {
   font_size = 11.0,
   color_scheme = "Gruvbox Dark",
@@ -64,5 +67,5 @@ return {
   keys = {
     { key = "l", mods = "ALT", action = "ShowLauncher" },
   },
-  use_fancy_tab_bar = true,
+  use_fancy_tab_bar = false,
 }
