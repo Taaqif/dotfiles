@@ -58,15 +58,16 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("t", "<C-h>" , "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>" , "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>" , "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>" , "<C-\\><C-N><C-w>l", term_opts)
+-- temrinal
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Custom
 -- keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)h
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "Q", "<cmd>Bdelete<CR>", opts)
 
 -- cutlass
 keymap("n", "x", "d", opts)
@@ -74,6 +75,16 @@ keymap("x", "x", "d", opts)
 keymap("n", "xx", "dd", opts)
 keymap("n", "X", "D", opts)
 
-
 -- command mode
 keymap("c", "<C-v>", "<c-r>*", opts)
+
+-- prevent ctrl-z terminating on windows
+if vim.fn.has("win32") and vim.fn.has("nvim") then
+	keymap("n", "<C-z>", " <Nop>", opts)
+	keymap("i", "<C-z>", " <Nop>", opts)
+	keymap("v", "<C-z>", " <Nop>", opts)
+	keymap("s", "<C-z>", " <Nop>", opts)
+	keymap("x", "<C-z>", " <Nop>", opts)
+	keymap("c", "<C-z>", " <Nop>", opts)
+	keymap("o", "<C-z>", " <Nop>", opts)
+end

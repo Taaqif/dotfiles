@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm';
+local wezterm = require("wezterm")
 local launch_menu = {}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -13,7 +13,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     local year = vsvers:gsub("Microsoft Visual Studio/", "")
     table.insert(launch_menu, {
       label = "x64 Native Tools VS " .. year,
-      args = { "cmd.exe", "/k", "C:/Program Files (x86)/" .. vsvers .. "/BuildTools/VC/Auxiliary/Build/vcvars64.bat" },
+      args = {
+        "cmd.exe",
+        "/k",
+        "C:/Program Files (x86)/" .. vsvers .. "/BuildTools/VC/Auxiliary/Build/vcvars64.bat",
+      },
     })
   end
 
@@ -68,4 +72,6 @@ return {
     { key = "l", mods = "ALT", action = "ShowLauncher" },
   },
   use_fancy_tab_bar = false,
+  window_background_opacity = 0.97,
+  window_background_tint = 0.95
 }

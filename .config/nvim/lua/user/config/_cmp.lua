@@ -59,7 +59,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "emoji" },
 	}),
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-e>"] = cmp.mapping.close(),
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_prev_item(),
@@ -87,5 +87,5 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-	},
+	}),
 })

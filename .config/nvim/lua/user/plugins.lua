@@ -38,7 +38,7 @@ packer.init({
 })
 
 local function configure(name)
-	return require(string.format("user.config.%s", name))
+	require(string.format("user.config.%s", name))
 end
 
 return packer.startup(function(use)
@@ -47,17 +47,24 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use({
 		"lewis6991/impatient.nvim",
-		config = configure("_impatient"),
+		config = function()
+			require("user.config._impatient")
+		end,
 	})
 	use("nvim-lua/popup.nvim")
+	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
 	use({
 		"rcarriga/nvim-notify",
-		config = configure("_notify"),
+		config = function()
+			require("user.config._notify")
+		end,
 	})
 	use({
 		"goolord/alpha-nvim",
-		config = configure("_alpha"),
+		config = function()
+			require("user.config._alpha")
+		end,
 	})
 	use("antoinemadec/FixCursorHold.nvim")
 
@@ -81,61 +88,88 @@ return packer.startup(function(use)
 	})
 
 	use("tpope/vim-surround")
-	use("mg979/vim-visual-multi")
+	-- use("mg979/vim-visual-multi")
 	use("tpope/vim-repeat")
 	use("AndrewRadev/switch.vim")
 	use("moll/vim-bbye")
 	use("svermeulen/vim-cutlass")
 	use("andymass/vim-matchup")
+	use("wellle/targets.vim")
 
 	use({
 		"windwp/nvim-spectre",
-		config = configure("_spectre"),
+		config = function()
+			require("user.config._spectre")
+		end,
 	})
 	use({
 		"unblevable/quick-scope",
-		config = configure("_quickscope")
+		config = function()
+			require("user.config._quickscope")
+		end,
 	})
 	use({
 		"numToStr/Comment.nvim",
-		config = configure("_comment"),
+		config = function()
+			require("user.config._comment")
+		end,
 	})
 	use({
 		"akinsho/bufferline.nvim",
-		config = configure("_bufferline"),
+		event = "BufWinEnter",
+		config = function()
+			require("user.config._bufferline")
+		end,
 	})
 	use({
 		"windwp/nvim-autopairs",
-		config = configure("_autopairs"),
+		config = function()
+			require("user.config._autopairs")
+		end,
 	})
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		config = configure("_lualine"),
+		config = function()
+			require("user.config._lualine")
+		end,
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		config = configure("_indentline"),
+		config = function()
+			require("user.config._indentline")
+		end,
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
-		config = configure("_nvimtree"),
+		config = function()
+			require("user.config._nvimtree")
+		end,
 	})
 	use({
 		"folke/trouble.nvim",
-		config = configure("_trouble"),
+		config = function()
+			require("user.config._trouble")
+		end,
 	})
 	use({
 		"matbme/JABS.nvim",
-		config = configure("_JABS"),
+		config = function()
+			require("user.config._JABS")
+		end,
 	})
 	use({
 		"folke/which-key.nvim",
-		config = configure("_whichkey"),
+		event = "BufWinEnter",
+		config = function()
+			require("user.config._whichkey")
+		end,
 	})
 	use({
 		"max397574/better-escape.nvim",
-		config = configure("_better_escape"),
+		config = function()
+			require("user.config._better_escape")
+		end,
 	})
 	-- use({
 	-- 	"github/copilot.vim",
@@ -143,16 +177,23 @@ return packer.startup(function(use)
 	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
-		config = configure("_colorizer"),
+		config = function()
+			require("user.config._colorizer")
+		end,
 	})
 	use({
 		"ahmedkhalf/project.nvim",
-		config = configure("_project"),
+		config = function()
+			require("user.config._project")
+		end,
 	})
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		config = configure("_telescope"),
+		config = function()
+			require("user.config._telescope")
+		end,
+		event="VimEnter",
 		requires = {
 			"nvim-telescope/telescope-media-files.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
@@ -164,7 +205,9 @@ return packer.startup(function(use)
 	-- cmp
 	use({
 		"hrsh7th/nvim-cmp",
-		config = configure("_cmp"),
+		config = function()
+			require("user.config._cmp")
+		end,
 		requires = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-emoji",
@@ -185,16 +228,19 @@ return packer.startup(function(use)
 	-- lsp
 	use({
 		"neovim/nvim-lspconfig",
-		config = configure("_lsp"),
+		config = function()
+			require("user.config._lsp")
+		end,
+		event="VimEnter",
 		requires = {
 			"williamboman/nvim-lsp-installer",
-			"lukas-reineke/lsp-format.nvim",
 			"tamago324/nlsp-settings.nvim",
 			"nvim-lua/lsp-status.nvim",
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
 			"ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
 			"RRethy/vim-illuminate",
+			"RishabhRD/nvim-lsputils",
 			"jose-elias-alvarez/null-ls.nvim",
 		},
 	})
@@ -202,7 +248,10 @@ return packer.startup(function(use)
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		config = configure("_treesitter"),
+		config = function()
+			require("user.config._treesitter")
+		end,
+		run = ":TSUpdate",
 		requires = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"p00f/nvim-ts-rainbow",
@@ -214,14 +263,20 @@ return packer.startup(function(use)
 	-- GIT
 	use({
 		"lewis6991/gitsigns.nvim",
-		config = configure("_gitsigns"),
+		event = "BufRead",
+		config = function()
+			require("user.config._gitsigns")
+		end,
 	})
 	use("tpope/vim-fugitive")
 
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
-		config = configure("_terminal"),
+		event = "BufWinEnter",
+		config = function()
+			require("user.config._terminal")
+		end,
 	})
 
 	--themes

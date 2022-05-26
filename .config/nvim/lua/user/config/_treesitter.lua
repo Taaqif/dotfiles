@@ -6,13 +6,12 @@ end
 
 treesitter_config.setup({
 	-- ensure_installed = "all",
-	highlight = 
-		{
+	highlight = {
 		enable = true,
 	},
 	indent = { enable = true },
 	autopairs = { enable = true },
-autotag = {
+	autotag = {
 		enable = true,
 	},
 	matchup = {

@@ -5,7 +5,6 @@ local nlspsettings_ok, nlspsettings = pcall(require, "nlspsettings")
 local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 
-
 if not lspconfig_ok or not lsp_installer_ok or not nlspsettings_ok then
 	return
 end
@@ -73,6 +72,15 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "rounded",
 })
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	underline = true,
+	virtual_text = {
+		spacing = 5,
+		severity_limit = "Warning",
+	},
+	update_in_insert = true,
+})
+
 nlspsettings.setup({
 	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
 	local_settings_dir = ".nlsp-settings",
@@ -115,19 +123,16 @@ function on_attach(client, bufnr)
 			bind = true,
 			doc_lines = 5,
 			floating_window = true,
-			fix_pos = true,
+			fix_pos = false,
 			hint_enable = true,
 			hint_prefix = " ",
-			hint_scheme = "String",
 			hi_parameter = "Search",
-			max_height = 22,
-			max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+			max_height = 10,
+			max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
 			handler_opts = {
-				border = "single", -- double, single, shadow, none
+				border = "rounded", -- double, single, shadow, none
 			},
-			zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
-			padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
-			toggle_key = "<A-k>" 
+			toggle_key = "<A-k>",
 		}
 		lsp_signature.on_attach(options)
 	end
@@ -139,7 +144,6 @@ function on_attach(client, bufnr)
 	if lsp_format_ok then
 		lsp_format.on_attach(client)
 	end
-
 
 	if client.name ~= "null-ls" then
 		client.resolved_capabilities.document_formatting = false
