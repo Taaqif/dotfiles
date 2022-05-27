@@ -37,10 +37,6 @@ packer.init({
 	},
 })
 
-local function configure(name)
-	require(string.format("user.config.%s", name))
-end
-
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	--utils
@@ -193,7 +189,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.config._telescope")
 		end,
-		event="VimEnter",
+		event = "VimEnter",
 		requires = {
 			"nvim-telescope/telescope-media-files.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
@@ -231,7 +227,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.config._lsp")
 		end,
-		event="VimEnter",
+		event = "VimEnter",
 		requires = {
 			"williamboman/nvim-lsp-installer",
 			"tamago324/nlsp-settings.nvim",
@@ -239,7 +235,7 @@ return packer.startup(function(use)
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
 			"ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
-			"RRethy/vim-illuminate",
+			-- "RRethy/vim-illuminate",
 			"RishabhRD/nvim-lsputils",
 			"jose-elias-alvarez/null-ls.nvim",
 		},
@@ -269,6 +265,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use("tpope/vim-fugitive")
+	use({
+		"kdheepak/lazygit.nvim",
+		config = function()
+			require("user.config._lazygit")
+		end,
+	})
 
 	-- Terminal
 	use({

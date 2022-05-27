@@ -7,12 +7,14 @@ local icons = require("user.config._icons")
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-	[[                               __                ]],
-	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-	[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-	[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-	[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+
+[[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+[[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+[[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+[[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+[[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+[[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+                                                  
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", icons.documents.Files .. " Find file", ":Telescope find_files <CR>"),
@@ -27,12 +29,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("q", icons.diagnostics.Error .. " Quit", ":qa<CR>"),
 }
 local function footer()
-	-- NOTE: requires the fortune-mod package to work
-	-- local handle = io.popen("fortune")
-	-- local fortune = handle:read("*a")
-	-- handle:close()
-	-- return fortune
-	return ""
+	return "Tye Peck"
 end
 
 dashboard.section.footer.val = footer()

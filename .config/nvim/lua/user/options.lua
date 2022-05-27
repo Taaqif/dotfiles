@@ -36,17 +36,6 @@ local options = {
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	-- Enable powershell as your default shell
-	-- shell = "pwsh.exe -NoLogo -NoProfile -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-	-- shellcmdflag =
-	--   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-
-	-- Format options
-	formatoptions = o.formatoptions + {
-		c = false,
-		o = false, -- O and o, don't continue comments
-		r = false, -- Pressing Enter will continue comments
-	},
 	background = 'dark'
 }
 -- vim.cmd [[

@@ -10,5 +10,5 @@ diverged = "⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 
 [cmd_duration]
-format = "🕑[$duration]($style) "
+format = "🕑 [$duration]($style) "
 

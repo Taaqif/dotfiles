@@ -4,8 +4,10 @@
 --   end,
 -- })
 --
--- vim.api.nvim_create_autocmd({ "VimEnter" }, {
---   callback = function()
---     vim.cmd "hi link illuminatedWord LspReferenceText"
---   end,
--- })
+--
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  callback = function()
+    vim.cmd "set formatoptions-=cro"
+    vim.cmd "hi illuminatedWord cterm=underline gui=underline"
+  end,
+})

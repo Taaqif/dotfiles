@@ -20,13 +20,13 @@ bufferline.setup({
 		max_prefix_length = 15, -- prefix used when a buffer is deduplicated
 		tab_size = 20,
 		offsets = { { filetype = "NvimTree" } },
-		show_buffer_close_icons = false,
 		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		separator_style = "thin",
 		always_show_bufferline = true,
 		view = "multiwindow",
+    show_buffer_close_icons = true,
     themable = true,
 	},
 })

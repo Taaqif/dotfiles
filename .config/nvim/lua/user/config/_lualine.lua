@@ -41,11 +41,13 @@ end
 local function lsp_client_names()
 	local client_names = {}
 	local buf_ft = vim.bo.filetype
+	local lsp_no = 0
 	for _, client in ipairs(vim.lsp.get_active_clients()) do
 		if client.name ~= "null-ls" then
 			local filetypes = client.config.filetypes
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
 				table.insert(client_names, client.name)
+				lsp_no = lsp_no + 1
 			end
 		end
 	end
@@ -54,6 +56,7 @@ local function lsp_client_names()
 		for _, source in pairs(sources) do
 			if not has_value(client_names, source) then
 				table.insert(client_names, source)
+				lsp_no = lsp_no + 1
 			end
 		end
 	end
@@ -61,7 +64,8 @@ local function lsp_client_names()
 	if next(client_names) == nil then
 		return "No LSP"
 	else
-		return "[" .. table.concat(client_names, ",") .. "]"
+		-- return "[" .. table.concat(client_names, ",") .. "]"
+		return lsp_no .. " Clients"
 	end
 end
 
