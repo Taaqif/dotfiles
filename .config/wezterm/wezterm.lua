@@ -51,16 +51,65 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		end
 	end
 end
+
+wezterm.on("update-right-status", function(window, pane)
+	-- "Wed Mar 3 08:14"
+	local date = wezterm.strftime("%a %-d %b %H:%M ")
+
+	window:set_right_status(wezterm.format({
+		{ Text = wezterm.nerdfonts.mdi_clock .. " " .. date },
+	}))
+end)
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	return "  " .. tab.tab_index + 1 .. "  "
 end)
+
+local font_with_fallback = function(name, params)
+	local names = { name, "JetBrains Mono" }
+	return wezterm.font_with_fallback(names, params)
+end
+
 return {
 	font_size = 11.0,
 	color_scheme = "Gruvbox Dark",
-	font = wezterm.font_with_fallback({
-		{ family = "OperatorMonoSSmLig Nerd Font", weight = 325, stretch = "Normal", style = "Normal" },
-		{ family = "OperatorMonoSSmLig Nerd Font", weight = 325, stretch = "Normal", style = "Italic" },
-	}),
+	font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
+	font_rules = {
+		{
+			italic = false,
+			intensity = "Normal",
+			font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
+		},
+		{
+			italic = true,
+			intensity = "Normal",
+			font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Italic" }),
+		},
+
+		{
+			italic = false,
+			intensity = "Bold",
+			font = font_with_fallback("Operator Mono SSm Lig Bold", { style = "Normal" }),
+		},
+
+		{
+			italic = true,
+			intensity = "Bold",
+			font = font_with_fallback("Operator Mono SSm Lig Bold", { style = "Italic" }),
+		},
+		{
+			italic = false,
+			intensity = "Half",
+			font = font_with_fallback("Operator Mono SSm Lig Medium", { style = "Normal" }),
+		},
+
+		{
+			italic = true,
+			intensity = "Half",
+			font = font_with_fallback("Operator Mono SSm Lig Medium", { style = "Italic" }),
+		},
+	},
+
 	default_prog = { "pwsh" },
 	window_padding = {
 		left = 4,
@@ -69,8 +118,6 @@ return {
 		bottom = 0,
 	},
 	launch_menu = launch_menu,
-  font_antialias = "Greyscale", -- None, Greyscale, Subpixel
-  font_hinting = "Full", -- None, Vertical, VerticalSubpixel, Full
 	keys = {
 		{ key = "l", mods = "ALT", action = "ShowLauncher" },
 	},

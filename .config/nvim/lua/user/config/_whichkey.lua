@@ -126,6 +126,7 @@ local mappings = {
 
 	g = {
 		name = "Git",
+		g = { "<cmd>LazyGit<cr>", "LazyGit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>GitBlameToggle<cr>", "Blame" },

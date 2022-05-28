@@ -1,2 +1,4 @@
 gui:
   showIcons: true
+os:
+  editCommand: 'nvim' 

@@ -235,7 +235,7 @@ return packer.startup(function(use)
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
 			"ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
-			-- "RRethy/vim-illuminate",
+			"RRethy/vim-illuminate",
 			"RishabhRD/nvim-lsputils",
 			"jose-elias-alvarez/null-ls.nvim",
 		},
