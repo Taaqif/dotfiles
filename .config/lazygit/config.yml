@@ -2,3 +2,6 @@ gui:
   showIcons: true
 os:
   editCommand: 'nvim' 
+keybinding:
+  universal:
+    appendNewline: '<tab>'

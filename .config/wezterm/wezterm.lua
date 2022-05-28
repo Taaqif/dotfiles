@@ -53,7 +53,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 wezterm.on("update-right-status", function(window, pane)
-	-- "Wed Mar 3 08:14"
 	local date = wezterm.strftime("%a %-d %b %H:%M ")
 
 	window:set_right_status(wezterm.format({
