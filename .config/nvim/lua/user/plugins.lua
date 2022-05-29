@@ -93,6 +93,12 @@ return packer.startup(function(use)
 	use("wellle/targets.vim")
 
 	use({
+		"mg979/vim-visual-multi",
+		config = function()
+			require("user.config._visualmulti")
+		end,
+	})
+	use({
 		"petertriho/nvim-scrollbar",
 		config = function()
 			require("user.config._scrollbar")
@@ -261,6 +267,14 @@ return packer.startup(function(use)
 			"nvim-treesitter/playground",
 		},
 	})
+
+	use {
+		"zbirenbaum/neodim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("neodim").setup()
+		end,
+	}
 
 	-- GIT
 	use({

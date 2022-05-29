@@ -50,7 +50,19 @@ vim.diagnostic.config({
 	underline = true,
 	virtual_text = {
 		spacing = 5,
+		prefix = "",
 		severity_limit = "Warning",
+		format = function(diagnostic)
+			-- hide Info and hints from vtext
+			if
+				diagnostic.severity == vim.diagnostic.severity.INFO
+				or diagnostic.severity == vim.diagnostic.severity.HINT
+			then
+				return nil
+			else
+				return diagnostic.message
+			end
+		end,
 	},
 	update_in_insert = true,
 	signs = {
@@ -74,13 +86,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = "rounded",
 })
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-      severity_limit = "Warning",
-    },
-  }
-)
 nlspsettings.setup({
 	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
 	local_settings_dir = ".nlsp-settings",

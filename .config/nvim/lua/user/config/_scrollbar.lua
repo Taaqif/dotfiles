@@ -4,4 +4,10 @@ if not ok then
   return
 end
 
-scrollbar.setup()
+scrollbar.setup({
+  excluded_filetypes = {
+    "prompt",
+    "TelescopePrompt",
+    "NvimTree"
+  },
+})
