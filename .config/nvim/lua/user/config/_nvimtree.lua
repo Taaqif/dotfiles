@@ -6,23 +6,7 @@ end
 
 local nvim_tree_config = require "nvim-tree.config"
 local tree_cb = nvim_tree_config.nvim_tree_callback
-local g = vim.g
 
-g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
-g.nvim_tree_icons = {
-    default = "",
-    symlink = "",
-    git = {
-        deleted = "",
-        ignored = "◌",
-        renamed = "➜",
-        staged = "✓",
-        unmerged = "",
-        unstaged = "✗",
-        untracked = "★",
-    },
-}
-vim.g.nvim_tree_respect_buf_cwd = 1
 nvim_tree.setup {
     filters = {
         -- dotfiles = false,
@@ -39,6 +23,7 @@ nvim_tree.setup {
         enable = true,
         update_cwd = false,
     },
+    respect_buf_cwd = true,
     view = {
         side = "left",
         width = 25,
@@ -67,6 +52,22 @@ nvim_tree.setup {
     renderer = {
         indent_markers = {
             enable = true,
+        },
+        root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
+        icons =  {
+            glyphs = {
+                default = "",
+                symlink = "",
+                git = {
+                    deleted = "",
+                    ignored = "◌",
+                    renamed = "➜",
+                    staged = "✓",
+                    unmerged = "",
+                    unstaged = "✗",
+                    untracked = "★",
+                },
+            }
         }
     }
 }

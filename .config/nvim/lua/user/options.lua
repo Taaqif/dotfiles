@@ -36,7 +36,8 @@ local options = {
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	background = 'dark'
+	background = "dark",
+	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
 }
 -- vim.cmd [[
 -- 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'

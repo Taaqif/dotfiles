@@ -1,7 +1,7 @@
 local ok, null_ls = pcall(require, "null-ls")
 
 if not ok then
-    return
+	return
 end
 
 local completion = null_ls.builtins.completion
@@ -10,23 +10,25 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-    debug = false,
-    sources = {
+	debug = false,
+	sources = {
 
-        -- code action sources
-        -- completion.spell,
-        -- diagnostic sources
-        -- diagnostics.cspell.with({
-        --     diagnostics_postprocess = function(diagnostic)
-        --         diagnostic.severity = vim.diagnostic.severity["INFO"]
-        --     end,
-        -- }),
-        -- formatting sources
-        formatting.stylua,
-        formatting.prettierd
+		-- code action sources
+		-- completion.spell,
+		-- diagnostic sources
+		diagnostics.cspell.with({
+			diagnostics_postprocess = function(diagnostic)
+				diagnostic.severity = vim.diagnostic.severity["INFO"]
+			end,
+			extra_args = { "--config", vim.fn.expand(vim.fn.stdpath("config") .. "/cspell.json" )},
+			disabled_filetypes = { "NvimTree", "alpha", "toggleterm" },
+		}),
+		-- formatting sources
+		formatting.stylua,
+		formatting.prettierd,
 
-        -- hover sources
+		-- hover sources
 
-        -- completion sources
-    },
+		-- completion sources
+	},
 })

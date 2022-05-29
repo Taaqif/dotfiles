@@ -1,0 +1,9 @@
+{
+    "dictionaries": ["custom-words"],
+    "dictionaryDefinitions": [
+        {
+            "name": "custom-words",
+            "path": "./spell/en.utf-8.add",
+        }
+    ]
+}
