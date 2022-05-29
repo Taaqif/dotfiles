@@ -47,12 +47,15 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
-	virtual_text = true,
+	underline = true,
+	virtual_text = {
+		spacing = 5,
+		severity_limit = "Warning",
+	},
+	update_in_insert = true,
 	signs = {
 		active = signs,
 	},
-	update_in_insert = true,
-	underline = true,
 	severity_sort = true,
 	float = {
 		focusable = true,
@@ -71,16 +74,13 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = "rounded",
 })
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	virtual_text = {
-		spacing = 5,
-		severity_limit = "Warning",
-	},
-	update_in_insert = true,
-})
-
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+      severity_limit = "Warning",
+    },
+  }
+)
 nlspsettings.setup({
 	config_home = vim.fn.stdpath("config") .. "/nlsp-settings",
 	local_settings_dir = ".nlsp-settings",

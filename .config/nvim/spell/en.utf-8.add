@@ -6,3 +6,4 @@ Neovim
 augroup
 autocmd
 dotfiles
+lightspeed

@@ -93,15 +93,21 @@ return packer.startup(function(use)
 	use("wellle/targets.vim")
 
 	use({
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("user.config._scrollbar")
+		end,
+	})
+	use({
 		"windwp/nvim-spectre",
 		config = function()
 			require("user.config._spectre")
 		end,
 	})
 	use({
-		"unblevable/quick-scope",
+		"ggandor/lightspeed.nvim",
 		config = function()
-			require("user.config._quickscope")
+			require("user.config._lightspeed")
 		end,
 	})
 	use({
