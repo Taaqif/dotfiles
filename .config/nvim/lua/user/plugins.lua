@@ -91,6 +91,7 @@ return packer.startup(function(use)
 	use("svermeulen/vim-cutlass")
 	use("andymass/vim-matchup")
 	use("wellle/targets.vim")
+	use("mattn/emmet-vim")
 
 	use({
 		"mg979/vim-visual-multi",
@@ -268,13 +269,13 @@ return packer.startup(function(use)
 		},
 	})
 
-	use {
+	use({
 		"zbirenbaum/neodim",
 		requires = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("neodim").setup()
 		end,
-	}
+	})
 
 	-- GIT
 	use({
@@ -305,6 +306,7 @@ return packer.startup(function(use)
 	use("luisiacc/gruvbox-baby")
 	use("sainnhe/gruvbox-material")
 	use("ellisonleao/gruvbox.nvim")
+	use("rebelot/kanagawa.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

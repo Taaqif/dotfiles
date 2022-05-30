@@ -41,3 +41,5 @@ luac.out
 
 *.spl
 packer_compiled.lua
+
+startup.log
