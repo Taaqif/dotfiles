@@ -1,5 +1,6 @@
 # 🛠️ Tye's Personal Dotfiles
-Here lies my dotfiles. These are special files that add custom configuration to my computer and terminal. 
+Here lies my dotfiles. These are special files that add custom configuration to my computer and terminal.
+
 They are critical to my day to day activities.
 
 ## ⚙️ Software
@@ -9,7 +10,7 @@ They are critical to my day to day activities.
 - Shell
   - [PowerShell Core](https://github.com/PowerShell/PowerShell)
 - Prompt
-  - (Starship)(https://starship.rs/)
+  - [Starship](https://starship.rs/)
 - Editor
   - [Neovim](https://neovim.io/)
   - (VSCode)(https://code.visualstudio.com/)
@@ -31,7 +32,7 @@ They are critical to my day to day activities.
   - Logitech MX Master 3
 
 ## 🎨 Theme
-- Font: Operator Mono Patched with (Ligatures)(https://github.com/kiliman/operator-mono-lig) and (Nerd Fonts)(https://github.com/ryanoasis/nerd-fonts)
+- Font: Operator Mono Patched with [Ligatures](https://github.com/kiliman/operator-mono-lig) and [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 - Theme
   - [Gruvbox Material](https://github.com/sainnhe/gruvbox-material)
   - [Kanagawa](https://github.com/rebelot/kanagawa.nvim)
