@@ -4,7 +4,6 @@ if not ok then
 	return
 end
 
-
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -122,6 +121,10 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		s = {
+			"<cmd>lua require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))<cr>",
+			"Spell Suggestions",
+		},
 	},
 
 	g = {
