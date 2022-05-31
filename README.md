@@ -32,7 +32,8 @@ They are critical to my day to day activities.
   - Logitech MX Master 3
 
 ## 🎨 Theme
-- Font: Operator Mono Patched with [Ligatures](https://github.com/kiliman/operator-mono-lig) and [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- Font
+  - Operator Mono Patched with [Ligatures](https://github.com/kiliman/operator-mono-lig) and [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 - Theme
   - [Gruvbox Material](https://github.com/sainnhe/gruvbox-material)
   - [Kanagawa](https://github.com/rebelot/kanagawa.nvim)
