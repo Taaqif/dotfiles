@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[character] # The name of the module we are configuring is "character"
+[character] 
 success_symbol = "[✨](bold green)" 
 error_symbol = "[💢](bold red)"
 
