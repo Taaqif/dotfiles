@@ -7,3 +7,4 @@ augroup
 autocmd
 dotfiles
 lightspeed
+keymaps
