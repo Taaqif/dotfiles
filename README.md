@@ -13,7 +13,7 @@ They are critical to my day to day activities.
   - [Starship](https://starship.rs/)
 - Editor
   - [Neovim](https://neovim.io/)
-  - (VSCode)(https://code.visualstudio.com/)
+  - [VSCode](https://code.visualstudio.com/)
 - Git
   - [LazyGit](https://github.com/jesseduffield/lazygit)
 - Package Manager
