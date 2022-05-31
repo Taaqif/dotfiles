@@ -1,7 +1,7 @@
-# 🛠️ Tye's Personal Dotfiles
-Here lies my dotfiles. These are special files that add custom configuration to my computer and terminal.
+<h1 align="center">🛠️ Tye's Personal Dotfiles</h1>
+Here lies my dotfiles. These are special files that add custom configuration to my computer and terminal.  
 
-They are critical to my day to day activities.
+They are critical to my day to day activities and help carry out my work efficiently.
 
 ## ⚙️ Software
 - Terminal
