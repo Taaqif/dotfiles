@@ -8,6 +8,16 @@ end
 
 local icons = require("user.config._icons")
 
+luasnip.config.setup({
+	load_ft_func =
+		-- Also load both lua and json when a markdown-file is opened,
+		-- javascript for html.
+		-- Other filetypes just load themselves.
+		require("luasnip.extras.filetype_functions").extend_load_ft({
+			typescript = {"javascript"},
+			typescriptreact = {"javascript"}
+		})
+})
 require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"

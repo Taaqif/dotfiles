@@ -1,6 +1,7 @@
 Invoke-Expression (&starship init powershell)
 # Import-Module posh-git
 Import-Module -Name Terminal-Icons
+Import-Module -Name PSReadLine
 # Import-Module oh-my-posh
 # #Import-Module PoshColor
 Set-PSReadLineOption -PredictionSource History
