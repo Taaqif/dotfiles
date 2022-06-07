@@ -85,7 +85,6 @@ return packer.startup(function(use)
 	})
 
 	use("tpope/vim-surround")
-	-- use("mg979/vim-visual-multi")
 	use("tpope/vim-repeat")
 	use("AndrewRadev/switch.vim")
 	use("moll/vim-bbye")
@@ -101,13 +100,8 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"petertriho/nvim-scrollbar",
-		config = function()
-			require("user.config._scrollbar")
-		end,
-	})
-	use({
 		"windwp/nvim-spectre",
+		event = "BufWinEnter",
 		config = function()
 			require("user.config._spectre")
 		end,
@@ -152,6 +146,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
+		event = "BufWinEnter",
 		config = function()
 			require("user.config._nvimtree")
 		end,
@@ -164,6 +159,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"matbme/JABS.nvim",
+		event = "BufWinEnter",
 		config = function()
 			require("user.config._JABS")
 		end,
@@ -203,11 +199,9 @@ return packer.startup(function(use)
 		config = function()
 			require("user.config._telescope")
 		end,
-		event = "VimEnter",
 		requires = {
-			"nvim-telescope/telescope-media-files.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
-			"nvim-telescope/telescope-live-grep-raw.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			"nvim-telescope/telescope-file-browser.nvim",
 		},
@@ -241,7 +235,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.config._lsp")
 		end,
-		event = "VimEnter",
 		requires = {
 			"williamboman/nvim-lsp-installer",
 			"tamago324/nlsp-settings.nvim",
@@ -270,14 +263,6 @@ return packer.startup(function(use)
 		},
 	})
 
-	use({
-		"zbirenbaum/neodim",
-		requires = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("neodim").setup()
-		end,
-	})
-
 	-- GIT
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -296,10 +281,10 @@ return packer.startup(function(use)
 
 	-- Terminal
 	use({
-		"akinsho/toggleterm.nvim",
+		"voldikss/vim-floaterm",
 		event = "BufWinEnter",
-		config = function()
-			require("user.config._terminal")
+		setup = function()
+			require("user.config._floatterm")
 		end,
 	})
 
@@ -308,8 +293,7 @@ return packer.startup(function(use)
 	use("sainnhe/gruvbox-material")
 	use("ellisonleao/gruvbox.nvim")
 	use("rebelot/kanagawa.nvim")
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
+  
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

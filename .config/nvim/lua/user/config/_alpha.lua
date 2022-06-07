@@ -6,27 +6,41 @@ end
 local icons = require("user.config._icons")
 
 local dashboard = require("alpha.themes.dashboard")
+-- https://emojicombos.com/
 dashboard.section.header.val = {
-
-[[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-[[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-[[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-[[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-[[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-[[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-                                                  
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⡤⠶⠶⢤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⣩⠟⢁⣠⣀⠀⢠⣍⡝⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⣰⡷⠋⠁⢰⠋⣿⣶⣧⠀⢀⡉⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⢀⣠⢞⠭⠂⠀⠀⠘⣿⣿⡿⠟⠀⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⢀⡴⠛⠃⠁⠀⠀⠀⠀⠀⠘⠁⣀⡀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⢰⣿⠙⠀⠿⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣧⠀⠀⡇⠀⢸⢤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠘⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠟⠀⢠⡟⠀⠸⣼⢁⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠹⣆⠀⠀⠀⠀⡀⢀⣤⢾⣿⣿⣿⠋⢀⡴⠛⠁⠀⠀⠙⢧⣸⢀⡴⣷⠀⢠⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠹⣄⡠⠖⣩⡾⣙⣿⣿⣿⡟⣡⢴⠉⠇⠀⠀⠀⠀⠀⠀⠈⠙⠢⠿⣴⣋⣷⣠⠾⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠙⠧⠼⠧⣷⣿⡿⠞⣽⠟⠁⢸⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠲⢧⡤⢾⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠛⠷⢤⣾⣥⣤⣄⣸⣤⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠳⣏⣠⣤⠀⠀⠀⠀⠀⣀⡀⣠⣾⣽⣿⠿⠷]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣷⣄⠀⠈⠳⠄⣠⠔⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣤⠇⣀⡀⠀⢀⡀⢹⠟⣹⡿⠋⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠰⣷⣭⠟⣩⣿⣶⡶⠚⠉⢧⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣹⢰⢶⣸⣹⠏⡴⣹⠁⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⣼⣹⣾⡿⢧⡀⠀⠀⠣⡀⠀⠀⠀⠀⠀⣴⢋⠀⠀⠀⠀⠀⠀⠀⠀⠨⣙⠛⠺⡏⠁⡰⣱⠃⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣷⡏⠀⠘⣿⣄⠀⠀⠙⠦⡀⠀⠀⣸⠃⠉⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⣠⠞⣰⠃⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣇⠀⠀⠀⠈⠓⢶⠇⠀⠀⠀⠀⠀⢠⣠⣋⣀⣀⣀⡠⠔⠊⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⣤⡀⠀⠀⠘⠦⣤⣄⠀⠀⠀⠀⠙⣄⣀⣀⣠⠤⠖⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢯⣑⠲⠤⢤⡬⠿⠿⣦⣄⡀⠀⢨⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣼⡟⠁⠀⡼⠁⠀⢀⣾⠙⠃⢠⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡴⣫⠿⡟⠀⠀⡼⠁⣠⢾⣿⠋⠀⠀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠿⠥⠤⠿⠶⠚⠁⠐⣷⣁⣠⡷⠶⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 }
 dashboard.section.buttons.val = {
-	dashboard.button("f", icons.documents.Files .. " Find file", ":Telescope find_files <CR>"),
+	dashboard.button("f", icons.documents.Files .. "  > Find file", ":Telescope find_files <CR>"),
 	dashboard.button(
 		"p",
-		icons.git.Repo .. " Find project",
+		icons.git.Repo .. "  > Find project",
 		":lua require('telescope').extensions.projects.projects()<CR>"
 	),
-	dashboard.button("e", icons.ui.NewFile .. " New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
-	dashboard.button("t", icons.ui.List .. " Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("q", icons.diagnostics.Error .. " Quit", ":qa<CR>"),
+	dashboard.button("e", icons.ui.NewFile .. "  > New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("r", icons.ui.History .. "  > Recent files", ":Telescope oldfiles <CR>"),
+	dashboard.button("t", icons.ui.List .. "  > Find text", ":Telescope live_grep <CR>"),
+	dashboard.button("q", icons.diagnostics.Error .. "  > Quit", ":qa<CR>"),
 }
 local function footer()
 	return "Tye Peck"

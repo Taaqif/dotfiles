@@ -1,13 +1,24 @@
 Invoke-Expression (&starship init powershell)
-# Import-Module posh-git
 Import-Module -Name Terminal-Icons
-Import-Module -Name PSReadLine
+# Import-Module posh-git
 # Import-Module oh-my-posh
 # #Import-Module PoshColor
-Set-PSReadLineOption -PredictionSource History
 # Set-PoshPrompt -Theme bubblesline
 # $env:POSH_GIT_ENABLED = $true
+
+Import-Module -Name PSReadLine
+Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadlineKeyHandler -Key Tab -Function Complete
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+#env 
+$env:STARSHIP_DISTRO = ""
+
+# zoxide
+Invoke-Expression (& {
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+    (zoxide init --hook $hook powershell | Out-String)
+})
+Set-Alias -Name cd -Value z -Option AllScope -Scope Global -Force

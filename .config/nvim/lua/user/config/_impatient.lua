@@ -4,3 +4,4 @@ if not ok then
   return
 end
 
+impatient.enable_profile()

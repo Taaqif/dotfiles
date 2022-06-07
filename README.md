@@ -9,6 +9,9 @@ They are critical to my day to day activities and help carry out my work efficie
   - [WezTerm](https://github.com/wez/wezterm)
 - Shell
   - [PowerShell Core](https://github.com/PowerShell/PowerShell)
+  - Shell tools
+    - [Zoxide](https://github.com/ajeetdsouza/zoxide)
+    - [lf](https://github.com/gokcehan/lf)
 - Prompt
   - [Starship](https://starship.rs/)
 - Editor
