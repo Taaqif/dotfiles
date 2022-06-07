@@ -289,11 +289,10 @@ return packer.startup(function(use)
 	})
 
 	--themes
-	use("luisiacc/gruvbox-baby")
 	use("sainnhe/gruvbox-material")
-	use("ellisonleao/gruvbox.nvim")
 	use("rebelot/kanagawa.nvim")
-  
+  -- use("EdenEast/nightfox.nvim")
+	
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

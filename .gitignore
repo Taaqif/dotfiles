@@ -43,3 +43,4 @@ luac.out
 packer_compiled.lua
 
 startup.log
+fish_variables

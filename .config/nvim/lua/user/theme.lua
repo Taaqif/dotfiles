@@ -18,7 +18,24 @@ vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_diagnostic_virtual_text = 1
 vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_transparent_background = 1
-
-
 -- vim.cmd [[colorscheme gruvbox-material]]
+
+--nightfox
+local nightfox_ok, nightfox = pcall(require, "nightfox")
+
+if nightfox_ok then
+  nightfox.setup({
+    options = {
+      styles = {
+        comments = "italic",
+        constants = "italic",
+        keywords = "italic",
+      }
+      
+    }
+  })
+end
+
+
+
 vim.cmd [[colorscheme kanagawa]]

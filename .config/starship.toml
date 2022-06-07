@@ -10,7 +10,6 @@ success_symbol = "[✨](bold green)"
 error_symbol = "[💢](bold red)"
 
 [git_status]
-format = '[\($all_status$ahead_behind\)]($style) '
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
