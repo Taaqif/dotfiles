@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 format = """\
-[╭╴](238)$env_var\
-$all[╰─](238)$character"""
+[╭╴](238)$env_var$all\
+[╰─](238)$character"""
 
 continuation_prompt = "[  ╰ ](243)"
 
