@@ -20,7 +20,7 @@ symbol = " "
 [time]
 format = "[$time]($style)"
 disabled = false
-style = "bold fg:239"
+style = "bold 239"
 use_12hr = true
 
 [directory]
@@ -33,15 +33,18 @@ ahead = "[ $count](green)"
 diverged = "[ ${ahead_count}](green) [ ${behind_count}](yellow)"
 behind = "[ ${count}](yellow)"
 staged = '[ﰂ $count ](green)'
-up_to_date = "[ ](green)"
+up_to_date = "[](green)"
 modified = "[ $count ](yellow)"
 deleted= "[ﯰ $count ](red)"
 renamed= "[ﰴ $count ](yellow)"
 untracked = "[ $count ](blue)"
-stashed = "[ ]"
+stashed = "[ $count]"
 conflicted = "[ ](red)"
 style = "bold purple"
-format = '([$all_status$ahead_behind]($style) )'
+format = '([$all_status$ahead_behind]($style))'
+
+[git_metrics]
+disabled = true
 
 [cmd_duration]
 format = "[$duration]($style) "
