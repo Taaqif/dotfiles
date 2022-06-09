@@ -27,13 +27,21 @@ use_12hr = true
 truncation_length = 10
 # truncate_to_repo = false
 # fish_style_pwd_dir_length = 1
-# truncation_symbol = "…/"
 
 [git_status]
-ahead = " ${count}"
-diverged = " ${ahead_count}  ${behind_count}"
-behind = " ${count}"
-staged = '[++\($count\)](green)'
+ahead = "[ $count](green)"
+diverged = "[ ${ahead_count}](green) [ ${behind_count}](yellow)"
+behind = "[ ${count}](yellow)"
+staged = '[ﰂ $count ](green)'
+up_to_date = "[ ](green)"
+modified = "[ $count ](yellow)"
+deleted= "[ﯰ $count ](red)"
+renamed= "[ﰴ $count ](yellow)"
+untracked = "[ $count ](blue)"
+stashed = "[ ]"
+conflicted = "[ ](red)"
+style = "bold purple"
+format = '([$all_status$ahead_behind]($style) )'
 
 [cmd_duration]
 format = "[$duration]($style) "
