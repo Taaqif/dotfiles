@@ -9,6 +9,10 @@ continuation_prompt = "[  ╰ ](243)"
 success_symbol = "[✨](bold green)" 
 error_symbol = "[💢](bold red)"
 
+[directory]
+# fish_style_pwd_dir_length = 1
+truncation_symbol = "…/"
+
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"

@@ -64,7 +64,7 @@ vim.diagnostic.config({
 			end
 		end,
 	},
-	update_in_insert = true,
+	update_in_insert = false,
 	signs = {
 		active = signs,
 	},
