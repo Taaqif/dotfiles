@@ -5,7 +5,6 @@ local options = {
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
-	-- colorcolumn = "80",
 	relativenumber = true,
 	-- colorcolumn = "120",
 	fileencoding = "utf-8", -- the encoding written to a file
@@ -38,12 +37,9 @@ local options = {
 	sidescrolloff = 8,
 	background = "dark",
 	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+	lazyredraw = true,
+	autoindent = true
 }
--- vim.cmd [[
--- 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
--- 		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
--- 		set shellquote= shellxquote=
---   ]]
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
