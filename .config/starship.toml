@@ -7,7 +7,6 @@ $cmd_duration\
 $time\
 $line_break\
 [╰─](238)$character"""
-
 continuation_prompt = "[  ╰ ](243)"
 
 [character] 
@@ -18,9 +17,9 @@ error_symbol = "[💢](bold red)"
 symbol = " "
 
 [time]
-format = "[$time]($style)"
+format = '[$time ]($style)'
 disabled = false
-style = "bold 239"
+style = "bold bright-black"
 use_12hr = true
 
 [directory]
