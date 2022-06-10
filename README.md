@@ -40,3 +40,12 @@ They are critical to my day to day activities and help carry out my work efficie
 - Theme
   - [Gruvbox Material](https://github.com/sainnhe/gruvbox-material)
   - [Kanagawa](https://github.com/rebelot/kanagawa.nvim)
+
+## 🖼️  Screenshots
+
+![Prompt](./images/pwsh-prompt.png)
+
+![NVIM Dashboard](./images/nvim-dashboard.png)
+
+![NVIM Edit](./images/nvim-edit.png)
+

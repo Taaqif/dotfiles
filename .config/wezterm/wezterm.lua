@@ -119,6 +119,7 @@ return {
 	launch_menu = launch_menu,
 	keys = {
 		{ key = "l", mods = "ALT", action = "ShowLauncher" },
+		{ key = "`", mods = "ALT", action = wezterm.action{SpawnTab="CurrentPaneDomain"}},
 		{ key = "1", mods = "ALT", action = wezterm.action{ActivateTab=0}},
 		{ key = "2", mods = "ALT", action = wezterm.action{ActivateTab=1}},
 		{ key = "3", mods = "ALT", action = wezterm.action{ActivateTab=2}},
