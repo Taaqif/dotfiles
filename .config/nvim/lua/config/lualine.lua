@@ -64,8 +64,8 @@ local function lsp_client_names()
 	if next(client_names) == nil then
 		return "No LSP"
 	else
-		-- return "[" .. table.concat(client_names, ",") .. "]"
-		return lsp_no .. " Clients"
+		return "[" .. table.concat(client_names, ",") .. "]"
+		-- return lsp_no .. " Clients"
 	end
 end
 
@@ -209,7 +209,7 @@ local config = {
 				scrollbar,
 				padding = { left = 0, right = 0 },
 				color = { fg = colors.yellow, bg = colors.bg },
-				seperator = "",
+				separator = "",
 			},
 		},
 	},

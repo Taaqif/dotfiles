@@ -22,6 +22,7 @@ null_ls.setup({
 			end,
 			extra_args = { "--config", vim.fn.expand(vim.fn.stdpath("config") .. "/cspell.json" )},
 			disabled_filetypes = { "NvimTree", "alpha", "toggleterm" },
+			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 		}),
 		-- formatting sources
 		formatting.stylua,

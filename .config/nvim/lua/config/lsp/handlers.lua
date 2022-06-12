@@ -44,13 +44,15 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.buf.declaration()
 	end, { desc = "Declaration of current symbol", buffer = bufnr })
 	map("n", "gI", function()
-		vim.lsp.buf.implementation()
+		-- vim.lsp.buf.implementation()
+		require("trouble").toggle("lsp_implementations")
 	end, { desc = "Implementation of current symbol", buffer = bufnr })
 	map("n", "gd", function()
 		vim.lsp.buf.definition()
 	end, { desc = "Show the definition of current symbol", buffer = bufnr })
 	map("n", "gr", function()
-		vim.lsp.buf.references()
+		-- vim.lsp.buf.references()
+		require("trouble").toggle("lsp_references")
 	end, { desc = "References of current symbol", buffer = bufnr })
 	map("n", "<leader>ld", function()
 		vim.diagnostic.open_float()
@@ -68,26 +70,15 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.buf.formatting()
 	end, { desc = "Format file with LSP" })
 
-	-- map("gD", "lua vim.lsp.buf.declaration()")
-	-- map("gd", "lua vim.lsp.buf.definition()")
-	-- map("K", "lua vim.lsp.buf.hover()")
-	-- map("gI", "TroubleToggle lsp_implementations")
-	-- map("gr", "TroubleToggle lsp_references")
-	-- -- map("gI", "lua vim.lsp.buf.implementation()")
-	-- -- map("gr", "lua vim.lsp.buf.references()")
-	-- map("gl", "lua vim.diagnostic.open_float()")
-	-- map("[d", "lua vim.diagnostic.goto_prev()")
-	-- map("]d", "lua vim.diagnostic.goto_next()")
-	-- map("<leader>q", "vim.diagnostic.setloclist()")
 	local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 	if cmp_nvim_lsp_ok then
 		M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 		return
 	end
 
-	-- if illuminate_ok then
-	-- 	illuminate.on_attach(client)
-	-- end
+	if illuminate_ok then
+		illuminate.on_attach(client)
+	end
 
 	local lsp_signature_ok, lsp_signature = pcall(require, "lsp_signature")
 	if lsp_signature_ok then
