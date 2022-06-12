@@ -237,7 +237,6 @@ return packer.startup(function(use)
 		end,
 		requires = {
 			"williamboman/nvim-lsp-installer",
-			"tamago324/nlsp-settings.nvim",
 			"nvim-lua/lsp-status.nvim",
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
 			"ray-x/lsp_signature.nvim",
