@@ -7,6 +7,8 @@ end
 local nvim_tree_config = require("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+local icons = require("config.icons")
+
 nvim_tree.setup({
 	filters = {
 		-- dotfiles = false,
@@ -28,10 +30,10 @@ nvim_tree.setup({
 		enable = true,
 		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = icons.diagnostics.Hint,
+			info = icons.diagnostics.Information,
+			warning = icons.diagnostics.Warning,
+			error = icons.diagnostics.Error,
 		},
 	},
 	view = {
@@ -66,16 +68,16 @@ nvim_tree.setup({
 		icons = {
 			webdev_colors = true,
 			glyphs = {
-				default = "",
-				symlink = "",
+				default = icons.documents.File,
+				symlink = icons.documents.Symlink,
 				git = {
-					deleted = "",
-					ignored = "◌",
-					renamed = "➜",
-					staged = "✓",
-					unmerged = "",
-					unstaged = "✗",
-					untracked = "★",
+					deleted = icons.git.Remove,
+					ignored = icons.git.Ignore,
+					renamed = icons.git.Rename,
+					staged = icons.git.Staged,
+					unmerged = icons.git.Unmerged,
+					unstaged = icons.git.Mod,
+					untracked = icons.git.Untracked,
 				},
 			},
 		},
