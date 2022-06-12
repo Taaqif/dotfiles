@@ -23,9 +23,9 @@ style = "bold bright-black"
 use_12hr = true
 
 [directory]
-truncation_length = 10
+# truncation_length = 10
 # truncate_to_repo = false
-# fish_style_pwd_dir_length = 1
+fish_style_pwd_dir_length = 1
 
 [git_status]
 ahead = "[ $count](green)"

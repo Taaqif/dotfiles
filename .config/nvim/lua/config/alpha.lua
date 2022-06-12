@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local icons = require("user.config._icons")
+local icons = require("config.icons")
 
 local dashboard = require("alpha.themes.dashboard")
 -- https://emojicombos.com/

@@ -6,7 +6,7 @@ if not cmp_ok or not luasnip_ok or not lspkind_ok then
 	return
 end
 
-local icons = require("user.config._icons")
+local icons = require("config.icons")
 
 if luasnip_ok then
 	-- luasnip.config.setup({

@@ -45,7 +45,7 @@ return packer.startup(function(use)
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
-			require("user.config._impatient")
+			require("config.impatient")
 		end,
 	})
 	use("nvim-lua/popup.nvim")
@@ -54,13 +54,13 @@ return packer.startup(function(use)
 	use({
 		"rcarriga/nvim-notify",
 		config = function()
-			require("user.config._notify")
+			require("config.notify")
 		end,
 	})
 	use({
 		"goolord/alpha-nvim",
 		config = function()
-			require("user.config._alpha")
+			require("config.alpha")
 		end,
 	})
 	use("antoinemadec/FixCursorHold.nvim")
@@ -80,7 +80,7 @@ return packer.startup(function(use)
 	use({
 		"j-hui/fidget.nvim",
 		config = function()
-			require("user.config._fidget")
+			require("config.fidget")
 		end,
 	})
 
@@ -96,85 +96,85 @@ return packer.startup(function(use)
 	use({
 		"mg979/vim-visual-multi",
 		config = function()
-			require("user.config._visualmulti")
+			require("config.visualmulti")
 		end,
 	})
 	use({
 		"windwp/nvim-spectre",
 		event = "BufWinEnter",
 		config = function()
-			require("user.config._spectre")
+			require("config.spectre")
 		end,
 	})
 	use({
 		"ggandor/lightspeed.nvim",
 		config = function()
-			require("user.config._lightspeed")
+			require("config.lightspeed")
 		end,
 	})
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
-			require("user.config._comment")
+			require("config.comment")
 		end,
 	})
 	use({
 		"akinsho/bufferline.nvim",
 		event = "BufWinEnter",
 		config = function()
-			require("user.config._bufferline")
+			require("config.bufferline")
 		end,
 	})
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
-			require("user.config._autopairs")
+			require("config.autopairs")
 		end,
 	})
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require("user.config._lualine")
+			require("config.lualine")
 		end,
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
-			require("user.config._indentline")
+			require("config.indentline")
 		end,
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
 		event = "BufWinEnter",
 		config = function()
-			require("user.config._nvimtree")
+			require("config.nvimtree")
 		end,
 	})
 	use({
 		"folke/trouble.nvim",
 		config = function()
-			require("user.config._trouble")
+			require("config.trouble")
 		end,
 	})
 	use({
 		"matbme/JABS.nvim",
 		event = "BufWinEnter",
 		config = function()
-			require("user.config._JABS")
+			require("config.JABS")
 		end,
 	})
 	use({
 		"folke/which-key.nvim",
 		event = "BufWinEnter",
 		config = function()
-			require("user.config._whichkey")
+			require("config.whichkey")
 		end,
 	})
 	use({
 		"max397574/better-escape.nvim",
 		config = function()
-			require("user.config._better_escape")
+			require("config.better_escape")
 		end,
 	})
 	-- use({
@@ -184,20 +184,20 @@ return packer.startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("user.config._colorizer")
+			require("config.colorizer")
 		end,
 	})
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("user.config._project")
+			require("config.project")
 		end,
 	})
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		config = function()
-			require("user.config._telescope")
+			require("config.telescope")
 		end,
 		requires = {
 			"nvim-telescope/telescope-ui-select.nvim",
@@ -210,7 +210,7 @@ return packer.startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("user.config._cmp")
+			require("config.cmp")
 		end,
 		requires = {
 			"hrsh7th/cmp-buffer",
@@ -233,7 +233,7 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("user.config._lsp")
+			require("config.lsp")
 		end,
 		requires = {
 			"williamboman/nvim-lsp-installer",
@@ -252,7 +252,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			require("user.config._treesitter")
+			require("config.treesitter")
 		end,
 		run = ":TSUpdate",
 		requires = {
@@ -268,14 +268,14 @@ return packer.startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		event = "BufRead",
 		config = function()
-			require("user.config._gitsigns")
+			require("config.gitsigns")
 		end,
 	})
 	use("tpope/vim-fugitive")
 	use({
 		"kdheepak/lazygit.nvim",
 		config = function()
-			require("user.config._lazygit")
+			require("config.lazygit")
 		end,
 	})
 
@@ -284,7 +284,7 @@ return packer.startup(function(use)
 		"voldikss/vim-floaterm",
 		event = "BufWinEnter",
 		setup = function()
-			require("user.config._floatterm")
+			require("config.floatterm")
 		end,
 	})
 

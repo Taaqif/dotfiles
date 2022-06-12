@@ -9,8 +9,8 @@ if not lspconfig_ok or not lsp_installer_ok or not nlspsettings_ok then
 	return
 end
 
-require("user.config._null_ls")
-
+require("config.null_ls")
+lsp_installer.setup{}
 local util = lspconfig.util
 
 local signs = {

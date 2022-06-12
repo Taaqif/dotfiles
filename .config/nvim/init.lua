@@ -1,9 +1,9 @@
 if vim.fn.exists 'g:vscode' == 1 then
-  require("user.vscode")
+  require("vscode")
 else
-  require("user.options")
-  require("user.autocmd")
-  require("user.keymaps")
-  require("user.plugins")
-  require("user.theme")
+  require("options")
+  require("autocmd")
+  require("keymaps")
+  require("plugins")
+  require("theme")
 end

@@ -26,12 +26,12 @@ $env:BARTIB_FILE = "./time.bartib"
 $bartibCompletion = {
   param($wordToComplete, $commandAst, $cursorPosition)
     # only react to -p 
-    if ($commandAst.CommandElements[-1] -match "^-p")
+    if ($commandAst.CommandElements[-1] -match "^-p$")
     {
       bartib projects
     }
     
-    if ($commandAst.CommandElements[-2] -match "^-p")
+    if ($commandAst.CommandElements[-2] -match "^-p$")
     {
       bartib projects | Where-Object {
         $_ -like ("*$wordToComplete*" -replace '"', "")
