@@ -86,7 +86,7 @@
       Error = "",
       Warning = "",
       Information = "",
-      Question = "",
+      Question = "",
       Hint = "",
     },
     misc = {
