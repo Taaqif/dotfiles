@@ -40,14 +40,16 @@ packer.init({
 
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
-	--utils
-	use("nvim-lua/plenary.nvim")
+	-- perfomance
 	use({
 		"lewis6991/impatient.nvim",
 		config = function()
 			require("config.impatient")
 		end,
 	})
+	use("nathom/filetype.nvim") 
+	--utils
+	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
