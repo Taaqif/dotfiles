@@ -55,8 +55,10 @@ local function lsp_client_names()
 	for method, sources in pairs(registered_providers) do
 		for _, source in pairs(sources) do
 			if not has_value(client_names, source) then
-				table.insert(client_names, source)
-				lsp_no = lsp_no + 1
+				if source ~= "cspell" then
+					table.insert(client_names, source)
+					lsp_no = lsp_no + 1
+				end
 			end
 		end
 	end
