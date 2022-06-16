@@ -38,7 +38,8 @@ local options = {
 	background = "dark",
 	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
 	lazyredraw = true,
-	autoindent = true
+	autoindent = true,
+	-- shell = "pwsh.exe -NoLogo"
 }
 
 for k, v in pairs(options) do

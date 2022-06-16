@@ -185,13 +185,14 @@ local mappings = {
 
 	t = {
 		name = "Terminal",
-		-- ["1"] = { ":1ToggleTerm<cr>", "1" },
-		-- ["2"] = { ":2ToggleTerm<cr>", "2" },
-		-- ["3"] = { ":3ToggleTerm<cr>", "3" },
-		-- ["4"] = { ":4ToggleTerm<cr>", "4" },
-		f = { "<cmd>FloattermToggle", "Float" },
-		-- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		-- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		["1"] = { ":1ToggleTerm<cr>", "1" },
+		["2"] = { ":2ToggleTerm<cr>", "2" },
+		["3"] = { ":3ToggleTerm<cr>", "3" },
+		["4"] = { ":4ToggleTerm<cr>", "4" },
+		-- f = { "<cmd>FloattermToggle", "Float" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 }
 

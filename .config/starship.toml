@@ -28,17 +28,17 @@ use_12hr = true
 fish_style_pwd_dir_length = 1
 
 [git_status]
-ahead = "[ $count](green)"
-diverged = "[ ${ahead_count}](green) [ ${behind_count}](yellow)"
-behind = "[ ${count}](yellow)"
+ahead = "[ $count ](green)"
+diverged = "[ $ahead_count](green) [ $behind_count ](red)"
+behind = "[ $count ](red)"
 staged = '[ﰂ $count ](green)'
 up_to_date = "[](green)"
 modified = "[ $count ](yellow)"
 deleted= "[ﯰ $count ](red)"
 renamed= "[ﰴ $count ](yellow)"
 untracked = "[ $count ](blue)"
-stashed = "[ $count]"
-conflicted = "[ ](red)"
+stashed = "[ $count ](cyan)"
+conflicted = "[ $count](red)"
 style = "bold purple"
 format = '([$all_status$ahead_behind]($style))'
 

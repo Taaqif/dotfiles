@@ -53,6 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
+	
 	use({
 		"rcarriga/nvim-notify",
 		config = function()
@@ -282,11 +283,15 @@ return packer.startup(function(use)
 
 	-- Terminal
 	use({
-		"voldikss/vim-floaterm",
+		-- "voldikss/vim-floaterm",
+		"akinsho/toggleterm.nvim",
 		event = "BufWinEnter",
 		setup = function()
-			require("config.floatterm")
+			-- require("config.floatterm")
 		end,
+		config = function ()
+			require("config.toggleterm")
+		end
 	})
 
 	--themes
