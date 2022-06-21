@@ -1,5 +1,6 @@
 local ok, lualine = pcall(require, "lualine")
 local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
+local navic_ok, navic = pcall(require, "nvim-navic")
 if not ok then
 	return
 end
@@ -189,7 +190,7 @@ local config = {
 				colored = true,
 			},
 		},
-		lualine_c = { "filename" },
+		lualine_c = { "filename", { navic.get_location, cond = navic_ok and navic.is_available } },
 		lualine_x = {
 			"filetype",
 		},

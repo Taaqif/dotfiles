@@ -1,4 +1,5 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
+local navic_ok, navic = pcall(require, "nvim-navic")
 
 local M = {}
 
@@ -73,13 +74,16 @@ M.on_attach = function(client, bufnr)
 	local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 	if cmp_nvim_lsp_ok then
 		M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
-		return
 	end
 
 	if illuminate_ok then
 		illuminate.on_attach(client)
 	end
 
+	if navic_ok then
+		navic.attach(client, bufnr)
+	end
+	
 	local lsp_signature_ok, lsp_signature = pcall(require, "lsp_signature")
 	if lsp_signature_ok then
 		local options = {

@@ -132,7 +132,7 @@ return {
 	},
 	use_fancy_tab_bar = false,
 	-- window_background_opacity = 0.97,
-	enable_scroll_bar = true,
+	-- enable_scroll_bar = true,
 
 	-- kanagawa.nvim
 	force_reverse_video_cursor = true,

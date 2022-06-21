@@ -20,7 +20,7 @@ indent_blankline.setup({
 		"TelescopeResults",
 		"nvchad_cheatsheet",
 		"lsp-installer",
-		"NvimTree"
+		"NvimTree",
 	},
 	show_current_context = true,
 	space_char_blankline = " ",
