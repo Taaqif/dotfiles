@@ -43,7 +43,8 @@ dashboard.section.buttons.val = {
 	dashboard.button("q", icons.diagnostics.Error .. "  > Quit", ":qa<CR>"),
 }
 local function footer()
-	return "Tye Peck"
+
+	return vim.api.nvim_command_output([[echo matchstr(execute('version'), 'NVIM [^\n]*')]])
 end
 
 dashboard.section.footer.val = footer()

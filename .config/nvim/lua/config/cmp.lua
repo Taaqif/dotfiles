@@ -1,7 +1,6 @@
 local cmp_ok, cmp = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 local lspkind_ok, lspkind = pcall(require, "lspkind")
-
 if not cmp_ok or not luasnip_ok or not lspkind_ok then
 	return
 end
@@ -79,7 +78,7 @@ cmp.setup({
 		["<C-d>"] = cmp.mapping.scroll_docs(),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -99,4 +98,19 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
+})
+cmp.setup.cmdline(":", {
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+	mapping = cmp.mapping.preset.cmdline(),
+})
+cmp.setup.cmdline("/", {
+	sources = {
+		{ name = "nvim_lsp_document_symbol" },
+		{ name = "buffer" },
+	},
+	mapping = cmp.mapping.preset.cmdline(),
 })
