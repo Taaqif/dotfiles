@@ -30,9 +30,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
+-- navigate through wrapped lines
+keymap("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
+keymap("n", "k", "v:count ? 'k' : 'gk'", {expr = true, noremap = true})
 -- Insert --
--- Press jk fast to enter
---keymap("i", "jk", "<ESC>", opts)
 keymap("i", "<c-z>", "<c-o>:u<CR>", opts)
 -- keymap("i", "<C-w>", "<C-\><C-o>dB", opts)
 keymap("i", "<C-BS>", "<C-\\><C-o>dB", opts)

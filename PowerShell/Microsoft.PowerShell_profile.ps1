@@ -47,7 +47,7 @@ Register-ArgumentCompleter -CommandName bartib -Native -ScriptBlock $bartibCompl
       $hook = if ($kSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
       (zoxide init --hook $hook powershell | Out-String)
       })
-Set-Alias -Name cd -Value z -Option AllScope -Scope Global -Force
+# Set-Alias -Name cd -Value z -Option AllScope -Scope Global -Force
 
 # lf
 Function Invoke-Lfcd {
