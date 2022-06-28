@@ -1,7 +1,7 @@
 local ok, bufferline = pcall(require, "bufferline")
 
 if not ok then
-  return
+	return
 end
 
 bufferline.setup({
@@ -19,14 +19,15 @@ bufferline.setup({
 		max_name_length = 20,
 		max_prefix_length = 15, -- prefix used when a buffer is deduplicated
 		tab_size = 20,
-		offsets = { { filetype = "NvimTree" } },
+		offsets = { { filetype = "NvimTree", text = "File Explorer" } },
 		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		separator_style = "thin",
 		always_show_bufferline = true,
 		view = "multiwindow",
-    show_buffer_close_icons = true,
-    themable = true,
+		show_buffer_close_icons = true,
+		themable = true,
+		
 	},
 })
