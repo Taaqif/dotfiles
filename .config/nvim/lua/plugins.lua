@@ -148,25 +148,37 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"kyazdani42/nvim-tree.lua",
-		event = "BufWinEnter",
+		"nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
 		config = function()
-			require("config.nvimtree")
+			require("config.neotree")
 		end,
 	})
+	-- use({
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	event = "BufWinEnter",
+	-- 	config = function()
+	-- 		require("config.nvimtree")
+	-- 	end,
+	-- })
 	use({
 		"folke/trouble.nvim",
 		config = function()
 			require("config.trouble")
 		end,
 	})
-	use({
-		"matbme/JABS.nvim",
-		event = "BufWinEnter",
-		config = function()
-			require("config.JABS")
-		end,
-	})
+	-- use({
+	-- 	"matbme/JABS.nvim",
+	-- 	event = "BufWinEnter",
+	-- 	config = function()
+	-- 		require("config.JABS")
+	-- 	end,
+	-- })
 	use({
 		"folke/which-key.nvim",
 		event = "BufWinEnter",

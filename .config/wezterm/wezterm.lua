@@ -11,6 +11,50 @@ local SOLID_LEFT_ARROW = utf8.char(0xe0ba)
 local SOLID_LEFT_MOST = utf8.char(0x2588)
 local SOLID_RIGHT_ARROW = utf8.char(0xe0bc)
 
+local SUP_IDX = {
+	"¹",
+	"²",
+	"³",
+	"⁴",
+	"⁵",
+	"⁶",
+	"⁷",
+	"⁸",
+	"⁹",
+	"¹⁰",
+	"¹¹",
+	"¹²",
+	"¹³",
+	"¹⁴",
+	"¹⁵",
+	"¹⁶",
+	"¹⁷",
+	"¹⁸",
+	"¹⁹",
+	"²⁰",
+}
+local SUB_IDX = {
+	"₁",
+	"₂",
+	"₃",
+	"₄",
+	"₅",
+	"₆",
+	"₇",
+	"₈",
+	"₉",
+	"₁₀",
+	"₁₁",
+	"₁₂",
+	"₁₃",
+	"₁₄",
+	"₁₅",
+	"₁₆",
+	"₁₇",
+	"₁₈",
+	"₁₉",
+	"₂₀",
+}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	table.insert(launch_menu, {
@@ -137,6 +181,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local foreground = "#b0b0b0"
 	local dim_foreground = "#3A3A3A"
 
+	local has_unseen_output = false
+	for _, pane in ipairs(tab.panes) do
+		if pane.has_unseen_output then
+			has_unseen_output = true
+			break
+		end
+	end
+	
+	if has_unseen_output then
+			background = "#514545"
+	end
 	if tab.is_active then
 		background = "#ffa066"
 		foreground = "#1C1B19"
@@ -145,17 +200,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		foreground = "#1C1B19"
 	end
 
+	if tab.active_pane.is_zoomed then
+		id = id .. "ﬕ "
+	end
+
+	local no_of_panes = #tab.panes
+	if no_of_panes > 1 then
+		id = id .. SUP_IDX[no_of_panes]
+	end
+
 	local edge_foreground = background
-	-- local has_unseen_output = false
-	-- for _, pane in ipairs(tab.panes) do
-	-- 	if pane.has_unseen_output then
-	-- 		has_unseen_output = true
-	-- 		break
-	-- 	end
-	-- end
-	-- if has_unseen_output then
-	-- 		id = id .. "*"
-	-- end
 	return {
 		{ Attribute = { Intensity = "Bold" } },
 		{ Background = { Color = edge_background } },
@@ -240,11 +294,11 @@ return {
 		{ key = "9", mods = "ALT", action = wezterm.action({ ActivateTab = 8 }) },
 	},
 	use_fancy_tab_bar = false,
-	 visual_bell = {
-    fade_in_duration_ms = 75,
-    fade_out_duration_ms = 75,
-    target = "CursorColor",
-  },
+	visual_bell = {
+		fade_in_duration_ms = 75,
+		fade_out_duration_ms = 75,
+		target = "CursorColor",
+	},
 	-- window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",

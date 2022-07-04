@@ -21,11 +21,10 @@ M.capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 M.on_attach = function(client, bufnr)
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
+	-- local function buf_set_option(...)
+	-- 	vim.api.nvim_buf_set_option(bufnr, ...)
+	-- end
+	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 	map("n", "K", function()
 		vim.lsp.buf.hover()
 	end, { desc = "Hover symbol details", buffer = bufnr })

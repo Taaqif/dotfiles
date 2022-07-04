@@ -67,12 +67,14 @@ local opts = {
 
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	b = { "<cmd>JABSOpen<cr>", "Buffers" },
+	-- b = { "<cmd>JABSOpen<cr>", "Buffers" },
+	b = { "<cmd>NeoTreeFloatToggle buffers<cr>", "Buffers" },
 	-- ["b"] = {
 	-- 	"<cmd>lua require('telescope.builtin').buffers()<cr>",
 	-- 	"Buffers",
 	-- },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	-- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["e"] = { "<cmd>NeoTreeFloatToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
 	["Q"] = { "<cmd>qa<CR>", "Quit" },
@@ -142,7 +144,8 @@ local mappings = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
 			"Undo Stage Hunk",
 		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		-- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		o = { "<cmd>NeoTreeFloatToggle git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		d = {
