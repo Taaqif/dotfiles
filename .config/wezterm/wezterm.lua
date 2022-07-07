@@ -188,15 +188,15 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			break
 		end
 	end
-	
+
 	if has_unseen_output then
-			background = "#514545"
+		background = "#514545"
 	end
 	if tab.is_active then
-		background = "#ffa066"
+		background = "#E06C75"
 		foreground = "#1C1B19"
 	elseif hover then
-		background = "#cc8051"
+		background = "#E06C60"
 		foreground = "#1C1B19"
 	end
 
@@ -299,27 +299,42 @@ return {
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
-	-- window_background_opacity = 0.97,
+	window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
-	-- kanagawa.nvim
 	force_reverse_video_cursor = true,
-	colors = {
-		foreground = "#dcd7ba",
-		background = "#1f1f28",
+	color_scheme = "gruvbox_material_dark_hard",
+	color_schemes = {
+		-- kanagawa.nvim
+		["Kanagawa"] = {
+			foreground = "#dcd7ba",
+			background = "#1f1f28",
 
-		cursor_bg = "#c8c093",
-		cursor_fg = "#c8c093",
-		cursor_border = "#c8c093",
+			cursor_bg = "#c8c093",
+			cursor_fg = "#c8c093",
+			cursor_border = "#c8c093",
 
-		selection_fg = "#c8c093",
-		selection_bg = "#2d4f67",
+			selection_fg = "#c8c093",
+			selection_bg = "#2d4f67",
 
-		scrollbar_thumb = "#16161d",
-		split = "#16161d",
+			scrollbar_thumb = "#16161d",
+			split = "#16161d",
 
-		ansi = { "#090618", "#c34043", "#76946a", "#c0a36e", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" },
-		brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
-		indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
+			ansi = { "#090618", "#c34043", "#76946a", "#c0a36e", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" },
+			brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
+			indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
+		},
+		["gruvbox_material_dark_hard"] = {
+			foreground = "#D4BE98",
+			background = "#1D2021",
+			cursor_bg = "#D4BE98",
+			cursor_border = "#D4BE98",
+			cursor_fg = "#1D2021",
+			selection_bg = "#D4BE98",
+			selection_fg = "#3C3836",
+
+			ansi = { "#1d2021", "#ea6962", "#a9b665", "#d8a657", "#7daea3", "#d3869b", "#89b482", "#d4be98" },
+			brights = { "#eddeb5", "#ea6962", "#a9b665", "#d8a657", "#7daea3", "#d3869b", "#89b482", "#d4be98" },
+		},
 	},
 }

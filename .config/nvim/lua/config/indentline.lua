@@ -5,12 +5,12 @@ if not ok then
 end
 
 vim.opt.list = true
-vim.cmd([[highlight IndentBlanklineIndent1 guifg=#2c2c39 gui=nocombine]])
+vim.cmd [[highlight IndentBlanklineContextChar guifg=#E06C75 gui=nocombine]]
 
 indent_blankline.setup({
 	buftype_exclude = { "terminal" },
 	-- char="▎",
-	char = "▏",
+	-- char = "▏",
 	filetype_exclude = {
 		"help",
 		"terminal",
@@ -24,7 +24,7 @@ indent_blankline.setup({
 		"NvimTree",
 	},
 	char_highlight_list = {
-		"IndentBlanklineIndent1",
+		-- "IndentBlanklineIndent1",
 	},
 	show_current_context = true,
 	space_char_blankline = " ",

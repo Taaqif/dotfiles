@@ -7,6 +7,7 @@ end
 notify.setup({
   level = "info",
   stages = "fade_in_slide_out",
+  background_colour = "#282A36"
 })
 vim.notify = notify
 

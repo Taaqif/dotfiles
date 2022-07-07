@@ -51,8 +51,11 @@ local setup = {
 	show_help = false, -- show help message on the command line when the popup is visible
 	triggers = "auto",
 	triggers_blacklist = {
-		i = { "j", "k" },
-		v = { "j", "k" },
+		-- for vim visual multi
+		i = { "\\" },
+		o = { "\\" },
+		n = { "\\" },
+		v = { "\\" },
 	},
 }
 

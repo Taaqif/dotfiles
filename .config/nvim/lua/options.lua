@@ -54,3 +54,16 @@ vim.cmd("set switchbuf=uselast")
 
 --gui font
 vim.cmd("let &guifont = 'OperatorMonoSSmLig Nerd Font:h11'")
+
+if vim.fn.has "wsl" == 1 then
+  vim.g.clipboard = {
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf", 
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+  }
+end

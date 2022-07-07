@@ -307,9 +307,15 @@ return packer.startup(function(use)
 	})
 
 	--themes
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function ()
+			require("config.transparent")
+		end
+	})
 	use("sainnhe/gruvbox-material")
 	use("rebelot/kanagawa.nvim")
-  -- use("EdenEast/nightfox.nvim")
+  use("EdenEast/nightfox.nvim")
 	
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
