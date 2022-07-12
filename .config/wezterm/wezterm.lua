@@ -133,26 +133,26 @@ wezterm.on("update-right-status", function(window, pane)
 		end
 	end
 
-	local date = wezterm.strftime("%a %-d %b %H:%M ")
+	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
 	table.insert(cells, date)
 
 	-- Color palette for the backgrounds of each cell
 	local colors = {
 		"#333333",
-		"#595959",
-		"#663a82",
-		"#7c5295",
-		"#b491c8",
+		"#E06C75",
 	}
 
-	local text_fg = "#b0b0b0"
+	local text_colors = {
+		"#b0b0b0",
+		"#1C1B19",
+	}
 
 	local elements = {}
 	local num_cells = 0
 
 	function push(text, is_last)
 		local cell_no = num_cells + 1
-		table.insert(elements, { Foreground = { Color = text_fg } })
+		table.insert(elements, { Foreground = { Color = text_colors[cell_no] } })
 		table.insert(elements, { Background = { Color = colors[cell_no] } })
 		table.insert(elements, { Text = " " .. text .. " " })
 		if not is_last then
