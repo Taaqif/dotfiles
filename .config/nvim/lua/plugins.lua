@@ -47,13 +47,13 @@ return packer.startup(function(use)
 			require("config.impatient")
 		end,
 	})
-	use("nathom/filetype.nvim") 
+	use("nathom/filetype.nvim")
 	--utils
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
-	
+
 	use({
 		"rcarriga/nvim-notify",
 		config = function()
@@ -87,7 +87,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
 	use("AndrewRadev/switch.vim")
 	use("moll/vim-bbye")
@@ -149,36 +148,28 @@ return packer.startup(function(use)
 	})
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = { 
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
 		config = function()
 			require("config.neotree")
 		end,
 	})
-	-- use({
-	-- 	"kyazdani42/nvim-tree.lua",
-	-- 	event = "BufWinEnter",
-	-- 	config = function()
-	-- 		require("config.nvimtree")
-	-- 	end,
-	-- })
 	use({
 		"folke/trouble.nvim",
 		config = function()
 			require("config.trouble")
 		end,
 	})
-	-- use({
-	-- 	"matbme/JABS.nvim",
-	-- 	event = "BufWinEnter",
-	-- 	config = function()
-	-- 		require("config.JABS")
-	-- 	end,
-	-- })
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("config.surround")
+		end,
+	})
 	use({
 		"folke/which-key.nvim",
 		event = "BufWinEnter",
@@ -192,16 +183,13 @@ return packer.startup(function(use)
 			require("config.better_escape")
 		end,
 	})
-	-- use({
-	-- 	"github/copilot.vim",
-	-- 	config = function() end,
-	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("config.colorizer")
 		end,
 	})
+
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
@@ -277,6 +265,13 @@ return packer.startup(function(use)
 		},
 	})
 
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+		config = function()
+			require("config.ufo")
+		end,
+	})
 	-- GIT
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -301,22 +296,46 @@ return packer.startup(function(use)
 		setup = function()
 			-- require("config.floatterm")
 		end,
-		config = function ()
+		config = function()
 			require("config.toggleterm")
-		end
+		end,
 	})
 
 	--themes
 	use({
 		"xiyaowong/nvim-transparent",
-		config = function ()
+		config = function()
 			require("config.transparent")
-		end
+		end,
 	})
 	use("sainnhe/gruvbox-material")
 	use("rebelot/kanagawa.nvim")
-  use("EdenEast/nightfox.nvim")
-	
+	use("EdenEast/nightfox.nvim")
+
+	-- graveyard
+
+	-- use("tpope/vim-surround")
+
+	--[[ use({
+		"kyazdani42/nvim-tree.lua",
+		event = "BufWinEnter",
+		config = function()
+			require("config.nvimtree")
+		end,
+	}) ]]
+
+	--[[ use({
+		"kyazdani42/nvim-tree.lua",
+		event = "BufWinEnter",
+		config = function()
+			require("config.nvimtree")
+		end,
+	}) ]]
+
+	--[[ use({
+		"github/copilot.vim",
+		config = function() end,
+	}) ]]
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

@@ -5,6 +5,15 @@ if not lspconfig_ok or not lsp_installer_ok then
 	return
 end
 
+local navic_ok, navic = pcall(require, "nvim-navic")
+
+if navic_ok then
+	vim.g.navic_silence = true
+	navic.setup{
+		highlight = true,
+	}
+end
+
 local util = lspconfig.util
 lsp_installer.setup({})
 

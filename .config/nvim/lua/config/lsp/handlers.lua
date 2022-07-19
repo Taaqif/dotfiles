@@ -1,11 +1,6 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 local navic_ok, navic = pcall(require, "nvim-navic")
 
-if navic_ok then
-	navic.setup{
-		highlight = true,
-	}
-end
 local M = {}
 
 local map = vim.keymap.set
