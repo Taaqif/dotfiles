@@ -1,5 +1,6 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 local navic_ok, navic = pcall(require, "nvim-navic")
+local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
 
 local M = {}
 
@@ -82,7 +83,11 @@ M.on_attach = function(client, bufnr)
 	if navic_ok then
 		navic.attach(client, bufnr)
 	end
-	
+
+	if lsp_format_ok then
+		require("lsp-format").on_attach(client)
+	end
+
 	local lsp_signature_ok, lsp_signature = pcall(require, "lsp_signature")
 	if lsp_signature_ok then
 		local options = {

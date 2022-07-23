@@ -9,9 +9,16 @@ local navic_ok, navic = pcall(require, "nvim-navic")
 
 if navic_ok then
 	vim.g.navic_silence = true
-	navic.setup{
+	navic.setup({
 		highlight = true,
-	}
+	})
+end
+
+local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
+
+if lsp_format_ok then
+	vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
+	lsp_format.setup({})
 end
 
 local util = lspconfig.util

@@ -6,4 +6,5 @@ else
   require("keymaps")
   require("plugins")
   require("theme")
+  require("highlights")
 end

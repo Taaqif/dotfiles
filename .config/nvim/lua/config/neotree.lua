@@ -5,6 +5,12 @@ if not ok then
 end
 
 neotree.setup({
+	sources = {
+		"filesystem",
+		"buffers",
+		"git_status",
+		"diagnostics",
+	},
 	filesystem = {
 		follow_current_file = true,
 		use_libuv_file_watcher = true,
@@ -22,19 +28,19 @@ neotree.setup({
 		},
 	},
 	buffers = {
-    window = {
-      mappings = {
-				["l"] = "open",
-				["h"] = "close_node",
-      },
-    },
-  },
-	git_status  = {
 		window = {
 			mappings = {
 				["l"] = "open",
 				["h"] = "close_node",
 			},
-		}
+		},
+	},
+	git_status = {
+		window = {
+			mappings = {
+				["l"] = "open",
+				["h"] = "close_node",
+			},
+		},
 	},
 })

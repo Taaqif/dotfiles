@@ -151,12 +151,17 @@ return packer.startup(function(use)
 		branch = "v2.x",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
 			require("config.neotree")
 		end,
+	})
+	use({
+		"mrbjarksen/neo-tree-diagnostics.nvim",
+		requires = "nvim-neo-tree/neo-tree.nvim",
+		module = "neo-tree.sources.diagnostics",
 	})
 	use({
 		"folke/trouble.nvim",
