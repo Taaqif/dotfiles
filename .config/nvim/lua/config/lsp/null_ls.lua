@@ -16,14 +16,14 @@ null_ls.setup({
 		-- code action sources
 		-- completion.spell,
 		-- diagnostic sources
-		diagnostics.cspell.with({
-			diagnostics_postprocess = function(diagnostic)
-				diagnostic.severity = vim.diagnostic.severity["INFO"]
-			end,
-			extra_args = { "--config", vim.fn.expand(vim.fn.stdpath("config") .. "/cspell.json" )},
-			disabled_filetypes = { "NvimTree", "alpha", "toggleterm" },
-			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-		}),
+		-- diagnostics.cspell.with({
+		-- 	diagnostics_postprocess = function(diagnostic)
+		-- 		diagnostic.severity = vim.diagnostic.severity["INFO"]
+		-- 	end,
+		-- 	extra_args = { "--config", vim.fn.expand(vim.fn.stdpath("config") .. "/cspell.json" )},
+		-- 	disabled_filetypes = { "NvimTree", "alpha", "toggleterm" },
+		-- 	method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+		-- }),
 		-- formatting sources
 		formatting.stylua,
 		formatting.prettierd,

@@ -36,9 +36,13 @@ local options = {
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
 	background = "dark",
-	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
 	lazyredraw = true,
 	autoindent = true,
+	showbreak = "↪ ",
+
+	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+	spelloptions = "camel",
+	spell = false,
 	-- shell = "pwsh.exe -NoLogo"
 }
 

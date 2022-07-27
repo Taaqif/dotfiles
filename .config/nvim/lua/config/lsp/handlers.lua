@@ -1,5 +1,6 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
 local navic_ok, navic = pcall(require, "nvim-navic")
+local trouble_ok, trouble = pcall(require, "trouble")
 local lsp_format_ok, lsp_format = pcall(require, "lsp-format")
 
 local M = {}
@@ -45,15 +46,21 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.buf.declaration()
 	end, { desc = "Declaration of current symbol", buffer = bufnr })
 	map("n", "gI", function()
-		-- vim.lsp.buf.implementation()
-		require("trouble").open("lsp_implementations")
+		if trouble_ok then
+			trouble.open("lsp_implementations")
+		else
+			vim.lsp.buf.implementation()
+		end
 	end, { desc = "Implementation of current symbol", buffer = bufnr })
 	map("n", "gd", function()
 		vim.lsp.buf.definition()
 	end, { desc = "Show the definition of current symbol", buffer = bufnr })
 	map("n", "gr", function()
-		-- vim.lsp.buf.references()
-		require("trouble").open("lsp_references")
+		if trouble_ok then
+			trouble.open("lsp_references")
+		else
+			vim.lsp.buf.references()
+		end
 	end, { desc = "References of current symbol", buffer = bufnr })
 	map("n", "<leader>ld", function()
 		vim.diagnostic.open_float()

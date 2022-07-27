@@ -22,6 +22,7 @@ indent_blankline.setup({
 		"nvchad_cheatsheet",
 		"lsp-installer",
 		"NvimTree",
+		"mason.nvim"
 	},
 	char_highlight_list = {
 		-- "IndentBlanklineIndent1",

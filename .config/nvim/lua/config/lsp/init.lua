@@ -1,7 +1,8 @@
 local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local mason_ok, mason = pcall(require, "mason")
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 
-if not lspconfig_ok or not lsp_installer_ok then
+if not lspconfig_ok or not mason_ok then
 	return
 end
 
@@ -22,7 +23,8 @@ if lsp_format_ok then
 end
 
 local util = lspconfig.util
-lsp_installer.setup({})
+mason.setup({})
+mason_lspconfig.setup({})
 
 require("config.lsp.null_ls")
 local icons = require("config.icons")
@@ -80,10 +82,9 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 local servers = {}
 
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
-	table.insert(servers, server.name)
+for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
+	table.insert(servers, server)
 end
-
 for _, server in ipairs(servers) do
 	local status_ok, server_opts = pcall(require, "config.lsp.settings." .. server)
 	local opts = {
@@ -91,6 +92,7 @@ for _, server in ipairs(servers) do
 	}
 	if status_ok then
 		opts = vim.tbl_deep_extend("force", server_opts, opts)
+		opts["setup"] = nil
 	end
 	opts.on_attach = function(client, bufnr)
 		if status_ok and type(server_opts.on_attach) == "function" then
@@ -98,5 +100,9 @@ for _, server in ipairs(servers) do
 		end
 		require("config.lsp.handlers").on_attach(client, bufnr)
 	end
-	lspconfig[server].setup(opts)
+	if status_ok and type(server_opts.setup) == "function" then
+		server_opts.setup(opts)
+	else
+		lspconfig[server].setup(opts)
+	end
 end

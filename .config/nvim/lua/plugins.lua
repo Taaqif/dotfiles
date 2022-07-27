@@ -53,6 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
+	use("kamykn/popup-menu.nvim")
 
 	use({
 		"rcarriga/nvim-notify",
@@ -94,7 +95,12 @@ return packer.startup(function(use)
 	use("andymass/vim-matchup")
 	use("wellle/targets.vim")
 	use("mattn/emmet-vim")
-
+	use({
+		"kamykn/spelunker.vim",
+		config = function()
+			require("config.spelunker")
+		end,
+	})
 	use({
 		"mg979/vim-visual-multi",
 		config = function()
@@ -244,11 +250,12 @@ return packer.startup(function(use)
 			require("config.lsp")
 		end,
 		requires = {
-			"williamboman/nvim-lsp-installer",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			"nvim-lua/lsp-status.nvim",
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
 			"ray-x/lsp_signature.nvim",
-			"jose-elias-alvarez/nvim-lsp-ts-utils",
+			"jose-elias-alvarez/typescript.nvim",
 			"SmiteshP/nvim-navic",
 			"RRethy/vim-illuminate",
 			"RishabhRD/nvim-lsputils",

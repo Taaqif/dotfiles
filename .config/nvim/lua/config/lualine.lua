@@ -192,7 +192,7 @@ local config = {
 				colored = true,
 			},
 		},
-		lualine_c = { "filename", { navic.get_location, cond = navic_ok and navic.is_available } },
+		lualine_c = { "filename" },
 		lualine_x = {
 			"filetype",
 		},
@@ -228,5 +228,21 @@ local config = {
 	},
 	tabline = {},
 	extensions = {},
+	-- winbar = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = {
+	-- 		{
+	-- 			"filename",
+	-- 		},
+	-- 		{
+	-- 			navic.get_location,
+	-- 			cond = navic_ok and navic.is_available,
+	-- 		},
+	-- 	},
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {},
+	-- },
 }
 lualine.setup(config)

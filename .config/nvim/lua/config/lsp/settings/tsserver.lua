@@ -1,4 +1,15 @@
+local typescript_ok, typescript = pcall(require, "typescript")
+local _, lspconfig = pcall(require, "lspconfig")
 return {
+	setup = function (opts)
+		if typescript_ok then 
+			typescript.setup({
+				server = opts
+			})
+		else
+			lspconfig["tsserver"].setup(opts)
+		end
+	end,
 	on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
 -- 		local prettier_path = '.\\node_modules\\.bin\\prettier.cmd' -- default to local
@@ -7,10 +18,5 @@ return {
 -- if vim.fn.executable(prettier_path) ~= 1 then
 -- 	prettier_path = lsp_bins .. '\\node_modules\\.bin\\prettier.cmd'
 -- end
-		local ts_utils_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
-		if ts_utils_ok then
-			ts_utils.setup({})
-			ts_utils.setup_client(client)
-		end
 	end,
 }
