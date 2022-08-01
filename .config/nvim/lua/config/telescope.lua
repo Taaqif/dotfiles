@@ -73,6 +73,7 @@ local extensions = {
 	"notify",
 	"live_grep_args",
 	"projects",
+	'luasnip'
 }
 
 pcall(function()

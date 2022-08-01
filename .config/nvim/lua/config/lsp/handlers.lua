@@ -110,6 +110,7 @@ M.on_attach = function(client, bufnr)
 			handler_opts = {
 				border = "rounded",
 			},
+			always_trigger= false,
 			toggle_key = "<A-k>",
 		}
 		lsp_signature.on_attach(options, bufnr)

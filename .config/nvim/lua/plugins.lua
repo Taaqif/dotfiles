@@ -53,7 +53,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
-	use("kamykn/popup-menu.nvim")
+	-- use("kamykn/popup-menu.nvim")
 
 	use({
 		"rcarriga/nvim-notify",
@@ -188,25 +188,13 @@ return packer.startup(function(use)
 			require("config.whichkey")
 		end,
 	})
-	use({
-		"max397574/better-escape.nvim",
-		config = function()
-			require("config.better_escape")
-		end,
-	})
-	use({
+	--[[ use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("config.colorizer")
 		end,
-	})
+	}) ]]
 
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("config.project")
-		end,
-	})
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -214,10 +202,16 @@ return packer.startup(function(use)
 			require("config.telescope")
 		end,
 		requires = {
-			"nvim-telescope/telescope-ui-select.nvim",
-			"nvim-telescope/telescope-live-grep-args.nvim",
+			"nvim-lua/plenary.nvim",
+			-- "nvim-telescope/telescope-ui-select.nvim",
+			-- "nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-			"nvim-telescope/telescope-file-browser.nvim",
+			-- "nvim-telescope/telescope-fzy-native.nvim",
+			-- {
+			-- 	"benfowler/telescope-luasnip.nvim",
+			-- 	module = "telescope._extensions.luasnip", 
+			-- },
+			-- "nvim-telescope/telescope-file-browser.nvim",
 		},
 	})
 	-- cmp
@@ -347,6 +341,22 @@ return packer.startup(function(use)
 	--[[ use({
 		"github/copilot.vim",
 		config = function() end,
+	}) ]]
+
+
+	--[[ use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("config.project")
+		end,
+	}) ]]
+
+
+	--[[ use({
+		"max397574/better-escape.nvim",
+		config = function()
+			require("config.better_escape")
+		end,
 	}) ]]
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
