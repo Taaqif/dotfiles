@@ -188,12 +188,13 @@ return packer.startup(function(use)
 			require("config.whichkey")
 		end,
 	})
-	--[[ use({
+
+	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("config.colorizer")
 		end,
-	}) ]]
+	})
 
 	-- telescope
 	use({
@@ -203,18 +204,18 @@ return packer.startup(function(use)
 		end,
 		requires = {
 			"nvim-lua/plenary.nvim",
-			-- "nvim-telescope/telescope-ui-select.nvim",
-			-- "nvim-telescope/telescope-live-grep-args.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			-- "nvim-telescope/telescope-fzy-native.nvim",
-			-- {
-			-- 	"benfowler/telescope-luasnip.nvim",
-			-- 	module = "telescope._extensions.luasnip", 
-			-- },
-			-- "nvim-telescope/telescope-file-browser.nvim",
+			{
+				"benfowler/telescope-luasnip.nvim",
+				module = "telescope._extensions.luasnip",
+			},
+			"nvim-telescope/telescope-file-browser.nvim",
 		},
 	})
-	-- cmp
+	--cmp
 	use({
 		"hrsh7th/nvim-cmp",
 		config = function()
@@ -331,18 +332,9 @@ return packer.startup(function(use)
 	}) ]]
 
 	--[[ use({
-		"kyazdani42/nvim-tree.lua",
-		event = "BufWinEnter",
-		config = function()
-			require("config.nvimtree")
-		end,
-	}) ]]
-
-	--[[ use({
 		"github/copilot.vim",
 		config = function() end,
 	}) ]]
-
 
 	--[[ use({
 		"ahmedkhalf/project.nvim",
@@ -350,7 +342,6 @@ return packer.startup(function(use)
 			require("config.project")
 		end,
 	}) ]]
-
 
 	--[[ use({
 		"max397574/better-escape.nvim",
