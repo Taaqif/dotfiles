@@ -3,10 +3,32 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
 
----------------------------------------------------------------
---- keybinds
----------------------------------------------------------------
-M.tmux_keybinds = {
+M.keybinds = {
+	{ key = "c", mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
+	{ key = "v", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
+	{ key = "Insert", mods = "SHIFT", action = act({ PasteFrom = "PrimarySelection" }) },
+	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
+	{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
+	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
+	{ key = "x", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
+	{ key = "n", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
+	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
+	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
+	{ key = "z", mods = "CTRL|SHIFT", action = "TogglePaneZoomState" },
+	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{
+		key = "r",
+		mods = "ALT",
+		action = act({
+			ActivateKeyTable = {
+				name = "resize_pane",
+				one_shot = false,
+				timeout_milliseconds = 3000,
+				replace_current = false,
+			},
+		}),
+	},
 	{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
 	{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
 	{ key = "1", mods = "ALT", action = act({ ActivateTab = 0 }) },
@@ -32,37 +54,6 @@ M.tmux_keybinds = {
 	{ key = "/", mods = "ALT", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "p", mods = "ALT", action = "ShowLauncher" },
 }
-
-M.default_keybinds = {
-	{ key = "c", mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
-	{ key = "v", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "Insert", mods = "SHIFT", action = act({ PasteFrom = "PrimarySelection" }) },
-	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
-	{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
-	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
-	{ key = "x", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
-	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
-	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
-	{ key = "z", mods = "CTRL|SHIFT", action = "TogglePaneZoomState" },
-	{ key = "q", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
-	{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
-	{
-		key = "r",
-		mods = "ALT",
-		action = act({
-			ActivateKeyTable = {
-				name = "resize_pane",
-				one_shot = false,
-				timeout_milliseconds = 3000,
-				replace_current = false,
-			},
-		}),
-	},
-}
-
-function M.create_keybinds()
-	return utils.merge_lists(M.default_keybinds, M.tmux_keybinds)
-end
 
 M.key_tables = {
 	resize_pane = {

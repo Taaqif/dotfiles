@@ -113,7 +113,7 @@ return {
 	disable_default_key_bindings = true,
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
 
-	keys = keybinds.create_keybinds(),
+	keys = keybinds.keybinds,
 	key_tables = keybinds.key_tables,
 	mouse_bindings = keybinds.mouse_bindings,
 
