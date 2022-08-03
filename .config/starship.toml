@@ -30,7 +30,7 @@ fish_style_pwd_dir_length = 1
 [sudo]
 style = "bold green"
 symbol = "🧙 "
-allow_windows = true
+allow_windows = false
 disabled = false
 
 [git_status]
