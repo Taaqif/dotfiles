@@ -65,22 +65,8 @@ wezterm.on("update-right-status", function(window, pane)
 
 	local cwd_uri = pane:get_current_working_dir()
 	if cwd_uri then
-		cwd_uri = cwd_uri:sub(8)
-		local slash = cwd_uri:find("/")
-		local cwd = ""
-		local hostname = ""
-		if slash then
-			hostname = cwd_uri:sub(1, slash - 1)
-			-- Remove the domain name portion of the hostname
-			local dot = hostname:find("[.]")
-			if dot then
-				hostname = hostname:sub(1, dot - 1)
-			end
-			-- and extract the cwd from the uri
-			cwd = cwd_uri:sub(slash)
-
-			table.insert(cells, cwd)
-		end
+		local hostname, cwd = utils.split_from_url(cwd_uri)
+		table.insert(cells, cwd)
 	end
 
 	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
