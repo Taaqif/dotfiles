@@ -27,6 +27,12 @@ use_12hr = true
 # truncate_to_repo = false
 fish_style_pwd_dir_length = 1
 
+[sudo]
+style = "bold green"
+symbol = "🧙 "
+allow_windows = true
+disabled = false
+
 [git_status]
 ahead = "[ $count ](green)"
 diverged = "[ $ahead_count](green) [ $behind_count ](red)"
