@@ -71,7 +71,11 @@ wezterm.on("update-right-status", function(window, pane)
 
 	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
 	table.insert(cells, date)
-
+	local text = pane:get_domain_name()
+	if text ~= "local" then
+		table.insert(cells, text)
+	end
+	
 	local name = window:active_key_table()
 	if name then
 		name = "Mode: " .. name
@@ -82,10 +86,12 @@ wezterm.on("update-right-status", function(window, pane)
 		"#333333",
 		"#E06C75",
 		"#E06C750",
+		"#E06C750",
 	}
 
 	local text_colors = {
 		"#b0b0b0",
+		"#1C1B19",
 		"#1C1B19",
 		"#1C1B19",
 	}

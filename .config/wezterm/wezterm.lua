@@ -111,7 +111,7 @@ return {
 	},
 	launch_menu = launch_menu,
 	disable_default_key_bindings = true,
-	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
+	-- leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
 
 	keys = keybinds.keybinds,
 	key_tables = keybinds.key_tables,
