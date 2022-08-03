@@ -10,37 +10,22 @@ local font_with_fallback = function(name, params)
 	local names = { name, "JetBrains Mono" }
 	return wezterm.font_with_fallback(names, params)
 end
- 
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	table.insert(launch_menu, {
 		label = "PowerShell",
 		args = { "powershell.exe", "-NoLogo" },
 	})
-
-	-- Enumerate any WSL distributions that are installed and add those to the menu
-	local success, wsl_list, wsl_err = wezterm.run_child_process({ "wsl.exe", "-l" })
-	wsl_list = wezterm.utf16_to_utf8(wsl_list)
-
-	for idx, line in ipairs(wezterm.split_by_newlines(wsl_list)) do
-		if idx > 1 then
-			local distro = line:gsub(" %(Default%)", "")
-
-			-- Add an entry that will spawn into the distro with the default shell
-			table.insert(launch_menu, {
-				label = distro .. " (WSL default shell)",
-				args = { "wsl.exe", "--distribution", distro },
-			})
-		end
-	end
 end
 return {
 	font_size = 10.0,
 	check_for_updates = true,
 	show_update_window = true,
 	term = "xterm-256color",
+	tab_bar_at_bottom = true,
 	use_ime = true,
 	initial_rows = 30,
-  initial_cols = 120,
+	initial_cols = 120,
 	font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
 	font_rules = {
 		{

@@ -146,7 +146,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		foreground = "#1C1B19"
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
-			id = id .. "麗"
+			id = id .. "視 "
 			background = "#ff9f65"
 		end
 	elseif hover then
