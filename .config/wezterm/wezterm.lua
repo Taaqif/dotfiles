@@ -22,7 +22,7 @@ return {
 	check_for_updates = true,
 	show_update_window = true,
 	term = "xterm-256color",
-	tab_bar_at_bottom = true,
+	-- tab_bar_at_bottom = true,
 	use_ime = true,
 	initial_rows = 30,
 	initial_cols = 120,
