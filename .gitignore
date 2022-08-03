@@ -44,3 +44,5 @@ packer_compiled.lua
 
 startup.log
 fish_variables
+
+.config/lazygit/state.yml
