@@ -6,6 +6,7 @@ end
 
 colorizer.setup({
 	"css",
+	"lua",
 	"scss",
 	"typescript",
 	"javascript",
