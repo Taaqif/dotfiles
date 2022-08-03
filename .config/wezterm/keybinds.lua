@@ -40,6 +40,8 @@ M.keybinds = {
 	{ key = "7", mods = "ALT", action = act({ ActivateTab = 6 }) },
 	{ key = "8", mods = "ALT", action = act({ ActivateTab = 7 }) },
 	{ key = "9", mods = "ALT", action = act({ ActivateTab = 8 }) },
+	{ key = "]", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
+	{ key = "[", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "-", mods = "ALT", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{ key = "\\", mods = "ALT", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
 	{ key = "h", mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Left" }) },
