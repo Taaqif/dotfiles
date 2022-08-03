@@ -85,15 +85,15 @@ wezterm.on("update-right-status", function(window, pane)
 	local colors = {
 		"#333333",
 		"#E06C75",
-		"#E06C750",
-		"#E06C750",
+		"#93474d",
+		"#462224",
 	}
 
 	local text_colors = {
 		"#b0b0b0",
 		"#1C1B19",
-		"#1C1B19",
-		"#1C1B19",
+		"#e7e7e7",
+		"#fcfcfc",
 	}
 
 	local elements = {}

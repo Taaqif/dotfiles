@@ -70,7 +70,7 @@ function M.split_from_url(dir)
 			hostname = hostname:sub(1, dot - 1)
 		end
 		cwd = cwd_uri:sub(slash)
-		cwd = M.convert_useful_path(cwd)
+		-- cwd = M.convert_useful_path(cwd)
 	end
 	return hostname, cwd
 end
