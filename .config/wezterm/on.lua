@@ -85,15 +85,15 @@ wezterm.on("update-right-status", function(window, pane)
 	local colors = {
 		"#333333",
 		"#E06C75",
-		"#E06C750",
-		"#E06C750",
+		"#93474d",
+		"#462224",
 	}
 
 	local text_colors = {
 		"#b0b0b0",
 		"#1C1B19",
-		"#1C1B19",
-		"#1C1B19",
+		"#e7e7e7",
+		"#fcfcfc",
 	}
 
 	local elements = {}
@@ -146,7 +146,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		foreground = "#1C1B19"
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
-			id = id .. "麗"
+			id = id .. "視 "
 			background = "#ff9f65"
 		end
 	elseif hover then
