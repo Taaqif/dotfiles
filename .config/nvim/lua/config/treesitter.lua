@@ -1,5 +1,5 @@
 local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
-
+local treesitter_context_ok, treesitter_context = pcall(require, "treesitter-context")
 if not ok then
 	return
 end
@@ -25,3 +25,7 @@ treesitter_config.setup({
 		enable = true,
 	},
 })
+
+treesitter_context.setup{
+
+}

@@ -60,9 +60,11 @@ telescope.setup({
 		},
 	},
 	extensions = {
+		media_files = {
+			find_cmd = "rg", -- find command (defaults to `fd`)
+		},
 		["ui-select"] = {
-			require("telescope.themes").get_dropdown({
-			}),
+			require("telescope.themes").get_dropdown({}),
 		},
 	},
 })
@@ -73,7 +75,8 @@ local extensions = {
 	"notify",
 	"live_grep_args",
 	"projects",
-	'luasnip'
+	"luasnip",
+	"media_files",
 }
 
 pcall(function()

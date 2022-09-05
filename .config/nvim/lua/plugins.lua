@@ -91,7 +91,7 @@ return packer.startup(function(use)
 	use("tpope/vim-repeat")
 	use("AndrewRadev/switch.vim")
 	use("moll/vim-bbye")
-	use("svermeulen/vim-cutlass")
+	-- use("svermeulen/vim-cutlass")
 	use("andymass/vim-matchup")
 	use("wellle/targets.vim")
 	use("mattn/emmet-vim")
@@ -206,8 +206,8 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-			-- "nvim-telescope/telescope-fzy-native.nvim",
 			{
 				"benfowler/telescope-luasnip.nvim",
 				module = "telescope._extensions.luasnip",
@@ -269,7 +269,17 @@ return packer.startup(function(use)
 			"p00f/nvim-ts-rainbow",
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/playground",
+			"nvim-treesitter/nvim-treesitter-context"
 		},
+	})
+
+	-- dap
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap" },
+		config = function()
+			require("config.dap")
+		end,
 	})
 
 	use({
