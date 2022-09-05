@@ -269,6 +269,7 @@ return packer.startup(function(use)
 			"p00f/nvim-ts-rainbow",
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/playground",
+			"nvim-treesitter/nvim-treesitter-context"
 		},
 	})
 
