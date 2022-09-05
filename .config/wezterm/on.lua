@@ -52,14 +52,6 @@ local SUB_IDX = {
 	"₂₀",
 }
 
-local function display_copy_mode(window, pane)
-	local name = window:active_key_table()
-	if name then
-		name = "Mode: " .. name
-	end
-	return { { Attribute = { Italic = false } }, { Text = name or "" } }
-end
-
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
 
@@ -72,7 +64,7 @@ wezterm.on("update-right-status", function(window, pane)
 	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
 	table.insert(cells, date)
 	local text = pane:get_domain_name()
-	if text ~= "local" then
+	if text ~= "local" and text ~= "" then
 		table.insert(cells, text)
 	end
 	
