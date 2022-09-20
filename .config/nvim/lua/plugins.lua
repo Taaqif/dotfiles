@@ -134,6 +134,13 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"gbprod/cutlass.nvim",
+		config = function()
+			require("config.cutlass")
+		end,
+	})
+
+	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("config.autopairs")
@@ -249,7 +256,7 @@ return packer.startup(function(use)
 			"williamboman/mason-lspconfig.nvim",
 			"nvim-lua/lsp-status.nvim",
 			"b0o/schemastore.nvim", -- JSON schema for jsonls
-			"ray-x/lsp_signature.nvim",
+			-- "ray-x/lsp_signature.nvim",
 			"jose-elias-alvarez/typescript.nvim",
 			"SmiteshP/nvim-navic",
 			"RRethy/vim-illuminate",
