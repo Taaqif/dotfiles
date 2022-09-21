@@ -81,13 +81,13 @@ return {
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
-	window_background_opacity = 0.97,
+	-- window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
-	color_scheme = "gruvbox_material_dark_hard",
+	color_scheme = "kanagawa",
 	color_schemes = {
 		-- kanagawa.nvim
-		["Kanagawa"] = {
+		["kanagawa"] = {
 			foreground = "#dcd7ba",
 			background = "#1f1f28",
 
