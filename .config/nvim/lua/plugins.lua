@@ -335,7 +335,7 @@ return packer.startup(function(use)
 	use("sainnhe/gruvbox-material")
 	use("rebelot/kanagawa.nvim")
 	use("EdenEast/nightfox.nvim")
-
+  use("folke/tokyonight.nvim")
 	-- graveyard
 
 	-- use("tpope/vim-surround")

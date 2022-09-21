@@ -38,8 +38,22 @@ local kanagawa_ok, kanagawa = pcall(require, "kanagawa")
 if kanagawa_ok then
 	kanagawa.setup({
 		transparent = vim.g.transparent_enabled,
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true},
+    statementStyle = { italic = true },
 	})
 end
 
-vim.cmd([[colorscheme gruvbox-material]])
+--tokyonight
+local tokyonight_ok, tokyonight = pcall(require, "tokyonight")
+
+if tokyonight_ok then
+	tokyonight.setup({
+		transparent = vim.g.transparent_enabled,
+	})
+end
+
+-- vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd([[colorscheme kanagawa]])
 
