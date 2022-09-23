@@ -125,24 +125,22 @@ end
 local gstatus = { ahead = 0, behind = 0 }
 local function update_gstatus()
 	local Job = require("plenary.job")
-	Job
-		:new({
-			command = "git",
-			args = { "rev-list", "--left-right", "--count", "HEAD...@{upstream}" },
-			on_exit = function(job, _)
-				local res = job:result()[1]
-				if type(res) ~= "string" then
-					gstatus = { ahead = 0, behind = 0 }
-					return
-				end
-				local ok, ahead, behind = pcall(string.match, res, "(%d+)%s*(%d+)")
-				if not ok then
-					ahead, behind = 0, 0
-				end
-				gstatus = { ahead = ahead, behind = behind }
-			end,
-		})
-		:start()
+	Job:new({
+		command = "git",
+		args = { "rev-list", "--left-right", "--count", "HEAD...@{upstream}" },
+		on_exit = function(job, _)
+			local res = job:result()[1]
+			if type(res) ~= "string" then
+				gstatus = { ahead = 0, behind = 0 }
+				return
+			end
+			local ok, ahead, behind = pcall(string.match, res, "(%d+)%s*(%d+)")
+			if not ok then
+				ahead, behind = 0, 0
+			end
+			gstatus = { ahead = ahead, behind = behind }
+		end,
+	}):start()
 end
 
 -- if _G.Gstatus_timer == nil then
@@ -228,21 +226,28 @@ local config = {
 	},
 	tabline = {},
 	extensions = {},
-	-- winbar = {
-	-- 	lualine_a = {},
-	-- 	lualine_b = {},
-	-- 	lualine_c = {
-	-- 		{
-	-- 			"filename",
-	-- 		},
-	-- 		{
-	-- 			navic.get_location,
-	-- 			cond = navic_ok and navic.is_available,
-	-- 		},
-	-- 	},
-	-- 	lualine_x = {},
-	-- 	lualine_y = {},
-	-- 	lualine_z = {},
-	-- },
+	winbar = {
+		lualine_a = {},
+		lualine_b = {
+			"filename",
+		},
+		lualine_c = {
+			{
+				navic.get_location,
+				cond = navic_ok and navic.is_available,
+			},
+		},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	inactive_winbar = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { "filename" },
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
 }
 lualine.setup(config)
