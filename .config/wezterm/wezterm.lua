@@ -85,6 +85,7 @@ return {
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
 	color_scheme = "kanagawa",
+	force_reverse_video_cursor = true,
 	color_schemes = {
 		-- kanagawa.nvim
 		["kanagawa"] = {
