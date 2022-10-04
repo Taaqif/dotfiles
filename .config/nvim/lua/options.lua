@@ -50,6 +50,9 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+--cmd height 0 
+vim.cmd("set cmdheight=0")
+
 --hide tilde for blank lines
 vim.cmd("let &fcs='eob: '")
 
