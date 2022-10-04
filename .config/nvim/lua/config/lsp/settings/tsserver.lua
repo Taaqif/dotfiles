@@ -11,7 +11,7 @@ return {
 		end
 	end,
 	on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
 -- 		local prettier_path = '.\\node_modules\\.bin\\prettier.cmd' -- default to local
 -- local prettier_config = ' --config-precedence file-override --no-semi --use-tabs --single-quote'
 -- -- use our own if project doesn't have
