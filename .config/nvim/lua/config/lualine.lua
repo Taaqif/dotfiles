@@ -122,6 +122,15 @@ local function autoformat_status()
 	end
 end
 
+local function show_macro_recording()
+	local recording_register = vim.fn.reg_recording()
+	if recording_register == "" then
+		return ""
+	else
+		return "recording @" .. recording_register
+	end
+end
+
 local gstatus = { ahead = 0, behind = 0 }
 local function update_gstatus()
 	local Job = require("plenary.job")
@@ -188,6 +197,11 @@ local config = {
 					hint = { fg = colors.green }, -- Changes diagnostics' hint color.
 				},
 				colored = true,
+			},
+			{
+				"macro-recording",
+				fmt = show_macro_recording,
+				color = { fg = colors.orange },
 			},
 		},
 		lualine_c = { "filename" },
