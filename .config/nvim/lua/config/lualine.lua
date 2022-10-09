@@ -130,26 +130,36 @@ local function show_macro_recording()
 		return "recording @" .. recording_register
 	end
 end
+function show_search_result()
+	local res = vim.fn.searchcount({ maxcount = 0 })
 
+	if res.total > 0 and vim.v.hlsearch ~= 0 then
+		return string.format("/%s[%s/%d]", vim.fn.getreg("/"), res.current, res.total)
+	else
+		return ""
+	end
+end
 local gstatus = { ahead = 0, behind = 0 }
 local function update_gstatus()
 	local Job = require("plenary.job")
-	Job:new({
-		command = "git",
-		args = { "rev-list", "--left-right", "--count", "HEAD...@{upstream}" },
-		on_exit = function(job, _)
-			local res = job:result()[1]
-			if type(res) ~= "string" then
-				gstatus = { ahead = 0, behind = 0 }
-				return
-			end
-			local ok, ahead, behind = pcall(string.match, res, "(%d+)%s*(%d+)")
-			if not ok then
-				ahead, behind = 0, 0
-			end
-			gstatus = { ahead = ahead, behind = behind }
-		end,
-	}):start()
+	Job
+		:new({
+			command = "git",
+			args = { "rev-list", "--left-right", "--count", "HEAD...@{upstream}" },
+			on_exit = function(job, _)
+				local res = job:result()[1]
+				if type(res) ~= "string" then
+					gstatus = { ahead = 0, behind = 0 }
+					return
+				end
+				local ok, ahead, behind = pcall(string.match, res, "(%d+)%s*(%d+)")
+				if not ok then
+					ahead, behind = 0, 0
+				end
+				gstatus = { ahead = ahead, behind = behind }
+			end,
+		})
+		:start()
 end
 
 -- if _G.Gstatus_timer == nil then
@@ -206,6 +216,7 @@ local config = {
 		},
 		lualine_c = { "filename" },
 		lualine_x = {
+			{ show_search_result },
 			"filetype",
 		},
 		lualine_y = {
