@@ -37,9 +37,6 @@ nvim_tree.setup({
 		},
 	},
 	view = {
-		side = "left",
-		width = 30,
-		hide_root_folder = false,
 		mappings = {
 			custom_only = false,
 			list = {
@@ -49,6 +46,9 @@ nvim_tree.setup({
 				{ key = "<C-R>", cb = tree_cb("refresh") },
 			},
 		},
+		float = {
+          enable = true,
+		}
 	},
 	git = {
 		enable = true,
@@ -82,4 +82,12 @@ nvim_tree.setup({
 			},
 		},
 	},
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"NvimTree*"},
+  command = "DelayTrainDisable",
+})
+vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave"}, {
+  pattern = {"NvimTree*"},
+  command = "DelayTrainEnable",
 })

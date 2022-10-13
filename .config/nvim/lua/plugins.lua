@@ -117,7 +117,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"windwp/nvim-spectre",
+		"nvim-pack/nvim-spectre",
 		event = "BufWinEnter",
 		config = function()
 			require("config.spectre")
@@ -168,6 +168,16 @@ return packer.startup(function(use)
 			require("config.indentline")
 		end,
 	})
+	-- use({
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	requires = {
+	-- 		"nvim-tree/nvim-web-devicons", -- optional, for file icons
+	-- 	},
+	-- 	tag = "nightly",
+	-- 	config = function()
+	-- 		require("config.nvimtree")
+	-- 	end,
+	-- })
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",

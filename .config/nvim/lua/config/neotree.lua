@@ -45,3 +45,11 @@ neotree.setup({
 		},
 	},
 })
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"neo-tree*"},
+  command = "DelayTrainDisable",
+})
+vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave"}, {
+  pattern = {"neo-tree*"},
+  command = "DelayTrainEnable",
+})
