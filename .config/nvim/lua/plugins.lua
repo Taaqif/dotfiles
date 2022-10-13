@@ -48,6 +48,15 @@ return packer.startup(function(use)
 		end,
 	})
 	use("nathom/filetype.nvim")
+
+	--training wheels
+	use({
+		"ja-ford/delaytrain.nvim",
+		config = function()
+			require("delaytrain").setup()
+		end,
+	})
+
 	--utils
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
@@ -276,7 +285,7 @@ return packer.startup(function(use)
 			"p00f/nvim-ts-rainbow",
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/playground",
-			"nvim-treesitter/nvim-treesitter-context"
+			"nvim-treesitter/nvim-treesitter-context",
 		},
 	})
 
@@ -335,7 +344,7 @@ return packer.startup(function(use)
 	use("sainnhe/gruvbox-material")
 	use("rebelot/kanagawa.nvim")
 	use("EdenEast/nightfox.nvim")
-  use("folke/tokyonight.nvim")
+	use("folke/tokyonight.nvim")
 	-- graveyard
 
 	-- use("tpope/vim-surround")
