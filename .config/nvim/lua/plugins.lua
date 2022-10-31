@@ -50,18 +50,25 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 
 	--training wheels
-	use({
-		"ja-ford/delaytrain.nvim",
-		config = function()
-			require("delaytrain").setup()
-		end,
-	})
+	-- use({
+	-- 	"ja-ford/delaytrain.nvim",
+	-- 	config = function()
+	-- 		require("delaytrain").setup()
+	-- 	end,
+	-- })
 
 	--utils
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("RishabhRD/popfix")
 	use("stevearc/dressing.nvim")
+	use({
+		"s1n7ax/nvim-window-picker",
+		tag = "v1.*",
+		config = function()
+			require("config.window-picker")
+		end,
+	})
 	-- use("kamykn/popup-menu.nvim")
 
 	use({
@@ -124,9 +131,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"ggandor/lightspeed.nvim",
+		"ggandor/leap.nvim",
 		config = function()
-			require("config.lightspeed")
+			require("config.leap")
 		end,
 	})
 	use({
@@ -282,6 +289,13 @@ return packer.startup(function(use)
 			"RishabhRD/nvim-lsputils",
 			"jose-elias-alvarez/null-ls.nvim",
 		},
+	})
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			require("config.lspsaga")
+		end,
 	})
 	-- treesitter
 	use({

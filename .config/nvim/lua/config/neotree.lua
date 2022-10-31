@@ -11,6 +11,10 @@ neotree.setup({
 		"git_status",
 		"diagnostics",
 	},
+	source_selector = {
+		winbar = true,
+		content_layout = "center",
+	},
 	filesystem = {
 		follow_current_file = true,
 		use_libuv_file_watcher = true,
@@ -44,12 +48,12 @@ neotree.setup({
 			},
 		},
 	},
-})
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"neo-tree*"},
-  command = "DelayTrainDisable",
-})
-vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave"}, {
-  pattern = {"neo-tree*"},
-  command = "DelayTrainEnable",
+	event_handlers = {
+		{
+			event = "neo_tree_buffer_enter",
+			handler = function(_)
+				vim.opt_local.signcolumn = "auto"
+			end,
+		},
+	},
 })
