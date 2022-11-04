@@ -7,7 +7,18 @@ end
 local keymap = vim.keymap.set
 local lspsaga = require('lspsaga')
 
-lspsaga.init_lsp_saga()
+lspsaga.init_lsp_saga({
+	border_style = "rounded",
+	code_action_lightbulb = {
+    enable = true,
+    enable_in_insert = false,
+    cache_code_action = true,
+    sign = true,
+    update_time = 150,
+    sign_priority = 20,
+    virtual_text = false,
+},
+})
 
 -- Lsp finder find the symbol definition implement reference
 keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
@@ -19,7 +30,7 @@ keymap({"n","v"}, "<leader>la", "<cmd>Lspsaga code_action<CR>", { silent = true 
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 -- Peek Definition
-keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+-- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
 -- Show line diagnostics
 keymap("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })

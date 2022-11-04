@@ -47,7 +47,6 @@ return packer.startup(function(use)
 			require("config.impatient")
 		end,
 	})
-	use("nathom/filetype.nvim")
 
 	--training wheels
 	-- use({

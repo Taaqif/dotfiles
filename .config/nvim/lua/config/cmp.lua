@@ -4,20 +4,22 @@ local lspkind_ok, lspkind = pcall(require, "lspkind")
 if not cmp_ok or not luasnip_ok or not lspkind_ok then
 	return
 end
-
+local has_words_before = function()
+  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 local icons = require("config.icons")
 
 if luasnip_ok then
-	-- luasnip.config.setup({
-	-- 	load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
-	-- 		typescript = { "javascript" },
-	-- 		typescriptreact = { "javascript" },
-	-- 	}),
-	-- })
+	luasnip.setup({
+		region_check_events = "CursorHold,InsertLeave,InsertEnter",
+		delete_check_events = "TextChanged,InsertEnter",
+	})
 
 	luasnip.filetype_extend("typescript", { "javascript" })
 	luasnip.filetype_extend("typescriptreact", { "javascript" })
-	require("luasnip/loaders/from_vscode").lazy_load()
+	require("luasnip.loaders.from_vscode").lazy_load()
+	require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/" })
 end
 
 vim.opt.completeopt = "menu,menuone,noselect"
@@ -84,6 +86,8 @@ cmp.setup({
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
 			else
 				fallback()
 			end
