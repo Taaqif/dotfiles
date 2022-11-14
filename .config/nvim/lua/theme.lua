@@ -54,6 +54,6 @@ if tokyonight_ok then
 	})
 end
 
--- vim.cmd([[colorscheme gruvbox-material]])
-vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme gruvbox-material]])
+-- vim.cmd([[colorscheme kanagawa]])
 
