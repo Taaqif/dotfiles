@@ -84,7 +84,8 @@ return {
 	-- window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
-	color_scheme = "kanagawa",
+	-- color_scheme = "kanagawa",
+	color_scheme = "gruvbox_material_dark_hard",
 	force_reverse_video_cursor = true,
 	color_schemes = {
 		-- kanagawa.nvim
