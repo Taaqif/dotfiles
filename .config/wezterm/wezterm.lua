@@ -109,10 +109,10 @@ return {
 		},
 		["gruvbox_material_dark_hard"] = {
 			foreground = "#D4BE98",
-			background = "#1D2021",
+			background = "#282828",
 			cursor_bg = "#D4BE98",
 			cursor_border = "#D4BE98",
-			cursor_fg = "#1D2021",
+			cursor_fg = "#282828",
 			selection_bg = "#D4BE98",
 			selection_fg = "#3C3836",
 

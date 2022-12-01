@@ -55,11 +55,13 @@ local SUB_IDX = {
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
 
-	local cwd_uri = pane:get_current_working_dir()
-	if cwd_uri then
-		local hostname, cwd = utils.split_from_url(cwd_uri)
-		table.insert(cells, cwd)
-	end
+	-- local cwd_uri = pane:get_current_working_dir()
+	-- if cwd_uri then
+	-- 	local hostname, cwd = utils.split_from_url(cwd_uri)
+	-- 	table.insert(cells, cwd)
+	-- end
+
+	table.insert(cells, pane:get_title())
 
 	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
 	table.insert(cells, date)
