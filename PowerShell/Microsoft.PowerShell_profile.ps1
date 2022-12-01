@@ -64,3 +64,5 @@ Function Invoke-Lfcd {
     }
 }
 Set-Alias -Name lfcd -Value Invoke-Lfcd -Option AllScope -Scope Global -Force
+
+Set-Alias -Name lg -Value lazygit -Option AllScope -Scope Global -Force
