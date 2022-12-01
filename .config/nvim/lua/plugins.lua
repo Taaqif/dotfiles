@@ -289,11 +289,17 @@ return packer.startup(function(use)
 			"jose-elias-alvarez/null-ls.nvim",
 		},
 	})
+	-- use({
+	-- 	"glepnir/lspsaga.nvim",
+	-- 	branch = "main",
+	-- 	config = function()
+	-- 		require("config.lspsaga")
+	-- 	end,
+	-- })
 	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
+		"dnlhc/glance.nvim",
 		config = function()
-			require("config.lspsaga")
+			require("config.glance")
 		end,
 	})
 	-- treesitter
