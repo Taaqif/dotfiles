@@ -11,18 +11,14 @@ local font_with_fallback = function(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	table.insert(launch_menu, {
-		label = "PowerShell",
-		args = { "powershell.exe", "-NoLogo" },
-	})
-end
 return {
 	font_size = 10.0,
 	check_for_updates = true,
 	show_update_window = true,
 	term = "xterm-256color",
 	tab_bar_at_bottom = true,
+	-- default_domain = 'WSL:Ubuntu',
+	default_prog = {"pwsh"},
 	use_ime = true,
 	initial_rows = 30,
 	initial_cols = 120,
@@ -60,7 +56,6 @@ return {
 			font = font_with_fallback("Operator Mono SSm Lig Medium", { style = "Italic" }),
 		},
 	},
-	default_prog = { "pwsh" },
 	window_padding = {
 		left = 0,
 		right = 0,
@@ -81,7 +76,7 @@ return {
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
-	-- window_background_opacity = 0.97,
+	window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
 	-- color_scheme = "kanagawa",

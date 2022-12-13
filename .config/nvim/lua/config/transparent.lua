@@ -5,7 +5,7 @@ if not ok then
 end
 
 transparent.setup({
-  enable = false, 
+  enable = true, 
   extra_groups = { 
     "BufferLineTabClose",
     "BufferlineBufferSelected",
