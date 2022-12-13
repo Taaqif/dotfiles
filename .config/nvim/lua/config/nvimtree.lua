@@ -81,13 +81,5 @@ nvim_tree.setup({
 				},
 			},
 		},
-	},
-})
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"NvimTree*"},
-  command = "DelayTrainDisable",
-})
-vim.api.nvim_create_autocmd({"BufLeave", "BufWinLeave"}, {
-  pattern = {"NvimTree*"},
-  command = "DelayTrainEnable",
+	}
 })

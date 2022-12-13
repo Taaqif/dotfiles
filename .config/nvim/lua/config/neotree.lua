@@ -53,6 +53,9 @@ neotree.setup({
 			event = "neo_tree_buffer_enter",
 			handler = function(_)
 				vim.opt_local.signcolumn = "auto"
+				vim.cmd([[
+          setlocal relativenumber
+        ]])
 			end,
 		},
 	},
