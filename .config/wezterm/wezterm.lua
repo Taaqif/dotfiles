@@ -15,7 +15,7 @@ return {
 	font_size = 10.0,
 	check_for_updates = true,
 	show_update_window = true,
-	term = "wezterm",
+	term = "xterm-256color",
 	tab_bar_at_bottom = true,
 	line_height = 1,
 	-- default_domain = 'WSL:Ubuntu',
