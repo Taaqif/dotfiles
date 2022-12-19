@@ -1,5 +1,6 @@
 set fish_greeting # disable fish greeting
 set -Ux EDITOR nvim
+set -Ux TERM "xterm-256color"
 set -Ux NEOVIM_WIN_DIR "/mnt/c/Program Files/Neovim"
 fish_add_path /home/tye/.cargo/bin
 fish_add_path /home/tye/.local/share/neovim/bin
