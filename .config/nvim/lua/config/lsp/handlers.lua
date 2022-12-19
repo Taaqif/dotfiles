@@ -27,41 +27,35 @@ M.on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
 	map("n", "<leader>lf", function()
 		vim.lsp.buf.format()
 	end, { desc = "Format code", buffer = bufnr })
-	map("n", "K", function()
-		vim.lsp.buf.hover()
-	end, { desc = "Hover symbol details", buffer = bufnr })
 	map("n", "<leader>la", function()
 		vim.lsp.buf.code_action()
 	end, { desc = "LSP code action", buffer = bufnr })
-	map("n", "<leader>lh", function()
-		vim.lsp.buf.signature_help()
-	end, { desc = "Signature help", buffer = bufnr })
 	map("n", "<leader>lr", function()
 		vim.lsp.buf.rename()
 	end, { desc = "Rename current symbol", buffer = bufnr })
-	-- map("n", "gD", function()
-	-- 	vim.lsp.buf.declaration()
-	-- end, { desc = "Declaration of current symbol", buffer = bufnr })
-	-- map("n", "gI", function()
-	-- 	if trouble_ok then
-	-- 		trouble.open("lsp_implementations")
-	-- 	else
-	-- 		vim.lsp.buf.implementation()
-	-- 	end
-	-- end, { desc = "Implementation of current symbol", buffer = bufnr })
-	-- map("n", "gd", function()
-	-- 	vim.lsp.buf.definition()
-	-- end, { desc = "Show the definition of current symbol", buffer = bufnr })
-	-- map("n", "gr", function()
-	-- 	if trouble_ok then
-	-- 		trouble.open("lsp_references")
-	-- 	else
-	-- 		vim.lsp.buf.references()
-	-- 	end
-	-- end, { desc = "References of current symbol", buffer = bufnr })
+
+	map("n", "K", function()
+		vim.lsp.buf.hover()
+	end, { desc = "Hover symbol details", buffer = bufnr })
+	map("n", "gD", function()
+		vim.lsp.buf.declaration()
+	end, { desc = "Declaration of current symbol", buffer = bufnr })
+	map("n", "gi", function()
+			vim.lsp.buf.implementation()
+	end, { desc = "Implementation of current symbol", buffer = bufnr })
+	map("n", "<C-k>", function()
+		vim.lsp.buf.signature_help()
+	end, { desc = "Show signature help", buffer = bufnr })
+	map("n", "gd", function()
+		vim.lsp.buf.definition()
+	end, { desc = "Show the definition of current symbol", buffer = bufnr })
+	map("n", "gr", function()
+		vim.lsp.buf.references()
+	end, { desc = "References of current symbol", buffer = bufnr })
 	map("n", "<leader>ld", function()
 		vim.diagnostic.open_float()
 	end, { desc = "Hover diagnostics", buffer = bufnr })
@@ -70,7 +64,7 @@ M.on_attach = function(client, bufnr)
 	end, { desc = "Previous diagnostic", buffer = bufnr })
 	map("n", "[D", function()
 		vim.diagnostic.goto_prev({
-			severity = vim.diagnostic.severity.ERROR
+			severity = vim.diagnostic.severity.ERROR,
 		})
 	end, { desc = "Previous error diagnostic", buffer = bufnr })
 	map("n", "]d", function()
@@ -79,15 +73,12 @@ M.on_attach = function(client, bufnr)
 	map("n", "]D", function()
 		vim.diagnostic.goto_next({
 
-			severity = vim.diagnostic.severity.ERROR
+			severity = vim.diagnostic.severity.ERROR,
 		})
 	end, { desc = "Next error diagnostic", buffer = bufnr })
 	map("n", "gl", function()
 		vim.diagnostic.open_float()
 	end, { desc = "Hover diagnostics", buffer = bufnr })
-	-- vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-	-- 	vim.lsp.buf.formatting()
-	-- end, { desc = "Format file with LSP" })
 
 	local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 	if cmp_nvim_lsp_ok then
@@ -121,7 +112,7 @@ M.on_attach = function(client, bufnr)
 			handler_opts = {
 				border = "rounded",
 			},
-			always_trigger= false,
+			always_trigger = false,
 			toggle_key = "<A-k>",
 		}
 		lsp_signature.on_attach(options, bufnr)
