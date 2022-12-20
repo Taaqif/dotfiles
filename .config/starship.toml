@@ -12,6 +12,7 @@ continuation_prompt = "[╰ ](245)"
 [character] 
 success_symbol = "[─](245)" 
 # error_symbol = "[💢](bold red)"
+error_symbol = "[─](245)"
 
 [fill]
 symbol = " "
