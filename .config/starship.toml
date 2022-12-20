@@ -1,17 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 format = """
-[╭╴](238)$env_var\
+[╭╴](245)$env_var\
 $all\
 $fill\
 $cmd_duration\
 $time\
 $line_break\
-[╰─](238)$character"""
-continuation_prompt = "[  ╰ ](243)"
+[╰─](245)$character"""
+continuation_prompt = "[╰ ](245)"
 
 [character] 
-success_symbol = "[✨](bold green)" 
-error_symbol = "[💢](bold red)"
+success_symbol = "[─](245)" 
+# error_symbol = "[💢](bold red)"
 
 [fill]
 symbol = " "
