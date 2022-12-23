@@ -9,6 +9,7 @@ local function hi(group, opts)
 end
 
 hi('NonAscii', { guibg = "#333333" })
+hi('CurrentWord', { gui = "NONE", cterm="NONE", term = "NONE", guibg = "#444444" })
 
 -- Custom ui
 -- hi("Pmenu", { guifg = colors.white, guibg = colors.dark_black })

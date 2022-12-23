@@ -1,3 +1,8 @@
+local has_words_before = function()
+  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -10,19 +15,16 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind-nvim",
 
-    "L3MON4D3/LuaSnip"
+    "L3MON4D3/LuaSnip",
   },
+  lazy = false,
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
     local cmp = require("cmp")
-    local lspkind = require('lspkind')
+    local lspkind = require("lspkind")
     local icons = require("icons")
     local luasnip = require("luasnip")
 
-    local has_words_before = function()
-      local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
     cmp.setup({
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -34,8 +36,8 @@ return {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = lspkind.cmp_format({
-          mode = "symbol", 
-          maxwidth = 50, 
+          mode = "symbol",
+          maxwidth = 50,
           symbol_map = icons.kind,
         }),
       },
@@ -46,17 +48,17 @@ return {
       },
       window = {
         completion = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         },
         documentation = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         },
       },
       mapping = {
-        ["<C-e>"] = cmp.mapping {
+        ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
-        },
+        }),
         ["<Up>"] = cmp.mapping.select_prev_item(),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_prev_item(),
@@ -67,22 +69,22 @@ return {
         ["<C-u>"] = cmp.mapping.scroll_docs(-5),
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ['<C-d>'] = cmp.mapping(function(fallback)
+        ["<C-d>"] = cmp.mapping(function(fallback)
           if luasnip.jumpable(1) then
             luasnip.jump(1)
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, { "i", "s" }),
 
         -- go to previous placeholder in the snippet
-        ['<C-b>'] = cmp.mapping(function(fallback)
+        ["<C-b>"] = cmp.mapping(function(fallback)
           if luasnip.jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -104,15 +106,13 @@ return {
           end
         end, { "i", "s" }),
       },
-
-
     })
     cmp.setup.cmdline(":", {
       sources = cmp.config.sources({
         { name = "path" },
       }, {
-          { name = "cmdline" },
-        }),
+        { name = "cmdline" },
+      }),
       mapping = cmp.mapping.preset.cmdline(),
     })
     cmp.setup.cmdline("/", {
@@ -122,6 +122,5 @@ return {
       },
       mapping = cmp.mapping.preset.cmdline(),
     })
-
-  end
+  end,
 }

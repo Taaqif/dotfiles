@@ -13,4 +13,5 @@ return {
 	"moll/vim-bbye",
 	"andymass/vim-matchup",
 	"wellle/targets.vim",
+	"folke/lsp-colors.nvim"
 }

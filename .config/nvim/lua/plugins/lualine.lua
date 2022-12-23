@@ -1,4 +1,3 @@
-
 local function has_value(tab, val)
   for index, value in ipairs(tab) do
     if value == val then
@@ -113,6 +112,7 @@ local function show_macro_recording()
     return "recording @" .. recording_register
   end
 end
+
 function show_search_result()
   local res = vim.fn.searchcount({ maxcount = 0 })
 
@@ -125,13 +125,13 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  event = "BufWinEnter",
   config = function()
     local navic_ok, navic = pcall(require, "nvim-navic")
     local lualine = require("lualine")
     local colors = require("colors")
 
-    lualine.setup {
+    lualine.setup({
       options = {
         theme = vim.g.colors_name or "auto",
         component_separators = { left = "", right = "" },
@@ -145,23 +145,12 @@ return {
           "branch",
           "diff",
           {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            diagnostics_color = {
-              error = { fg = colors.red }, 
-              warn = { fg = colors.yellow }, 
-              info = { fg = colors.blue },
-              hint = { fg = colors.green },
-            },
-            colored = true,
-          },
-          {
             "macro-recording",
             fmt = show_macro_recording,
             color = { fg = colors.orange },
           },
         },
-        lualine_c = { "filename" },
+        lualine_c = { },
         lualine_x = {
           { show_search_result },
           "filetype",
@@ -221,8 +210,7 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-
-    }
+    })
     vim.api.nvim_create_autocmd("RecordingEnter", {
       callback = function()
         lualine.refresh({
@@ -241,17 +229,15 @@ return {
         -- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
         local timer = vim.loop.new_timer()
         timer:start(
-        50,
-        0,
-        vim.schedule_wrap(function()
-          lualine.refresh({
-            place = { "statusline" },
-          })
-        end)
+          50,
+          0,
+          vim.schedule_wrap(function()
+            lualine.refresh({
+              place = { "statusline" },
+            })
+          end)
         )
       end,
     })
-
-  end
+  end,
 }
-
