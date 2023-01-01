@@ -21,6 +21,7 @@ local function list_registered_providers_names(filetype)
   return registered
 end
 
+local show_lsp_names = false
 local function lsp_client_names()
   local client_names = {}
   local buf_ft = vim.bo.filetype
@@ -46,10 +47,15 @@ local function lsp_client_names()
     end
   end
   -- add in auto fomat indicator
+  local icon = "  "
   if next(client_names) == nil then
-    return "No LSP"
+    return icon .. "No LSP"
   else
-    return "[" .. table.concat(client_names, ",") .. "]"
+    if show_lsp_names then
+      return icon .. "[" .. table.concat(client_names, ",") .. "]"
+    else
+      return icon .. #client_names
+    end
     -- return lsp_no .. " Clients"
   end
 end
@@ -72,20 +78,6 @@ local function tab_space_width()
     size = vim.api.nvim_buf_get_option(0, "tabstop")
   end
   return "SPC:" .. size
-end
-
-local function display_lsp_status()
-  -- if #vim.lsp.buf_get_clients() == 0 then return '' end
-  local status = require("lsp-status").status()
-  if status == "" then
-    return ""
-  end
-  status = string.gsub(status, "%(", "") -- get rid of opening paren
-  status = string.gsub(status, " ", "") -- get rid of ls symbol so we can add it on a lualine component level
-  status = string.gsub(status, "%)", "") -- get rid of closing paren
-  status = string.gsub(status, "^%s*(.-)%s*$", "%1") -- trim
-
-  return status
 end
 
 local function display_treesitter_status()
@@ -150,15 +142,21 @@ return {
             color = { fg = colors.orange },
           },
         },
-        lualine_c = { },
+        lualine_c = {},
         lualine_x = {
           { show_search_result },
           "filetype",
         },
         lualine_y = {
           {
-            lsp_client_names,
-            icon = "",
+            "lsp-clients",
+            fmt = lsp_client_names,
+            on_click = function()
+              show_lsp_names = not show_lsp_names
+              lualine.refresh({
+                place = { "statusline" },
+              })
+            end,
           },
           {
             autoformat_status,
