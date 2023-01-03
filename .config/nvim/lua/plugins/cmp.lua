@@ -17,6 +17,7 @@ return {
 
     "L3MON4D3/LuaSnip",
   },
+  event = "BufReadPre",
   lazy = false,
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
