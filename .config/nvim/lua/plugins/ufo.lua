@@ -1,8 +1,8 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = "kevinhwang91/promise-async",
-  event = "BufReadPre",
-  enabled = false, -- does not seem to work 
+  event = "BufRead",
+  enabled = true, -- does not seem to work 
   config = function()
     local ufo = require("ufo")
     vim.o.foldcolumn = "0"

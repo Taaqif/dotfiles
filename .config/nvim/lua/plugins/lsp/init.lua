@@ -11,7 +11,7 @@ local M = {
 		"RishabhRD/nvim-lsputils",
 		"jose-elias-alvarez/null-ls.nvim",
 	},
-	event = "BufReadPre",
+	event = "BufRead",
 	init = function()
 		local wk = require("which-key")
 		wk.register({

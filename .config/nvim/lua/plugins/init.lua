@@ -11,7 +11,7 @@ return {
 	{"tpope/vim-repeat", event = "VeryLazy"},
 	{"AndrewRadev/switch.vim", event = "VeryLazy"},
 	{"moll/vim-bbye", event = "VeryLazy"},
-	{"andymass/vim-matchup", event = "BufReadPre"},
-	{"wellle/targets.vim", event = "BufReadPre"},
+	{"andymass/vim-matchup", event = "BufRead"},
+	{"wellle/targets.vim", event = "BufRead"},
 	{"folke/lsp-colors.nvim", event = "VeryLazy"}
 }

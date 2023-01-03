@@ -18,7 +18,7 @@ return {
 
     "L3MON4D3/LuaSnip",
   },
-  event = "BufReadPre",
+  event = "BufRead",
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
     local cmp = require("cmp")

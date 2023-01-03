@@ -1,6 +1,6 @@
 return {
   "kylechui/nvim-surround",
-  event = "BufReadPre",
+  event = "BufRead",
   config = function()
     require("nvim-surround").setup({
     })
