@@ -19,6 +19,7 @@ Invoke-Expression (&starship init powershell)
 $env:STARSHIP_DISTRO = ""
 $env:EDITOR = "nvim"
 $env:LANG="en_US.UTF-8"
+$env:TERM="xterm-256color"
 
 # bartib
 $env:BARTIB_FILE = "./time.bartib"
