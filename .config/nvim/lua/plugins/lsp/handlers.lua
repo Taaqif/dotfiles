@@ -7,7 +7,10 @@ local map = vim.keymap.set
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+M.capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true
@@ -24,6 +27,7 @@ M.on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
+
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	map("n", "<leader>lf", function()
@@ -43,7 +47,7 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.buf.declaration()
 	end, { desc = "Declaration of current symbol", buffer = bufnr })
 	map("n", "gi", function()
-			vim.lsp.buf.implementation()
+		vim.lsp.buf.implementation()
 	end, { desc = "Implementation of current symbol", buffer = bufnr })
 	map("n", "<C-k>", function()
 		vim.lsp.buf.signature_help()
@@ -90,8 +94,6 @@ M.on_attach = function(client, bufnr)
 	if navic_ok then
 		navic.attach(client, bufnr)
 	end
-
 end
 
 return M
-
