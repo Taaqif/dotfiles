@@ -5,10 +5,16 @@ return {
   config = function()
     require("fidget").setup({
       text = {
-        spinner = "dots_snake",
+        spinner = "arc",
+        done = "",
       },
       window = {
         blend = 0,
+      },
+      sources = {
+        ["null-ls"] = {
+          ignore = true,
+        },
       },
     })
   end,
