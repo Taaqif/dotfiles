@@ -128,7 +128,7 @@ return {
         theme = vim.g.colors_name or "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "NvimTree", "neo-tree", "packer", "toggleterm", "TelescopePrompt", "Trouble", "Outline" },
+        disabled_filetypes = { "alpha", "NvimTree", "neo-tree", "packer", "toggleterm", "TelescopePrompt", "Trouble", "Outline", "help" },
         always_divide_middle = true,
       },
       sections = {
