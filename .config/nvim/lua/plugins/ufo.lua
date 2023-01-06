@@ -2,7 +2,16 @@ return {
   "kevinhwang91/nvim-ufo",
   dependencies = "kevinhwang91/promise-async",
   event = "BufRead",
-  enabled = true, -- does not seem to work 
+  init = function()
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+      pattern = {
+        "neo-tree",
+      },
+      callback = function()
+        require("ufo").detach()
+      end,
+    })
+  end,
   config = function()
     local ufo = require("ufo")
     vim.o.foldcolumn = "0"
