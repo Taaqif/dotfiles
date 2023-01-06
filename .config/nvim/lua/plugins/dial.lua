@@ -8,6 +8,7 @@ return {
     vim.api.nvim_set_keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
     vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
   end,
+  event = "BufRead",
   config = function()
     local augend = require("dial.augend")
     require("dial.config").augends:register_group({
