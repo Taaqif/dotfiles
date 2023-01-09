@@ -3,13 +3,17 @@ local M = {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 		"nvim-lua/lsp-status.nvim",
 		"b0o/schemastore.nvim",
-		"jose-elias-alvarez/typescript.nvim",
 		"SmiteshP/nvim-navic",
 		"RRethy/vim-illuminate",
 		"RishabhRD/nvim-lsputils",
 		"jose-elias-alvarez/null-ls.nvim",
+		-- typescript
+		"jose-elias-alvarez/typescript.nvim",
+		--rust
+		"simrat39/rust-tools.nvim",
 	},
 	event = "BufRead",
 	init = function()
@@ -60,9 +64,8 @@ function M.config()
 			severity_limit = "Warning",
 			format = function(diagnostic)
 				-- hide Info and hints from vtext
-				if
-					diagnostic.severity == vim.diagnostic.severity.INFO
-					or diagnostic.severity == vim.diagnostic.severity.HINT
+				if diagnostic.severity == vim.diagnostic.severity.INFO
+						or diagnostic.severity == vim.diagnostic.severity.HINT
 				then
 					return nil
 				else
@@ -99,7 +102,7 @@ function M.config()
 		table.insert(servers, server)
 	end
 	for _, server in ipairs(servers) do
-		local status_ok, server_opts = pcall(require, "config.lsp.settings." .. server)
+		local status_ok, server_opts = pcall(require, "plugins.lsp.settings." .. server)
 		local opts = {
 			capabilities = require("plugins.lsp.handlers").capabilities,
 		}
@@ -108,10 +111,10 @@ function M.config()
 			opts["setup"] = nil
 		end
 		opts.on_attach = function(client, bufnr)
+			require("plugins.lsp.handlers").on_attach(client, bufnr)
 			if status_ok and type(server_opts.on_attach) == "function" then
 				server_opts.on_attach(client, bufnr)
 			end
-			require("plugins.lsp.handlers").on_attach(client, bufnr)
 		end
 		if status_ok and type(server_opts.setup) == "function" then
 			server_opts.setup(opts)

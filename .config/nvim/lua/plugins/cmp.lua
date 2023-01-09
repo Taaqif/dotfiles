@@ -10,8 +10,9 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-cmdline",
-    "dmitmel/cmp-cmdline-history",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "dmitmel/cmp-cmdline-history",
     "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind-nvim",
     "rafamadriz/friendly-snippets",
@@ -21,6 +22,8 @@ return {
   event = "BufRead",
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
+    vim.opt.shortmess = vim.opt.shortmess + { c = true }
+    vim.api.nvim_set_option("updatetime", 300)
     local cmp = require("cmp")
     local lspkind = require("lspkind")
     local icons = require("icons")
@@ -38,6 +41,7 @@ return {
     cmp.setup({
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "nvim_lsp_signature_help" },
         { name = "buffer" },
         { name = "luasnip" },
         { name = "path" },
