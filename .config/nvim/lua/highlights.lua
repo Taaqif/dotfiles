@@ -8,7 +8,7 @@ local function hi(group, opts)
 	vim.cmd(c)
 end
 
-hi('NonAscii', { guibg = "#333333" })
+hi('NonAscii', { gui = "NONE", cterm="NONE", term = "NONE", guibg = "#444444" })
 hi('CurrentWord', { gui = "NONE", cterm="NONE", term = "NONE", guibg = "#444444" })
 
 -- Custom ui
