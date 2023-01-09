@@ -2,17 +2,28 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
+		"jay-babu/mason-nvim-dap.nvim",
 	},
 	init = function()
-
 		local wk = require("which-key")
 		wk.register({
 			["<leader>D"] = { name = "DAP" },
 		})
 
 		local map = vim.keymap.set
-		map("n", "<F5>", function()
+
+		local continue = function()
+			if vim.fn.filereadable(".vscode/launch.json") then
+				require("dap.ext.vscode").load_launchjs(nil, {
+					["pwa-chrome"] = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+					["node"] = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+				})
+			end
 			require("dap").continue()
+		end
+
+		map("n", "<F5>", function()
+			continue()
 		end, { desc = "Debugger: Start" })
 		map("n", "<F17>", function()
 			require("dap").terminate()
@@ -42,7 +53,7 @@ return {
 			require("dap").clear_breakpoints()
 		end, { desc = "Clear Breakpoints" })
 		map("n", "<leader>Dc", function()
-			require("dap").continue()
+			continue()
 		end, { desc = "Start/Continue (F5)" })
 		map("n", "<leader>Di", function()
 			require("dap").step_into()
@@ -74,6 +85,14 @@ return {
 		map("n", "<leader>Dh", function()
 			require("dap.ui.widgets").hover()
 		end, { desc = "Debugger Hover" })
+
+		-- remove dap-repl from buf type
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "dap-repl",
+			callback = function(args)
+				vim.api.nvim_buf_set_option(args.buf, "buflisted", false)
+			end,
+		})
 	end,
 	event = "VeryLazy",
 	config = function()
@@ -110,6 +129,11 @@ return {
 		vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
 		vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.breakpoint_rejected)
 		vim.fn.sign_define("DapLogPoint", dap_breakpoint.log_point)
+
+		require("mason-nvim-dap").setup({
+			automatic_setup = true,
+		})
+		require("mason-nvim-dap").setup_handlers({})
 
 		dapui.setup({})
 

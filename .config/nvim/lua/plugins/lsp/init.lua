@@ -26,7 +26,6 @@ local M = {
 
 function M.config()
 	local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
 
 	local navic_ok, navic = pcall(require, "nvim-navic")
@@ -40,7 +39,6 @@ function M.config()
 	end
 
 	local util = lspconfig.util
-	mason.setup({})
 	mason_lspconfig.setup({})
 
 	require("plugins.lsp.null_ls")
