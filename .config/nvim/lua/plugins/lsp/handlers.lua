@@ -3,7 +3,7 @@ local navic_ok, navic = pcall(require, "nvim-navic")
 
 local M = {}
 
-local map = vim.keymap.set
+local map = require("utils").keymap
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -24,6 +24,8 @@ M.on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
+	local enable_trouble = true
+
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	map("n", "<leader>lf", function()
@@ -39,21 +41,32 @@ M.on_attach = function(client, bufnr)
 	map("n", "K", function()
 		vim.lsp.buf.hover()
 	end, { desc = "Hover symbol details", buffer = bufnr })
-	map("n", "gD", function()
-		vim.lsp.buf.declaration()
-	end, { desc = "Declaration of current symbol", buffer = bufnr })
-	map("n", "gi", function()
-		vim.lsp.buf.implementation()
-	end, { desc = "Implementation of current symbol", buffer = bufnr })
-	map({"n", "i"}, "<C-k>", function()
-		vim.lsp.buf.signature_help()
-	end, { desc = "Show signature help", buffer = bufnr })
-	map("n", "gd", function()
-		vim.lsp.buf.definition()
-	end, { desc = "Show the definition of current symbol", buffer = bufnr })
-	map("n", "gr", function()
-		vim.lsp.buf.references()
-	end, { desc = "References of current symbol", buffer = bufnr })
+
+	if enable_trouble then
+		map("n", "<leader>ll", ":TroubleToggle<CR>", { desc = "Trouble document Diagnostics" })
+		map("n", "gd", ":Trouble lsp_definitions<CR>", { desc = "Goto Definition" })
+		map("n", "gr", ":Trouble lsp_references<CR>", { desc = "References" })
+		map("n", "gD", ":Trouble lsp_declarations<CR>", { desc = "Goto Declaration" })
+		map("n", "gi", ":Trouble lsp_implementations<CR>", { desc = "Goto Implementation" })
+		map("n", "gt", ":Trouble lsp_type_definitions<CR>", { desc = "Goto Type Definition" })
+	else
+		map("n", "gd", function()
+			vim.lsp.buf.definition()
+		end, { desc = "Show the definition of current symbol", buffer = bufnr })
+		map("n", "gr", function()
+			vim.lsp.buf.references()
+		end, { desc = "References of current symbol", buffer = bufnr })
+		map("n", "gD", function()
+			vim.lsp.buf.declaration()
+		end, { desc = "Declaration of current symbol", buffer = bufnr })
+		map("n", "gi", function()
+			vim.lsp.buf.implementation()
+		end, { desc = "Implementation of current symbol", buffer = bufnr })
+	end
+
+		map({ "n", "i" }, "<C-k>", function()
+			vim.lsp.buf.signature_help()
+		end, { desc = "Show signature help", buffer = bufnr })
 	map("n", "<leader>ld", function()
 		vim.diagnostic.open_float()
 	end, { desc = "Hover diagnostics", buffer = bufnr })
