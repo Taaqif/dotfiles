@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"jay-babu/mason-nvim-dap.nvim",
+		"mxsdev/nvim-dap-vscode-js",
 	},
 	init = function()
 		local wk = require("which-key")
@@ -10,7 +11,7 @@ return {
 			["<leader>D"] = { name = "DAP" },
 		})
 
-		local map = vim.keymap.set
+		local map = require('utils').keymap
 
 		local continue = function()
 			if vim.fn.filereadable(".vscode/launch.json") then
@@ -134,6 +135,17 @@ return {
 			automatic_setup = true,
 		})
 		require("mason-nvim-dap").setup_handlers({})
+		require("dap-vscode-js").setup({
+			debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+			debugger_cmd = { "js-debug-adapter" },
+			adapters = {
+				"pwa-node",
+				"pwa-chrome",
+				"pwa-msedge",
+				"node-terminal",
+				"pwa-extensionHost",
+			},
+		})
 
 		dapui.setup({})
 
