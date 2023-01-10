@@ -33,8 +33,8 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>")
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>")
 
 -- navigate through wrapped lines
-vim.keymap.set("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
-vim.keymap.set("n", "k", "v:count ? 'k' : 'gk'", {expr = true, noremap = true})
+keymap("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
+keymap("n", "k", "v:count ? 'k' : 'gk'", {expr = true, noremap = true})
 -- Insert --
 keymap("i", "<c-z>", "<c-o>:u<CR>")
 -- keymap("i", "<C-w>", "<C-\><C-o>dB")
