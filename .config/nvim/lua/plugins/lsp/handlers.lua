@@ -34,7 +34,7 @@ M.on_attach = function(client, bufnr)
 	map("n", "<leader>la", function()
 		vim.lsp.buf.code_action()
 	end, { desc = "LSP code action", buffer = bufnr })
-	map("n", "<leader>lr", function()
+	map("n", "<leader>lR", function()
 		vim.lsp.buf.rename()
 	end, { desc = "Rename current symbol", buffer = bufnr })
 
