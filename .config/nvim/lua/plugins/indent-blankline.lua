@@ -19,6 +19,7 @@ return {
         "TelescopeResults",
         "lsp-installer",
         "NvimTree",
+        "Outline",
         "mason",
         "neo-tree"
       },

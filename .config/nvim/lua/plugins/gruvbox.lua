@@ -1,9 +1,6 @@
 return {
 	"sainnhe/gruvbox-material",
-	lazy = false,
-	dependencies = {
-		"xiyaowong/nvim-transparent",
-	},
+	enabled = false,
 	config = function()
 		local colors = require("colors")
 		local function hi(group, opts)
