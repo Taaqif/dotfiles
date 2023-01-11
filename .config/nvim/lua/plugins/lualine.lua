@@ -200,7 +200,12 @@ return {
 				lualine_z = {},
 			},
 			tabline = {},
-			extensions = {},
+			extensions = {
+				'nvim-dap-ui',
+				'nvim-tree',
+				'symbols-outline',
+				'quickfix'
+			},
 			winbar = {
 				lualine_a = {},
 				lualine_b = {
