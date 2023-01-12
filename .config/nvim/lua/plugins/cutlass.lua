@@ -1,6 +1,6 @@
 return {
 	"gbprod/cutlass.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	config = function()
 		require("cutlass").setup({
 			cut_key = "x",
