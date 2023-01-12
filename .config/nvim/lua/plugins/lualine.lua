@@ -115,6 +115,12 @@ function show_search_result()
 	end
 end
 
+local lazygit = { sections = { lualine_a = {
+	function()
+		return "LazyGit"
+	end,
+} }, filetypes = { "lazygit" } }
+
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "BufWinEnter",
@@ -215,6 +221,7 @@ return {
 				"symbols-outline",
 				"quickfix",
 				"toggleterm",
+				lazygit,
 			},
 			winbar = {
 				lualine_a = {},
