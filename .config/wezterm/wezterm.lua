@@ -19,7 +19,7 @@ return {
 	tab_bar_at_bottom = true,
 	line_height = 1,
 	-- default_domain = 'WSL:Ubuntu',
-	default_prog = {"pwsh"},
+	default_prog = { "pwsh" },
 	use_ime = true,
 	initial_rows = 32,
 	initial_cols = 120,
@@ -77,12 +77,21 @@ return {
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
-	window_background_opacity = 0.97,
+	-- window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
 	-- color_scheme = "kanagawa",
-	color_scheme = "gruvbox_material_dark_hard",
+	color_scheme = "kanagawa",
 	force_reverse_video_cursor = true,
+	colors = {
+		tab_bar = {
+			background = "#2a2a37",
+			new_tab = {
+				bg_color = "#2a2a37",
+				fg_color = "#808080",
+			},
+		},
+	},
 	color_schemes = {
 		-- kanagawa.nvim
 		["kanagawa"] = {

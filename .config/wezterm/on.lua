@@ -77,10 +77,13 @@ wezterm.on("update-right-status", function(window, pane)
 	end
 	-- Color palette for the backgrounds of each cell
 	local colors = {
-		"#333333",
-		"#E06C75",
-		"#93474d",
-		"#462224",
+		"#2a2a37",
+		-- "#E06C75",
+		-- "#93474d",
+		-- "#462224",
+		"#7e9cd8",
+		"#51648b",
+		"#242c3e",
 	}
 
 	local text_colors = {
@@ -118,7 +121,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	if tab.tab_index == 0 then
 		left_arrow = SOLID_LEFT_MOST
 	end
-	local edge_background = "#333333"
+	local edge_background = "#2a2a37"
 	local background = "#595959"
 	local foreground = "#b0b0b0"
 	local dim_foreground = "#3A3A3A"
@@ -136,15 +139,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	if tab.is_active then
-		background = "#E06C75"
+		-- background = "#E06C75"
+		background = "#7e9cd8"
 		foreground = "#1C1B19"
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
 			id = id .. "視 "
-			background = "#ff9f65"
+			-- background = "#ff9f65"
+			background = "#e6c384"
 		end
 	elseif hover then
-		background = "#E06C60"
+		-- background = "#E06C60"
+		background = "#7e9cd8"
 		foreground = "#1C1B19"
 	end
 
