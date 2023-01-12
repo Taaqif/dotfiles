@@ -100,7 +100,7 @@ M.on_attach = function(client, bufnr)
 		illuminate.on_attach(client)
 	end
 
-	if navic_ok then
+	if navic_ok and client.server_capabilities.documentSymbolProvider then
 		navic.attach(client, bufnr)
 	end
 end
