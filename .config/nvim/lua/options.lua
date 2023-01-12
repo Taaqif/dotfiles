@@ -44,7 +44,6 @@ local options = {
 	spelloptions = "camel",
 	spell = false,
 	-- shell = "pwsh.exe -NoLogo"
-	colorcolumn = "80"
 }
 
 for k, v in pairs(options) do
