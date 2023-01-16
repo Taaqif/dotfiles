@@ -1,1 +1,1 @@
-vim.cmd [[autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc]]
+vim.cmd [[autocmd BufRead,BufNewFile *.json set filetype=jsonc]]
