@@ -115,11 +115,14 @@ function show_search_result()
 	end
 end
 
-local lazygit = { sections = { lualine_a = {
+local make_lualine_extension = function (ft, text)
+	return { sections = { lualine_a = {
 	function()
-		return "LazyGit"
+		return text
 	end,
-} }, filetypes = { "lazygit" } }
+} }, filetypes = { ft } }
+end
+
 
 return {
 	"nvim-lualine/lualine.nvim",
@@ -221,7 +224,8 @@ return {
 				"symbols-outline",
 				"quickfix",
 				"toggleterm",
-				lazygit,
+				make_lualine_extension('lazygit', "LazyGit"),
+				make_lualine_extension('lazy', "Lazy"),
 			},
 			winbar = {
 				lualine_a = {},

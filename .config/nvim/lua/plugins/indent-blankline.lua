@@ -21,7 +21,8 @@ return {
         "NvimTree",
         "Outline",
         "mason",
-        "neo-tree"
+        "neo-tree",
+        "lazy"
       },
       char_highlight_list = {
         -- "IndentBlanklineIndent1",

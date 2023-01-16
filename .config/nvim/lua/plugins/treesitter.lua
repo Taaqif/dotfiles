@@ -9,7 +9,7 @@ return {
     "nvim-treesitter/nvim-treesitter-refactor",
     "mfussenegger/nvim-treehopper",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    "p00f/nvim-ts-rainbow",
+    "mrjones2014/nvim-ts-rainbow",
     "windwp/nvim-ts-autotag",
     "nvim-treesitter/nvim-treesitter-context",
 
