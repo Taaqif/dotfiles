@@ -9,6 +9,9 @@ return {
 				spelling = {
 					enabled = true,
 				},
+				presets = {
+					g = false
+				}
 			},
 			key_labels = {
 				["<space>"] = "SPC",
