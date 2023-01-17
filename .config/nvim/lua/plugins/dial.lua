@@ -1,5 +1,6 @@
 return {
 	"monaqa/dial.nvim",
+	event = "VeryLazy",
 	init = function()
 		local map = require("utils").keymap
 		map("n", "<C-a>", function()
