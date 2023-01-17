@@ -1,7 +1,7 @@
 return {
 	"lewis6991/gitsigns.nvim",
 
-	event = "VeryLazy",
+	event = "BufReadPre",
 	init = function()
 		local keymap = require("utils").keymap
 		local wk = require("which-key")

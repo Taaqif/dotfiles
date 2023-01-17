@@ -126,7 +126,7 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	event = "BufWinEnter",
+	event = "VimEnter",
 	config = function()
 		local navic_ok, navic = pcall(require, "nvim-navic")
 		local lualine = require("lualine")

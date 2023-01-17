@@ -1,6 +1,6 @@
 return {
 	"Taaqif/bufferline.nvim",
-	event = "BufWinEnter",
+	event = "VimEnter",
 	config = function()
 		require("bufferline").setup({
 			options = {

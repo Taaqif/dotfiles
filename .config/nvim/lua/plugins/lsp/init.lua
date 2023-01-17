@@ -34,7 +34,7 @@ function M.config()
 		vim.g.navic_silence = true
 		navic.setup({
 			highlight = true,
-			separator = "   ",
+			separator = "  ",
 		})
 	end
 

@@ -1,13 +1,14 @@
 return {
 	{
 		"nvim-tree/nvim-web-devicons",
+		lazy = true,
 		config = function()
 			require("nvim-web-devicons").setup({})
 		end,
 	},
-	{"nvim-lua/plenary.nvim", event = "VeryLazy"},
-	{"MunifTanjim/nui.nvim", event = "VeryLazy"},
-	{ "stevearc/dressing.nvim", event = "VeryLazy" },
+	{"nvim-lua/plenary.nvim", lazy = true},
+	{"MunifTanjim/nui.nvim", lazy = true},
+	{ "stevearc/dressing.nvim", lazy = true },
 	{"tpope/vim-repeat", event = "VeryLazy"},
 	{"moll/vim-bbye", event = "VeryLazy"},
 	{"andymass/vim-matchup", event = "BufRead"},

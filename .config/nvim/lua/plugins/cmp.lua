@@ -19,7 +19,7 @@ return {
 
     "L3MON4D3/LuaSnip",
   },
-  event = "BufRead",
+  event = "InsertEnter",
   config = function()
     vim.o.completeopt = "menu,menuone,noselect"
     vim.opt.shortmess = vim.opt.shortmess + { c = true }
