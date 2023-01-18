@@ -40,5 +40,8 @@ return {
       },
 
     })
+
+    require 'nvim-treesitter.install'.compilers = { vim.fn.getenv('CC'), "cc", "zig", "gcc", "clang", "cl" }
+
   end
 }
