@@ -1,3 +1,7 @@
+local keymap = require("utils").keymap
+
+keymap("n", "<leader>L", ":Lazy<CR>", "Lazy")
+
 return {
 	{
 		"nvim-tree/nvim-web-devicons",
