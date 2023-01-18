@@ -60,9 +60,9 @@ return {
 				vim.defer_fn(function()
 					local Checker = require("lazy.manage.checker")
 					local updates = #Checker.updated
-					dashboard.section.footer.val = "  " .. updates .. " Plugin Updates\n" .. dashboard.section.footer.val
+					dashboard.section.footer.val = "  " .. updates .. " Updates | " .. dashboard.section.footer.val
 					pcall(vim.cmd.AlphaRedraw)
-				end, 500)
+				end, 50)
 			end,
 		})
 	end,
