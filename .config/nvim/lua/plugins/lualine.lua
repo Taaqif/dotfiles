@@ -115,14 +115,13 @@ function show_search_result()
 	end
 end
 
-local make_lualine_extension = function (ft, text)
+local make_lualine_extension = function(ft, text)
 	return { sections = { lualine_a = {
-	function()
-		return text
-	end,
-} }, filetypes = { ft } }
+		function()
+			return text
+		end,
+	} }, filetypes = { ft } }
 end
-
 
 return {
 	"nvim-lualine/lualine.nvim",
@@ -193,6 +192,11 @@ return {
 						end,
 					},
 					{
+						require("lazy.status").updates,
+						cond = require("lazy.status").has_updates,
+						color = { fg = "#ff9e64" },
+					},
+					{
 						autoformat_status,
 						separator = "",
 						padding = { left = 1, right = 1 },
@@ -224,8 +228,8 @@ return {
 				"symbols-outline",
 				"quickfix",
 				"toggleterm",
-				make_lualine_extension('lazygit', "LazyGit"),
-				make_lualine_extension('lazy', "Lazy"),
+				make_lualine_extension("lazygit", "LazyGit"),
+				make_lualine_extension("lazy", "Lazy"),
 			},
 			winbar = {
 				lualine_a = {},

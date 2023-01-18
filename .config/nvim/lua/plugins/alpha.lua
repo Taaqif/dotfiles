@@ -53,5 +53,17 @@ return {
 		dashboard.opts.opts.noautocmd = true
 
 		require("alpha").setup(dashboard.opts)
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "VeryLazy",
+			callback = function()
+				vim.defer_fn(function()
+					local Checker = require("lazy.manage.checker")
+					local updates = #Checker.updated
+					dashboard.section.footer.val = "  " .. updates .. " Plugin Updates\n" .. dashboard.section.footer.val
+					pcall(vim.cmd.AlphaRedraw)
+				end, 500)
+			end,
+		})
 	end,
 }
