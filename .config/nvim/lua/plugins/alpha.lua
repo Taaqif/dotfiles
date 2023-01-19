@@ -60,8 +60,13 @@ return {
 				vim.defer_fn(function()
 					local Checker = require("lazy.manage.checker")
 					local updates = #Checker.updated
-					dashboard.section.footer.val = "  " .. updates .. " Updates | " .. dashboard.section.footer.val
-					pcall(vim.cmd.AlphaRedraw)
+					if updates > 0 then
+						dashboard.section.footer.val = "  "
+							.. updates
+							.. " Updates | "
+							.. dashboard.section.footer.val
+						pcall(vim.cmd.AlphaRedraw)
+					end
 				end, 50)
 			end,
 		})
