@@ -1,11 +1,8 @@
 local wezterm = require("wezterm")
-local utils = require("utils")
-local keybinds = require("keybinds")
-local act = wezterm.action
 
-local SOLID_LEFT_ARROW = utf8.char(0xe0ba)
-local SOLID_LEFT_MOST = utf8.char(0x2588)
-local SOLID_RIGHT_ARROW = utf8.char(0xe0bc)
+local SOLID_LEFT_ARROW = ""
+local SOLID_LEFT_MOST = "█"
+local SOLID_RIGHT_ARROW = ""
 
 local SUP_IDX = {
 	"¹",
@@ -51,7 +48,6 @@ local SUB_IDX = {
 	"₁₉",
 	"₂₀",
 }
-
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
 
@@ -69,40 +65,25 @@ wezterm.on("update-right-status", function(window, pane)
 	if text ~= "local" and text ~= "" then
 		table.insert(cells, text)
 	end
-	
+
 	local name = window:active_key_table()
 	if name then
 		name = "Mode: " .. name
 		table.insert(cells, name)
 	end
-	-- Color palette for the backgrounds of each cell
-	local colors = {
-		"#2a2a37",
-		-- "#E06C75",
-		-- "#93474d",
-		-- "#462224",
-		"#7e9cd8",
-		"#51648b",
-		"#242c3e",
-	}
-
-	local text_colors = {
-		"#b0b0b0",
-		"#1C1B19",
-		"#e7e7e7",
-		"#fcfcfc",
-	}
 
 	local elements = {}
 	local num_cells = 0
 
+	local right_status_colors = COLOR.right_status
+
 	local function push(text, is_last)
 		local cell_no = num_cells + 1
-		table.insert(elements, { Foreground = { Color = text_colors[cell_no] } })
-		table.insert(elements, { Background = { Color = colors[cell_no] } })
+		table.insert(elements, { Foreground = { Color = right_status_colors[cell_no].fg_color } })
+		table.insert(elements, { Background = { Color = right_status_colors[cell_no].bg_color } })
 		table.insert(elements, { Text = " " .. text .. " " })
 		if not is_last then
-			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+			table.insert(elements, { Foreground = { Color = right_status_colors[cell_no + 1].bg_color } })
 			table.insert(elements, { Text = SOLID_LEFT_ARROW })
 		end
 		num_cells = num_cells + 1
@@ -121,10 +102,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	if tab.tab_index == 0 then
 		left_arrow = SOLID_LEFT_MOST
 	end
-	local edge_background = "#2a2a37"
-	local background = "#595959"
-	local foreground = "#b0b0b0"
-	local dim_foreground = "#3A3A3A"
+	local background = COLOR.tab_bar.inactive_tab.bg_color
+	local foreground = COLOR.tab_bar.inactive_tab.fg_color
 
 	local has_unseen_output = false
 	for _, pane in ipairs(tab.panes) do
@@ -135,23 +114,21 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	if has_unseen_output then
-		background = "#514545"
+		background = COLOR.tab_bar.unseen_tab.bg_color
+		foreground = COLOR.tab_bar.unseen_tab.fg_color
 	end
 
 	if tab.is_active then
-		-- background = "#E06C75"
-		background = "#7e9cd8"
-		foreground = "#1C1B19"
+		background = COLOR.tab_bar.active_tab.bg_color
+		foreground = COLOR.tab_bar.active_tab.fg_color
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
 			id = id .. "視 "
-			-- background = "#ff9f65"
-			background = "#e6c384"
+			background = COLOR.tab_bar.copy_mode.fg_color
 		end
 	elseif hover then
-		-- background = "#E06C60"
-		background = "#7e9cd8"
-		foreground = "#1C1B19"
+		background = COLOR.tab_bar.hover_tab.bg_color
+		foreground = COLOR.tab_bar.hover_tab.fg_color
 	end
 
 	if tab.active_pane.is_zoomed then
@@ -164,6 +141,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	local edge_foreground = background
+	local edge_background = COLOR.tab_bar.background
 	return {
 		{ Attribute = { Intensity = "Bold" } },
 		{ Background = { Color = edge_background } },
@@ -172,7 +150,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
 		{ Text = id },
-		{ Foreground = { Color = dim_foreground } },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
 		{ Text = SOLID_RIGHT_ARROW },
