@@ -124,7 +124,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
 			id = id .. "視 "
-			background = COLOR.tab_bar.copy_mode.fg_color
+			background = COLOR.tab_bar.copy_mode.bg_color
+			foreground = COLOR.tab_bar.copy_mode.fg_color
 		end
 	elseif hover then
 		background = COLOR.tab_bar.hover_tab.bg_color
