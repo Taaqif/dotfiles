@@ -10,8 +10,8 @@ return {
 	init = function()
 		local keymap = require("utils").keymap
 
-		keymap("n", "<leader>e", ":Neotree toggle<CR>", "Toggle Explorer")
-		keymap("n", "<leader>b", ":Neotree toggle buffers<CR>", "Toggle Buffers")
+		keymap("n", "<leader>e", ":Neotree float toggle<CR>", "Toggle Explorer")
+		keymap("n", "<leader>b", ":Neotree float toggle buffers<CR>", "Toggle Buffers")
 	end,
 	config = function()
 		require("neo-tree").setup({
@@ -22,6 +22,7 @@ return {
 				"diagnostics",
 			},
 			close_if_last_window = true,
+			popup_border_style = "rounded",
 			source_selector = {
 				winbar = true,
 				content_layout = "center",
@@ -39,6 +40,10 @@ return {
 				},
 			},
 			window = {
+				position = "float",
+				popup = {
+					size = { width = "87%", height = "80%" },
+				},
 				mappings = {
 					["l"] = "open",
 					["h"] = "close_node",
@@ -70,13 +75,13 @@ return {
             ]])
 					end,
 				},
-				{
-					event = "file_opened",
-					handler = function(file_path)
-						--auto close
-						require("neo-tree").close_all()
-					end,
-				},
+				-- {
+				-- 	event = "file_opened",
+				-- 	handler = function(file_path)
+				-- 		--auto close
+				-- 		require("neo-tree").close_all()
+				-- 	end,
+				-- },
 			},
 		})
 	end,
