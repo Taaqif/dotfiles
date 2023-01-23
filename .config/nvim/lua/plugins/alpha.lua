@@ -64,7 +64,7 @@ return {
 						dashboard.section.footer.val = "  "
 							.. updates
 							.. " Updates | "
-							.. dashboard.section.footer.val
+							.. footer()
 						pcall(vim.cmd.AlphaRedraw)
 					end
 				end, 50)
