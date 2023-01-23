@@ -1,11 +1,4 @@
 local colors = require("colors")
-local function hi(group, opts)
-	local c = "highlight " .. group
-	for k, v in pairs(opts) do
-		c = c .. " " .. k .. "=" .. v
-	end
-	vim.cmd(c)
-end
 return {
 	"rebelot/kanagawa.nvim",
 	config = function()
@@ -41,8 +34,7 @@ return {
 			NavicIconsOperator = { fg = default_colors.springViolet2 },
 			NavicIconsTypeParameter = { fg = default_colors.springBlue },
 			NavicText = { fg = default_colors.fujiWhite },
-			NavicSeparator = { fg = default_colors.fujiWhite },
-
+			NavicSeparator = { fg = default_colors.sumiInk4 },
 
 			-- Telescope
 			TelescopeBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
@@ -52,12 +44,14 @@ return {
 			TelescopePromptNormal = { fg = colors.white, bg = default_colors.sumiInk2 },
 			TelescopePromptPrefix = { fg = default_colors.waveRed, bg = default_colors.sumiInk2 },
 			TelescopeNormal = { bg = default_colors.sumiInk0 },
-			TelescopePreviewTitle = { fg = colors.black },
+			TelescopePreviewTitle = { fg = colors.sumiInk0 },
 			TelescopePromptTitle = { fg = colors.black, bg = default_colors.waveRed },
 			TelescopeResultsTitle = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			TelescopeSelection = { bg = default_colors.sumiInk2 },
 
 			--Neotree
+			NeoTreeFloatTitle = { fg = colors.black, bg = default_colors.waveRed },
+			NeoTreeFloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			NeoTreeNormal = { bg = default_colors.sumiInk0 },
 			NeoTreeNormalNC = { bg = default_colors.sumiInk0 },
 		}
