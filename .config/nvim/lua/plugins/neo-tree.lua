@@ -1,6 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	cmd = "Neotree",
+	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
@@ -10,8 +10,8 @@ return {
 	init = function()
 		local keymap = require("utils").keymap
 
-		keymap("n", "<leader>e", ":Neotree float toggle<CR>", "Toggle Explorer")
-		keymap("n", "<leader>b", ":Neotree float toggle buffers<CR>", "Toggle Buffers")
+		keymap("n", "<leader>e", ":Neotree float toggle reveal<CR>", "Toggle Explorer")
+		keymap("n", "<leader>b", ":Neotree float toggle buffers reveal<CR>", "Toggle Buffers")
 	end,
 	config = function()
 		require("neo-tree").setup({
