@@ -13,6 +13,8 @@ Invoke-Expression (&starship init powershell)
   Set-PSReadLineOption -HistorySearchCursorMovesToEnd
   Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
   Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+  Set-PSReadLineKeyHandler -Key "Ctrl+p" -Function HistorySearchBackward
+  Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function HistorySearchForward
   Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 #env 
