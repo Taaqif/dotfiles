@@ -1,5 +1,5 @@
-local term_opts = { silent = true }
 
+local term_opts = { silent = true }
 -- Shorten function name
 local keymap = require("utils").keymap
 
@@ -31,6 +31,8 @@ keymap("n", "<S-h>", ":bprevious<CR>")
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>")
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>")
+keymap("n", "<C-S-Down>", "<Esc>:m .+1<CR>")
+keymap("n", "<C-S-Up>", "<Esc>:m .-2<CR>")
 
 -- navigate through wrapped lines
 keymap("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
