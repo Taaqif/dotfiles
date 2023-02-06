@@ -3,6 +3,8 @@ return {
 		foreground = "#dcd7ba",
 		background = "#1f1f28",
 
+		compose_cursor = '#7fb4ca',
+
 		cursor_bg = "#c8c093",
 		cursor_fg = "#c8c093",
 		cursor_border = "#c8c093",
@@ -63,6 +65,10 @@ return {
 				bg_color = "#242c3e",
 				fg_color = "#fcfcfc",
 			},
+			{
+				bg_color = "#514545",
+				fg_color = "#fcfcfc",
+			},
 		},
 	},
 	["gruvbox_material_dark_hard"] = {
@@ -119,6 +125,10 @@ return {
 			},
 			{
 				bg_color = "#462224",
+				fg_color = "#fcfcfc",
+			},
+			{
+				bg_color = "#514545",
 				fg_color = "#fcfcfc",
 			},
 		},

@@ -68,8 +68,14 @@ wezterm.on("update-right-status", function(window, pane)
 
 	local name = window:active_key_table()
 	if name then
-		name = "Mode: " .. name
+		name = "MODE: " .. name
 		table.insert(cells, name)
+	end
+
+	local leader_is_active = window:leader_is_active()
+	if leader_is_active then
+		local leader = "LEADER"
+		table.insert(cells, leader)
 	end
 
 	local elements = {}
