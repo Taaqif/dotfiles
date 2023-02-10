@@ -56,12 +56,16 @@ keymap("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==")
 keymap("v", "<A-k>", ":m .-2<CR>==")
+keymap("v", "<C-S-Down>", ":m .+1<CR>==")
+keymap("v", "<C-S-Up>", ":m .-2<CR>==")
 -- keymap("v", "p", '"_dP')
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv")
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
+keymap("x", "<C-S-Down>", ":move '>+1<CR>gv-gv")
+keymap("x", "<C-S-Up>", ":move '<-2<CR>gv-gv")
 
 -- temrinal
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

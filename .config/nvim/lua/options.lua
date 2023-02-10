@@ -50,7 +50,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
---cmd height 0 
+--cmd height 0
 vim.cmd("set cmdheight=0")
 
 --hide tilde for blank lines
@@ -62,17 +62,18 @@ vim.cmd("set switchbuf=uselast")
 --gui font
 vim.cmd("let &guifont = 'OperatorMonoSSmLig Nerd Font:h11'")
 
-if vim.fn.has "wsl" == 1 then
-  vim.g.clipboard = {
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf", 
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-  }
+if vim.fn.has("wsl") == 1 then
+	vim.g.clipboard = {
+		copy = {
+			["+"] = "win32yank.exe -i --crlf",
+			["*"] = "win32yank.exe -i --crlf",
+		},
+		paste = {
+			["+"] = "win32yank.exe -o --lf",
+			["*"] = "win32yank.exe -o --lf",
+		},
+	}
 end
-
+vim.opt.list = true
+vim.opt.listchars = "eol:↵,trail:·,space:·,tab:  "
 require("utils.statuscolumn")
