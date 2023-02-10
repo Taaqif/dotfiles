@@ -3,7 +3,7 @@ return {
 	"rebelot/kanagawa.nvim",
 	config = function()
 		vim.o.background = "dark"
-local c = require("kanagawa.color")
+		local c = require("kanagawa.color")
 		local default_colors = require("kanagawa.colors").setup()
 
 		local overrides = {
@@ -55,6 +55,9 @@ local c = require("kanagawa.color")
 			NeoTreeFloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			NeoTreeNormal = { bg = default_colors.sumiInk0 },
 			NeoTreeNormalNC = { bg = default_colors.sumiInk0 },
+
+			--TSRainbow
+			rainbowcol1 = { fg = default_colors.waveRed },
 
 			-- Diagnostics
 			-- DiagnosticError = { bg = tostring(c(default_colors.samuraiRed):lighten(0.1)) },
