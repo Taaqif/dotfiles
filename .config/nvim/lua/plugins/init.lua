@@ -17,5 +17,4 @@ return {
 	{"moll/vim-bbye", event = "VeryLazy"},
 	{"andymass/vim-matchup", event = "BufRead"},
 	{"wellle/targets.vim", event = "BufRead"},
-	{"folke/lsp-colors.nvim", event = "VeryLazy"}
 }

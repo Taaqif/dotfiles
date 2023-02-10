@@ -1,6 +1,6 @@
 return {
 	"nvim-pack/nvim-spectre",
-	event = "VeryLazy",
+	lazy = true,
 	init = function()
 		local keymap = require("utils").keymap
 		local wk = require("which-key")
