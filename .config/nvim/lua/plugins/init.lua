@@ -16,5 +16,5 @@ return {
 	{"tpope/vim-repeat", event = "VeryLazy"},
 	{"moll/vim-bbye", event = "VeryLazy"},
 	{"andymass/vim-matchup", event = "BufRead"},
-	{"wellle/targets.vim", event = "BufRead"},
+	{"wellle/targets.vim", lazy = false},
 }
