@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
+  enabled = false,
   config = function()
     vim.opt.list = true
     vim.cmd [[highlight IndentBlanklineContextChar guifg=#E06C75 gui=nocombine]]
