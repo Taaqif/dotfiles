@@ -1,17 +1,18 @@
 return {
-	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
 	dependencies = {
-		"rcarriga/nvim-dap-ui",
+		"mfussenegger/nvim-dap",
 		"jay-babu/mason-nvim-dap.nvim",
 		"mxsdev/nvim-dap-vscode-js",
 	},
+	lazy = true,
 	init = function()
 		local wk = require("which-key")
 		wk.register({
 			["<leader>D"] = { name = "DAP" },
 		})
 
-		local map = require('utils').keymap
+		local map = require("utils").keymap
 
 		local continue = function()
 			if vim.fn.filereadable(".vscode/launch.json") then

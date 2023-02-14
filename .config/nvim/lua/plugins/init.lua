@@ -11,10 +11,10 @@ return {
 		end,
 	},
 	{"nvim-lua/plenary.nvim", lazy = true},
-	{"MunifTanjim/nui.nvim", lazy = true},
+	{"MunifTanjim/nui.nvim", lazy = false},
 	{ "stevearc/dressing.nvim", lazy = true },
-	{"tpope/vim-repeat", event = "VeryLazy"},
-	{"moll/vim-bbye", event = "VeryLazy"},
+	{"tpope/vim-repeat", event = "BufRead"},
+	{"moll/vim-bbye", event = "BufRead"},
 	{"andymass/vim-matchup", event = "BufRead"},
 	{"wellle/targets.vim", lazy = false},
 }

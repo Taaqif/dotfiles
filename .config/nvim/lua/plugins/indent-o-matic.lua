@@ -1,6 +1,6 @@
 return {
 	"Darazaki/indent-o-matic",
-	event = "VeryLazy",
+	event = "BufRead",
 	config = function()
 		require("indent-o-matic").setup({})
 	end,

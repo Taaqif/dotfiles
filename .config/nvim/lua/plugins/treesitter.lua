@@ -37,6 +37,7 @@ return {
 			},
 			rainbow = {
 				enable = true,
+				extended_mode = true
 			},
 			textsubjects = {
 				enable = true,
