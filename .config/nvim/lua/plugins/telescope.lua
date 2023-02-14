@@ -29,6 +29,7 @@ return {
 		keymap("n", "<leader>fR", "<cmd>Telescope registers<cr>", "Registers")
 		keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", "Keymaps")
 		keymap("n", "<leader>fC", "<cmd>Telescope commands<cr>", "Commands")
+		keymap("n", "<leader>fF", "<cmd>Telescope<cr>", "Telescope")
 		keymap(
 			"n",
 			"<leader>fs",
