@@ -21,7 +21,12 @@ return {
 		keymap("n", "<leader>fb", "<cmd>Telescope git_branches<cr>", "Checkout branch")
 		keymap("n", "<leader>fc", "<cmd>Telescope colorscheme<cr>", "Colorscheme")
 		keymap("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", "Find files")
-		keymap("n", "<leader>ft", "<cmd>Telescope live_grep hidden=true<cr>", "Find Text")
+		keymap(
+			"n",
+			"<leader>ft",
+			"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+			"Find Text"
+		)
 		keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", "Help")
 		keymap("n", "<leader>fl", "<cmd>Telescope resume<cr>", "Last Search")
 		keymap("n", "<leader>fM", "<cmd>Telescope man_pages<cr>", "Man Pages")
@@ -42,6 +47,7 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local action_layout = require("telescope.actions.layout")
+		local lga_actions = require("telescope-live-grep-args.actions")
 		telescope.setup({
 			defaults = {
 				vimgrep_arguments = {
@@ -111,6 +117,14 @@ return {
 				},
 				projects = {
 					projects = {},
+				},
+				live_grep_args = {
+					mappings = { -- extend mappings
+						i = {
+							["<C-k>"] = lga_actions.quote_prompt(),
+							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+						},
+					},
 				},
 			},
 		})
