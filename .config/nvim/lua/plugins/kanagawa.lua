@@ -64,8 +64,11 @@ return {
 			-- DiagnosticWarn = { bg = default_colors.roninYellow},
 			-- DiagnosticInfo = { bg = default_colors.dragonBlue },
 			-- DiagnosticHint = { bg = default_colors.waveAqua1 },
+
+      -- Float
 			FloatTitle = { fg = colors.black, bg = default_colors.waveRed },
 			FloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
+			NormalFloat = { bg = default_colors.sumiInk0 },
 		}
 		require("kanagawa").setup({
 			transparent = false,
