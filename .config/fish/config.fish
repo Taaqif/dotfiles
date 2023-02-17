@@ -3,7 +3,7 @@ set -Ux EDITOR nvim
 set -Ux TERM "xterm-256color"
 set -Ux NEOVIM_WIN_DIR "/mnt/c/Program Files/Neovim"
 fish_add_path /home/tye/.cargo/bin
-fish_add_path /home/tye/.local/share/neovim/bin
+fish_add_path /home/tye/.local/share/bob/nvim-bin
 if status is-interactive
   # Commands to run in interactive sessions can go here
   zoxide init fish | source
