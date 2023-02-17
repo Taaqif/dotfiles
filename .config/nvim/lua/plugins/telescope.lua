@@ -113,7 +113,11 @@ return {
 					find_cmd = "rg", -- find command (defaults to `fd`)
 				},
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
+					require("telescope.themes").get_dropdown({
+						cache_picker = {
+							disabled = true,
+						},
+					}),
 				},
 				projects = {
 					projects = {},
@@ -122,7 +126,7 @@ return {
 					mappings = { -- extend mappings
 						i = {
 							["<C-k>"] = lga_actions.quote_prompt(),
-							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+							["<C-l>"] = lga_actions.quote_prompt({ postfix = " --t" }),
 						},
 					},
 				},

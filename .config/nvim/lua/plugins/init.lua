@@ -12,7 +12,17 @@ return {
 	},
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "MunifTanjim/nui.nvim", lazy = false },
-	{ "stevearc/dressing.nvim", lazy = false },
+	{
+		"stevearc/dressing.nvim",
+		lazy = false,
+		config = function()
+			require("dressing").setup({
+				input = {
+					relative = "win",
+				},
+			})
+		end,
+	},
 	{ "tpope/vim-repeat", event = "BufRead" },
 	{ "moll/vim-bbye", event = "BufRead" },
 	{ "andymass/vim-matchup", event = "BufRead" },
