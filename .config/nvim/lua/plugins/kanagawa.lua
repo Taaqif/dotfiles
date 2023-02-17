@@ -54,6 +54,7 @@ return {
 			NeoTreeFloatTitle = { fg = colors.black, bg = default_colors.waveRed },
 			NeoTreeFloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			NeoTreeNormal = { bg = default_colors.sumiInk0 },
+			NeoTreeFloatNormal = { bg = default_colors.sumiInk1 },
 			NeoTreeNormalNC = { bg = default_colors.sumiInk0 },
 
 			--TSRainbow
@@ -64,8 +65,8 @@ return {
 			-- DiagnosticWarn = { bg = default_colors.roninYellow},
 			-- DiagnosticInfo = { bg = default_colors.dragonBlue },
 			-- DiagnosticHint = { bg = default_colors.waveAqua1 },
-
-      -- Float
+        
+			-- Float
 			FloatTitle = { fg = colors.black, bg = default_colors.waveRed },
 			FloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			NormalFloat = { bg = default_colors.sumiInk0 },
