@@ -1,5 +1,4 @@
 
-local term_opts = { silent = true }
 -- Shorten function name
 local keymap = require("utils").keymap
 
@@ -68,10 +67,10 @@ keymap("x", "<C-S-Down>", ":move '>+1<CR>gv-gv")
 keymap("x", "<C-S-Up>", ":move '<-2<CR>gv-gv")
 
 -- temrinal
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h")
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j")
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k")
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l")
 -- Custom
 keymap("n", "Q", "<cmd>Bdelete<CR>")
 
