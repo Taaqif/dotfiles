@@ -1,6 +1,6 @@
 return {
 	"rcarriga/nvim-notify",
-	lazy = true,
+	lazy = false,
 	init = function()
 		local wk = require("which-key")
 		wk.register({

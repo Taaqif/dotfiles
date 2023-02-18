@@ -224,7 +224,6 @@ return {
 				"symbols-outline",
 				"quickfix",
 				"toggleterm",
-				make_lualine_extension("lazygit", "LazyGit"),
 				make_lualine_extension("lazy", "Lazy"),
 				make_lualine_extension("TelescopePrompt", "Telescope"),
 				make_lualine_extension("Trouble", "Trouble"),

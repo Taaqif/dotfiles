@@ -113,11 +113,16 @@ return {
 					find_cmd = "rg", -- find command (defaults to `fd`)
 				},
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown({
-						cache_picker = {
-							disabled = true,
-						},
-					}),
+					results_title = false,
+					layout_config = {
+						width = function(_, max_columns, _)
+							return math.min(max_columns, 80)
+						end,
+
+						height = function(_, _, max_lines)
+							return math.min(max_lines, 15)
+						end,
+					},
 				},
 				projects = {
 					projects = {},
