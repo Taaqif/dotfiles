@@ -53,5 +53,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	command = [[syntax match NonAscii "[^\u0000-\u007F]"]],
 })
 
---Omit OSC7 cwd change on dir change
-vim.cmd([[autocmd DirChanged * call chansend(v:stderr, printf("\033]7;file://%s\033\\", v:event.cwd))]])
+-- Emit OSC 7 on dir change event
+vim.api.nvim_create_autocmd("DirChanged", {
+	pattern = "*",
+	command = [[call chansend(v:stderr, printf("\033]7;file://%s\033\\", v:event.cwd))]],
+})
