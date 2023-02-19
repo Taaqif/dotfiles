@@ -70,6 +70,10 @@ return {
 			FloatTitle = { fg = colors.black, bg = default_colors.waveRed },
 			FloatBorder = { fg = default_colors.sumiInk0, bg = default_colors.sumiInk0 },
 			NormalFloat = { bg = default_colors.sumiInk0 },
+
+			-- Which key
+
+			WhichKeyFloat = { fg = colors.white, bg = default_colors.sumiInk2 },
 		}
 		require("kanagawa").setup({
 			transparent = false,
