@@ -34,8 +34,8 @@ keymap("n", "<C-S-Down>", "<Esc>:m .+1<CR>")
 keymap("n", "<C-S-Up>", "<Esc>:m .-2<CR>")
 
 -- navigate through wrapped lines
-keymap("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
-keymap("n", "k", "v:count ? 'k' : 'gk'", {expr = true, noremap = true})
+-- keymap("n", "j", "v:count ? 'j' : 'gj'", {expr = true, noremap = true})
+-- keymap("n", "k", "v:count ? 'k' : 'gk'", {expr = true, noremap = true})
 -- Insert --
 keymap("i", "<c-z>", "<c-o>:u<CR>")
 -- keymap("i", "<C-w>", "<C-\><C-o>dB")

@@ -131,7 +131,7 @@ return {
 					mappings = { -- extend mappings
 						i = {
 							["<C-k>"] = lga_actions.quote_prompt(),
-							["<C-l>"] = lga_actions.quote_prompt({ postfix = " --t" }),
+							["<C-l>"] = lga_actions.quote_prompt({ postfix = " -t" }),
 						},
 					},
 				},

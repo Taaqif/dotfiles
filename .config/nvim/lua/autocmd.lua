@@ -58,3 +58,18 @@ vim.api.nvim_create_autocmd("DirChanged", {
 	pattern = "*",
 	command = [[call chansend(v:stderr, printf("\033]7;file://%s\033\\", v:event.cwd))]],
 })
+
+
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
+	pattern = "*",
+	callback = function()
+    -- vim.opt_local.cursorline = false
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
+	pattern = "*",
+	callback = function()
+    -- vim.opt_local.cursorline = true
+	end,
+})

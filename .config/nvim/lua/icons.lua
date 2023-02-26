@@ -15,7 +15,7 @@ return {
 		Enum = "",
 		Keyword = "",
 		Snippet = "",
-		Color = "",
+		Color = "■",
 		File = "",
 		Reference = "",
 		Folder = "",

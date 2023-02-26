@@ -1,5 +1,5 @@
 return {
-	"Taaqif/bufferline.nvim",
+	"akinsho/bufferline.nvim",
 	event = "VimEnter",
 	config = function()
 		require("bufferline").setup({

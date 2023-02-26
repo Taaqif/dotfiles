@@ -9,7 +9,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-refactor",
 		"mfussenegger/nvim-treehopper",
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		"mrjones2014/nvim-ts-rainbow",
+		-- "mrjones2014/nvim-ts-rainbow",
 		"windwp/nvim-ts-autotag",
 		"nvim-treesitter/nvim-treesitter-context",
 
@@ -35,10 +35,10 @@ return {
 				enable = true,
 				enable_autocmd = false,
 			},
-			rainbow = {
-				enable = true,
-				extended_mode = true
-			},
+			-- rainbow = {
+			-- 	enable = true,
+			-- 	extended_mode = true
+			-- },
 			textsubjects = {
 				enable = true,
 				prev_selection = ",", -- (Optional) keymap to select the previous selection
