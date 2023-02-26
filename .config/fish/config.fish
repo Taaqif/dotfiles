@@ -14,3 +14,7 @@ alias lg='lazygit'
 
 
 test -s /home/tye/.nvm/nvm.fish; and source /home/tye/.nvm/nvm.fish
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
