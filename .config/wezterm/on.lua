@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 
+local utils = require("utils")
 local SOLID_LEFT_ARROW = ""
 local SOLID_LEFT_MOST = "█"
 local SOLID_RIGHT_ARROW = ""
@@ -48,6 +49,16 @@ local SUB_IDX = {
 	"₁₉",
 	"₂₀",
 }
+
+local function get_os_icon(title)
+	if string.match(string.lower(title), "^(.*\\(%w+)%.exe)") then
+		-- windows
+		return utf8.char(0xe70f)
+	end
+	-- linux
+	return utf8.char(0xf17c)
+end
+
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
 
@@ -103,7 +114,10 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local id = " " .. tostring(tab.tab_index + 1) .. " "
+	local os_icon = get_os_icon(tab.active_pane.title)
+	local id = ""
+	id = id .. " " .. os_icon .. " "
+	id = id .. tostring(tab.tab_index + 1) .. " "
 	local left_arrow = SOLID_LEFT_ARROW
 	if tab.tab_index == 0 then
 		left_arrow = SOLID_LEFT_MOST
@@ -140,6 +154,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	if tab.active_pane.is_zoomed then
 		id = id .. "ﬕ "
+	end
+
+	local shell_icon = ""
+
+	if tab.active_pane.title:find("nvim") then
+		shell_icon = utf8.char(0xe62b)
+	end
+
+	if shell_icon ~= "" then
+		id = id .. shell_icon .. " "
 	end
 
 	local no_of_panes = #tab.panes
