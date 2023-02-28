@@ -14,7 +14,6 @@ local font_with_fallback = function(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-
 return {
 	font_size = 10.0,
 	check_for_updates = true,
@@ -86,4 +85,7 @@ return {
 	window_decorations = "RESIZE",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
+	set_environment_variables = {
+		VTE_VERSION = "6003",
+	},
 }
