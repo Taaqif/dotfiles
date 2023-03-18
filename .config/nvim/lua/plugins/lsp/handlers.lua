@@ -24,7 +24,8 @@ M.on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
-	local enable_trouble = true
+	local enable_trouble = false
+	local enable_glance = true
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -49,6 +50,21 @@ M.on_attach = function(client, bufnr)
 		map("n", "gD", ":Trouble lsp_declarations<CR>", { desc = "Goto Declaration", buffer = bufnr })
 		map("n", "gi", ":Trouble lsp_implementations<CR>", { desc = "Goto Implementation", buffer = bufnr })
 		map("n", "gt", ":Trouble lsp_type_definitions<CR>", { desc = "Goto Type Definition", buffer = bufnr })
+	elseif enable_glance then
+		map("n", "gd", ":Glance definitions<CR>", { desc = "Glance the definition of current symbol", buffer = bufnr })
+		map("n", "gr", ":Glance references<CR>", { desc = "Glance the references of current symbol", buffer = bufnr })
+		map(
+			"n",
+			"gi",
+			":Glance implementations<CR>",
+			{ desc = "Glance the implementation of current symbol", buffer = bufnr }
+		)
+		map(
+			"n",
+			"gt",
+			":Glance type_definitions<CR>",
+			{ desc = "Glance the Type Definitions of current symbol", buffer = bufnr }
+		)
 	else
 		map("n", "gd", function()
 			vim.lsp.buf.definition()
