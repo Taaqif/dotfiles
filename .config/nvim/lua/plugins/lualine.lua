@@ -9,13 +9,15 @@ local function has_value(tab, val)
 end
 
 local function list_registered_providers_names(filetype)
-	local s = require("null-ls.sources")
-	local available_sources = s.get_available(filetype)
 	local registered = {}
-	for _, source in ipairs(available_sources) do
-		for method in pairs(source.methods) do
-			registered[method] = registered[method] or {}
-			table.insert(registered[method], source.name)
+	local null_ls_loaded, s = pcall(require, "null-ls.sources")
+	if null_ls_loaded then
+		local available_sources = s.get_available(filetype)
+		for _, source in ipairs(available_sources) do
+			for method in pairs(source.methods) do
+				registered[method] = registered[method] or {}
+				table.insert(registered[method], source.name)
+			end
 		end
 	end
 	return registered
