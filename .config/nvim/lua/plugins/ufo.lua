@@ -1,7 +1,7 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = "kevinhwang91/promise-async",
-  event = "BufRead",
+  event = "VeryLazy",
   init = function()
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = {
