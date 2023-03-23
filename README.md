@@ -27,10 +27,11 @@ They are critical to my day to day activities and help carry out my work efficie
 - Laptop: Dell XPS 15
   - Windows 11
   - WSL Ubuntu
-- Keyboard
+- Keyboard/s
   - Zoom65
-  - Boba U4T 62G lubed with krytox 205g0
-  - GMK Botanical
+      - Boba U4T 62G lubed with krytox 205g0
+      - GMK Botanical
+  - HHKB Pro Hybrid Type S
 - Mouse
   - Logitech MX Master 3
 
