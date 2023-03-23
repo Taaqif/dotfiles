@@ -19,13 +19,13 @@ M.keybinds = {
 	{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
 	{ key = "x", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
-	{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
+	{ key = "U", mods = "CTRL|SHIFT", action = act({ ScrollByPage = -0.5 }) },
+	{ key = "D", mods = "CTRL|SHIFT", action = act({ ScrollByPage = 0.5 }) },
 	{
 		key = "P",
 		mods = "CTRL",
 		action = wezterm.action.ActivateCommandPalette,
 	},
-	{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 	{
 		key = "r",
 		mods = "ALT",
@@ -38,9 +38,6 @@ M.keybinds = {
 			},
 		}),
 	},
-	{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
-	{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
-
 	{ key = "n", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "q", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
 	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
@@ -74,14 +71,14 @@ M.keybinds = {
 
 M.key_tables = {
 	resize_pane = {
-		{ key = "LeftArrow", action = act({ AdjustPaneSize = { "Left", 1 } }) },
-		{ key = "h", action = act({ AdjustPaneSize = { "Left", 1 } }) },
-		{ key = "RightArrow", action = act({ AdjustPaneSize = { "Right", 1 } }) },
-		{ key = "l", action = act({ AdjustPaneSize = { "Right", 1 } }) },
-		{ key = "UpArrow", action = act({ AdjustPaneSize = { "Up", 1 } }) },
-		{ key = "k", action = act({ AdjustPaneSize = { "Up", 1 } }) },
-		{ key = "DownArrow", action = act({ AdjustPaneSize = { "Down", 1 } }) },
-		{ key = "j", action = act({ AdjustPaneSize = { "Down", 1 } }) },
+		{ key = "LeftArrow", action = act({ AdjustPaneSize = { "Left", 2 } }) },
+		{ key = "h", action = act({ AdjustPaneSize = { "Left", 2 } }) },
+		{ key = "RightArrow", action = act({ AdjustPaneSize = { "Right", 2 } }) },
+		{ key = "l", action = act({ AdjustPaneSize = { "Right", 2 } }) },
+		{ key = "UpArrow", action = act({ AdjustPaneSize = { "Up", 2 } }) },
+		{ key = "k", action = act({ AdjustPaneSize = { "Up", 2 } }) },
+		{ key = "DownArrow", action = act({ AdjustPaneSize = { "Down", 2 } }) },
+		{ key = "j", action = act({ AdjustPaneSize = { "Down", 2 } }) },
 		-- Cancel the mode by pressing escape
 		{ key = "Escape", action = "PopKeyTable" },
 	},

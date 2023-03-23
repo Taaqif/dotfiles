@@ -51,7 +51,9 @@ local SUB_IDX = {
 }
 
 local function get_os_icon(title)
-	if string.match(string.lower(title), "^(.*\\(%w+)%.exe)") then
+	local title_lower = string.lower(title)
+  local is_windows = string.find(title_lower, ".exe") and not string.find(title_lower, "wslhost.exe")
+	if is_windows then
 		-- windows
 		return utf8.char(0xe70f)
 	end
