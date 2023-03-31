@@ -228,29 +228,6 @@ return {
 				make_lualine_extension("TelescopePrompt", "Telescope"),
 				make_lualine_extension("Trouble", "Trouble"),
 			},
-			winbar = {
-				lualine_a = {},
-				lualine_b = {
-					"filename",
-				},
-				lualine_c = {
-					{
-						navic.get_location,
-						cond = navic_ok and navic.is_available,
-					},
-				},
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {},
-			},
-			inactive_winbar = {
-				lualine_a = {},
-				lualine_b = {},
-				lualine_c = { "filename" },
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {},
-			},
 		})
 		vim.api.nvim_create_autocmd("RecordingEnter", {
 			callback = function()
