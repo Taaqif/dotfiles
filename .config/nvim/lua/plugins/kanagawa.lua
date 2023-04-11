@@ -1,4 +1,3 @@
-local colors = require("colors")
 
 local function hexToRgb(c)
 	c = string.lower(c)
@@ -28,30 +27,30 @@ return {
 			local palette = colors.palette
 			local theme = colors.theme
 			return {
-				TelescopeResultsTitle = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopePreviewTitle = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopeTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
+				TelescopeResultsTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopePreviewTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopeTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_dim },
-				TelescopeResultsBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg },
+				TelescopeResultsBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopePreviewNormal = { bg = theme.ui.bg },
+				TelescopePreviewBorder = { bg = theme.ui.bg, fg = theme.ui.bg },
 
-				-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_dim },
+				-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg },
 				-- PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
 				-- PmenuSbar = { bg = theme.ui.bg_m1 },
 				-- PmenuThumb = { bg = theme.ui.bg_p2 },
 
-				NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
-				NeoTreeFloatBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				NeoTreeNormal = { bg = theme.ui.bg_dim },
-				NeoTreeFloatNormal = { bg = theme.ui.bg_dim },
-				NeoTreeNormalNC = { bg = theme.ui.bg_dim },
+				NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
+				NeoTreeFloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				NeoTreeNormal = { bg = theme.ui.bg },
+				NeoTreeFloatNormal = { bg = theme.ui.bg },
+				NeoTreeNormalNC = { bg = theme.ui.bg },
 
-				FloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
-				FloatBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				NormalFloat = { bg = theme.ui.bg_dim, blend = 0 },
+				FloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
+				FloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				NormalFloat = { bg = theme.ui.bg, blend = 0 },
 
 				-- Nvim-Navic
 				NavicIconsFile = { fg = palette.springViolet2 },
@@ -92,11 +91,14 @@ return {
 				DiagnosticUnderlineWarn = { sp = theme.diag.warning },
 				DiagnosticUnderlineInfo = { sp = theme.diag.info },
 				DiagnosticUnderlineHint = { sp = theme.diag.hint },
+
+        WhichKeyFloat = {bg = theme.ui.pmenu.bg},
+        WhichKeyBorder = {bg = theme.ui.pmenu.bg}
 			}
 		end
 		require("kanagawa").setup({
 			transparent = false,
-			dimInactive = false,
+			dimInactive = true,
 			overrides = overrides,
 			undercurl = false,
 			colors = {
