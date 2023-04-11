@@ -88,10 +88,10 @@ return {
 				DiagnosticVirtualTextInfo = { bg = blend(theme.diag.info, theme.ui.bg, 0.1), fg = theme.diag.info },
 				DiagnosticVirtualTextHint = { bg = blend(theme.diag.hint, theme.ui.bg, 0.1), fg = theme.diag.hint },
 
-				DiagnosticUnderlineError = { undercurl = true, sp = theme.diag.error }, 
-				DiagnosticUnderlineWarn = { undercurl = true, sp = theme.diag.warning },
-				DiagnosticUnderlineInfo = { undercurl = true, sp = theme.diag.info },
-				DiagnosticUnderlineHint = { undercurl = true, sp = theme.diag.hint },
+				DiagnosticUnderlineError = { sp = theme.diag.error }, 
+				DiagnosticUnderlineWarn = { sp = theme.diag.warning },
+				DiagnosticUnderlineInfo = { sp = theme.diag.info },
+				DiagnosticUnderlineHint = { sp = theme.diag.hint },
 			}
 		end
 		require("kanagawa").setup({

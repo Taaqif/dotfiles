@@ -18,7 +18,7 @@ return {
 
 	config = function()
 		local treesitter_context_ok, treesitter_context = pcall(require, "treesitter-context")
-
+		treesitter_context.setup({})
 		require("nvim-treesitter.configs").setup({
 			highlight = {
 				enable = true,
