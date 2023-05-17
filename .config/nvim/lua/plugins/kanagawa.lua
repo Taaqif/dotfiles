@@ -1,4 +1,3 @@
-
 local function hexToRgb(c)
 	c = string.lower(c)
 	return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
@@ -83,22 +82,25 @@ return {
 				NavicSeparator = { fg = palette.sumiInk4 },
 
 				DiagnosticVirtualTextError = { bg = blend(theme.diag.error, theme.ui.bg, 0.1), fg = theme.diag.error },
-				DiagnosticVirtualTextWarn = { bg = blend(theme.diag.warning, theme.ui.bg, 0.1), fg = theme.diag.warning },
+				DiagnosticVirtualTextWarn = {
+					bg = blend(theme.diag.warning, theme.ui.bg, 0.1),
+					fg = theme.diag.warning,
+				},
 				DiagnosticVirtualTextInfo = { bg = blend(theme.diag.info, theme.ui.bg, 0.1), fg = theme.diag.info },
 				DiagnosticVirtualTextHint = { bg = blend(theme.diag.hint, theme.ui.bg, 0.1), fg = theme.diag.hint },
 
-				DiagnosticUnderlineError = { sp = theme.diag.error }, 
+				DiagnosticUnderlineError = { sp = theme.diag.error },
 				DiagnosticUnderlineWarn = { sp = theme.diag.warning },
 				DiagnosticUnderlineInfo = { sp = theme.diag.info },
 				DiagnosticUnderlineHint = { sp = theme.diag.hint },
 
-        WhichKeyFloat = {bg = theme.ui.pmenu.bg},
-        WhichKeyBorder = {bg = theme.ui.pmenu.bg}
+				WhichKeyFloat = { bg = theme.ui.pmenu.bg },
+				WhichKeyBorder = { bg = theme.ui.pmenu.bg },
 			}
 		end
 		require("kanagawa").setup({
-			transparent = false,
-			dimInactive = true,
+			transparent = true,
+			-- dimInactive = true,
 			overrides = overrides,
 			undercurl = false,
 			colors = {
