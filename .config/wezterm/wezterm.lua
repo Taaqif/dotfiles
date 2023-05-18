@@ -74,15 +74,22 @@ return {
 	key_tables = keybinds.key_tables,
 	mouse_bindings = keybinds.mouse_bindings,
 
-	use_fancy_tab_bar = false,
 	visual_bell = {
 		fade_in_duration_ms = 75,
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
+	use_fancy_tab_bar = false,
+	window_frame = {
+		font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
+		font_size = 9.0,
+		active_titlebar_bg = "#2a2a37",
+		inactive_titlebar_bg = "#2a2a37",
+	},
 	-- window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
+	integrated_title_buttons = { "Hide", "Close" },
 	window_background_opacity = 0,
 	win32_system_backdrop = "Acrylic",
 	force_reverse_video_cursor = true,
