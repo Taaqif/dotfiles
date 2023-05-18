@@ -98,7 +98,7 @@ return {
 				WhichKeyBorder = { bg = theme.ui.pmenu.bg },
 			}
 			if transparent then
-        colors.BufferLineSeparator = { fg = theme.ui.bg_m3 }
+				colors.BufferLineSeparator = { fg = theme.ui.bg_m3 }
 				colors.BufferLineSeparatorVisible = { fg = theme.ui.bg_m3 }
 				colors.BufferLineSeparatorSelected = { fg = theme.ui.bg_m3 }
 				colors.BufferLineFill = { bg = theme.ui.bg_m3 }
@@ -108,7 +108,7 @@ return {
 		end
 		require("kanagawa").setup({
 			transparent = transparent,
-			-- dimInactive = true,
+			dimInactive = not transparent,
 			overrides = overrides,
 			undercurl = false,
 			colors = {
