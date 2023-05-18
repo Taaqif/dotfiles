@@ -21,11 +21,11 @@ return {
 	enabled = true,
 	config = function()
 		vim.o.background = "dark"
-
+		local transparent = true
 		local overrides = function(colors)
 			local palette = colors.palette
 			local theme = colors.theme
-			return {
+			local colors = {
 				TelescopeResultsTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
 				TelescopePreviewTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
 				TelescopeTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
@@ -97,9 +97,17 @@ return {
 				WhichKeyFloat = { bg = theme.ui.pmenu.bg },
 				WhichKeyBorder = { bg = theme.ui.pmenu.bg },
 			}
+			if transparent then
+        colors.BufferLineSeparator = { fg = theme.ui.bg_m3 }
+				colors.BufferLineSeparatorVisible = { fg = theme.ui.bg_m3 }
+				colors.BufferLineSeparatorSelected = { fg = theme.ui.bg_m3 }
+				colors.BufferLineFill = { bg = theme.ui.bg_m3 }
+			end
+
+			return colors
 		end
 		require("kanagawa").setup({
-			transparent = true,
+			transparent = transparent,
 			-- dimInactive = true,
 			overrides = overrides,
 			undercurl = false,
