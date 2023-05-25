@@ -36,10 +36,10 @@ return {
 				TelescopePreviewNormal = { bg = theme.ui.bg },
 				TelescopePreviewBorder = { bg = theme.ui.bg, fg = theme.ui.bg },
 
-				-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg },
-				-- PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-				-- PmenuSbar = { bg = theme.ui.bg_m1 },
-				-- PmenuThumb = { bg = theme.ui.bg_p2 },
+				Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+				PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+				PmenuSbar = { bg = theme.ui.bg_m1 },
+				PmenuThumb = { bg = theme.ui.bg_p2 },
 
 				NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
 				NeoTreeFloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
@@ -94,14 +94,15 @@ return {
 				DiagnosticUnderlineInfo = { sp = theme.diag.info },
 				DiagnosticUnderlineHint = { sp = theme.diag.hint },
 
-				WhichKeyFloat = { bg = theme.ui.pmenu.bg },
-				WhichKeyBorder = { bg = theme.ui.pmenu.bg },
+				WhichKeyFloat = { bg = theme.ui.bg_p1 },
+				WhichKeyBorder = { bg = theme.ui.bg_p1 },
 			}
 			if transparent then
 				colors.BufferLineSeparator = { fg = theme.ui.bg_m3 }
 				colors.BufferLineSeparatorVisible = { fg = theme.ui.bg_m3 }
 				colors.BufferLineSeparatorSelected = { fg = theme.ui.bg_m3 }
 				colors.BufferLineFill = { bg = theme.ui.bg_m3 }
+				colors.Visual = { bg = palette.waveBlue2 }
 			end
 
 			return colors
