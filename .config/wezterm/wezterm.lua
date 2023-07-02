@@ -15,7 +15,7 @@ local font_with_fallback = function(name, params)
 end
 
 return {
-	font_size = 10.0,
+	font_size = 11.0,
 	check_for_updates = true,
 	show_update_window = true,
 	term = "xterm-256color",
@@ -86,12 +86,12 @@ return {
 		active_titlebar_bg = "#2a2a37",
 		inactive_titlebar_bg = "#2a2a37",
 	},
-	-- window_background_opacity = 0.97,
+	window_background_opacity = 0.97,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
-	integrated_title_buttons = { "Hide", "Close" },
-	window_background_opacity = 0,
-	win32_system_backdrop = "Acrylic",
+	-- integrated_title_buttons = { "Hide", "Close" },
+	-- window_background_opacity = 0,
+	-- win32_system_backdrop = "Acrylic",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
 	set_environment_variables = {
