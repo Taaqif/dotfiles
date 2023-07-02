@@ -1,4 +1,27 @@
 return {
-  "m4xshen/hardtime.nvim",
-  opts = {}
+	"m4xshen/hardtime.nvim",
+	opts = {
+		disable_mouse = false,
+		disabled_filetypes = {
+			"qf",
+			"netrw",
+			"NvimTree",
+			"lazy",
+			"mason",
+			"alpha",
+			"neo-tree",
+			"toggleterm",
+			"TelescopePrompt",
+			"Trouble",
+			"Outline",
+			"ToggleTerm",
+			"help",
+			"dap-repl",
+			"dapui_scopes",
+			"dapui_breakpoints",
+			"dapui_stacks",
+			"dapui_watches",
+			"dapui_console",
+		},
+	},
 }
