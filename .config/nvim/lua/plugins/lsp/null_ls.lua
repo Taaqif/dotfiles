@@ -36,9 +36,9 @@ local config = {
 	},
 }
 
-local typescript_ok, typescript = pcall(require, "typescript.extensions.null-ls.code-actions")
-if typescript_ok then
-	table.insert(config.sources, typescript)
-end
+-- local typescript_ok, typescript = pcall(require, "typescript.extensions.null-ls.code-actions")
+-- if typescript_ok then
+-- 	table.insert(config.sources, typescript)
+-- end
 
 null_ls.setup(config)
