@@ -21,7 +21,7 @@ return {
 	enabled = true,
 	config = function()
 		vim.o.background = "dark"
-		local transparent = false
+		local transparent = true
 		local overrides = function(colors)
 			local palette = colors.palette
 			local theme = colors.theme
