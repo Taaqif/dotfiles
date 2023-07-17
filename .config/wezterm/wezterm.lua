@@ -86,7 +86,7 @@ return {
 		active_titlebar_bg = "#2a2a37",
 		inactive_titlebar_bg = "#2a2a37",
 	},
-	window_background_opacity = 0.97,
+	window_background_opacity = 0.95,
 	-- enable_scroll_bar = true,
 	window_decorations = "RESIZE",
 	-- integrated_title_buttons = { "Hide", "Close" },
