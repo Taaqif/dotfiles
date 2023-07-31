@@ -1,6 +1,7 @@
 return {
 	"Darazaki/indent-o-matic",
-	event = "BufRead",
+	enabled = true,
+	event = "BufReadPost",
 	config = function()
 		require("indent-o-matic").setup({})
 	end,
