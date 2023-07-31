@@ -20,6 +20,20 @@ return {
 		local treesitter_context_ok, treesitter_context = pcall(require, "treesitter-context")
 		treesitter_context.setup({})
 		require("nvim-treesitter.configs").setup({
+			ensure_installed = {
+				"c",
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
+				"typescript",
+				"javascript",
+				"json",
+				"json5",
+				"jsonc",
+				"comment",
+        "c_sharp"
+			},
 			highlight = {
 				enable = true,
 			},
