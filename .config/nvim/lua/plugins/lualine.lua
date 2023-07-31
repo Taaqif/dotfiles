@@ -178,6 +178,9 @@ return {
 				},
 				lualine_y = {
 					{
+						display_treesitter_status,
+					},
+					{
 						"lsp-clients",
 						fmt = lsp_client_names,
 						on_click = function()
