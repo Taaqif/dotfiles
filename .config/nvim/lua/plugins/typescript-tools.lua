@@ -1,6 +1,7 @@
 return {
 	"pmizio/typescript-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  enabled = false,
 	init = function()
 		local wk = require("which-key")
 		wk.register({
