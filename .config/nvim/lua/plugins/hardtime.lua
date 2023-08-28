@@ -2,10 +2,10 @@ return {
 	"m4xshen/hardtime.nvim",
 	opts = {
 		disabled_keys = {
-			["<UP>"] = {  },
-			["<DOWN>"] = {},
-			["<LEFT>"] = {},
-			["<RIGHT>"] = {},
+			["<Up>"] = {},
+			["<Down>"] = {},
+			["<Left>"] = {},
+			["<Right>"] = {},
 		},
 		disable_mouse = false,
 		disabled_filetypes = {
