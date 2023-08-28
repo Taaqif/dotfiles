@@ -7,6 +7,7 @@ return {
 		"mrbjarksen/neo-tree-diagnostics.nvim",
 		"s1n7ax/nvim-window-picker",
 	},
+	branch = "v3.x",
 	init = function()
 		local keymap = require("utils").keymap
 
