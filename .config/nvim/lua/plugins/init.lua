@@ -26,7 +26,7 @@ return {
 	},
 	{ "tpope/vim-repeat", event = "BufRead" },
 	{ "moll/vim-bbye", event = "BufRead" },
-	{ "andymass/vim-matchup", event = "BufRead" },
+	-- { "andymass/vim-matchup", event = "BufRead" },
 	{ "wellle/targets.vim", lazy = false },
 	{ "wakatime/vim-wakatime", lazy = false },
 }
