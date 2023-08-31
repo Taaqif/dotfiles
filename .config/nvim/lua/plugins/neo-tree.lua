@@ -29,7 +29,9 @@ return {
 				content_layout = "center",
 			},
 			filesystem = {
-				follow_current_file = true,
+				follow_current_file = {
+					enabled = true,
+				},
 				use_libuv_file_watcher = true,
 				hijack_netrw_behavior = "open_current",
 				filtered_items = {
