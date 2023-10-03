@@ -1,16 +1,16 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = "kevinhwang91/promise-async",
-  event = "BufRead",
+  event = "VeryLazy",
   init = function()
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = {
-        "neo-tree",
-      },
-      callback = function()
-        require("ufo").detach()
-      end,
-    })
+    -- vim.api.nvim_create_autocmd({ "FileType" }, {
+    --   pattern = {
+    --     "neo-tree",
+    --   },
+    --   callback = function()
+    --     require("ufo").detach()
+    --   end,
+    -- })
   end,
   config = function()
     local ufo = require("ufo")

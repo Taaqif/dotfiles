@@ -1,5 +1,3 @@
-local colors = require("colors")
-
 local function hexToRgb(c)
 	c = string.lower(c)
 	return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
@@ -23,35 +21,35 @@ return {
 	enabled = true,
 	config = function()
 		vim.o.background = "dark"
-
+		local transparent = true
 		local overrides = function(colors)
 			local palette = colors.palette
 			local theme = colors.theme
-			return {
-				TelescopeResultsTitle = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopePreviewTitle = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopeTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
+			local colors = {
+				TelescopeResultsTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopePreviewTitle = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopeTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_dim },
-				TelescopeResultsBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg },
+				TelescopeResultsBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				TelescopePreviewNormal = { bg = theme.ui.bg },
+				TelescopePreviewBorder = { bg = theme.ui.bg, fg = theme.ui.bg },
 
-				Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_dim },
+				Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
 				PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
 				PmenuSbar = { bg = theme.ui.bg_m1 },
 				PmenuThumb = { bg = theme.ui.bg_p2 },
 
-				NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
-				NeoTreeFloatBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				NeoTreeNormal = { bg = theme.ui.bg_dim },
-				NeoTreeFloatNormal = { bg = theme.ui.bg_dim },
-				NeoTreeNormalNC = { bg = theme.ui.bg_dim },
+				NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
+				NeoTreeFloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				NeoTreeNormal = { bg = theme.ui.bg },
+				NeoTreeFloatNormal = { bg = theme.ui.bg },
+				NeoTreeNormalNC = { bg = theme.ui.bg },
 
-				FloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg_dim },
-				FloatBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
-				NormalFloat = { bg = theme.ui.bg_dim, blend = 0 },
+				FloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
+				FloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
+				NormalFloat = { bg = theme.ui.bg, blend = 0 },
 
 				-- Nvim-Navic
 				NavicIconsFile = { fg = palette.springViolet2 },
@@ -84,19 +82,34 @@ return {
 				NavicSeparator = { fg = palette.sumiInk4 },
 
 				DiagnosticVirtualTextError = { bg = blend(theme.diag.error, theme.ui.bg, 0.1), fg = theme.diag.error },
-				DiagnosticVirtualTextWarn = { bg = blend(theme.diag.warning, theme.ui.bg, 0.1), fg = theme.diag.warning },
+				DiagnosticVirtualTextWarn = {
+					bg = blend(theme.diag.warning, theme.ui.bg, 0.1),
+					fg = theme.diag.warning,
+				},
 				DiagnosticVirtualTextInfo = { bg = blend(theme.diag.info, theme.ui.bg, 0.1), fg = theme.diag.info },
 				DiagnosticVirtualTextHint = { bg = blend(theme.diag.hint, theme.ui.bg, 0.1), fg = theme.diag.hint },
 
-				DiagnosticUnderlineError = { undercurl = true, sp = theme.diag.error }, 
-				DiagnosticUnderlineWarn = { undercurl = true, sp = theme.diag.warning },
-				DiagnosticUnderlineInfo = { undercurl = true, sp = theme.diag.info },
-				DiagnosticUnderlineHint = { undercurl = true, sp = theme.diag.hint },
+				DiagnosticUnderlineError = { sp = theme.diag.error },
+				DiagnosticUnderlineWarn = { sp = theme.diag.warning },
+				DiagnosticUnderlineInfo = { sp = theme.diag.info },
+				DiagnosticUnderlineHint = { sp = theme.diag.hint },
+
+				WhichKeyFloat = { bg = theme.ui.bg_p1 },
+				WhichKeyBorder = { bg = theme.ui.bg_p1 },
 			}
+			if transparent then
+				colors.BufferLineSeparator = { fg = theme.ui.bg_m3 }
+				colors.BufferLineSeparatorVisible = { fg = theme.ui.bg_m3 }
+				colors.BufferLineSeparatorSelected = { fg = theme.ui.bg_m3 }
+				colors.BufferLineFill = { bg = theme.ui.bg_m3 }
+				colors.Visual = { bg = palette.waveBlue2 }
+			end
+
+			return colors
 		end
 		require("kanagawa").setup({
-			transparent = false,
-			dimInactive = false,
+			transparent = transparent,
+			dimInactive = not transparent,
 			overrides = overrides,
 			undercurl = false,
 			colors = {

@@ -15,7 +15,7 @@ local font_with_fallback = function(name, params)
 end
 
 return {
-	font_size = 10.0,
+	font_size = 11.0,
 	check_for_updates = true,
 	show_update_window = true,
 	term = "xterm-256color",
@@ -74,15 +74,23 @@ return {
 	key_tables = keybinds.key_tables,
 	mouse_bindings = keybinds.mouse_bindings,
 
-	use_fancy_tab_bar = false,
 	visual_bell = {
 		fade_in_duration_ms = 75,
 		fade_out_duration_ms = 75,
 		target = "CursorColor",
 	},
-	-- window_background_opacity = 0.97,
+	use_fancy_tab_bar = false,
+	window_frame = {
+		font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
+		font_size = 9.0,
+		active_titlebar_bg = "#2a2a37",
+		inactive_titlebar_bg = "#2a2a37",
+	},
 	-- enable_scroll_bar = true,
-	window_decorations = "RESIZE",
+	-- window_background_opacity = 0.95,
+	-- window_decorations = "RESIZE",
+	window_background_opacity = 0,
+	win32_system_backdrop = "Mica",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
 	set_environment_variables = {

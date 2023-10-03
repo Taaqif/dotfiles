@@ -7,6 +7,7 @@ return {
 		"mrbjarksen/neo-tree-diagnostics.nvim",
 		"s1n7ax/nvim-window-picker",
 	},
+	branch = "v3.x",
 	init = function()
 		local keymap = require("utils").keymap
 
@@ -28,7 +29,9 @@ return {
 				content_layout = "center",
 			},
 			filesystem = {
-				follow_current_file = true,
+				follow_current_file = {
+					enabled = true,
+				},
 				use_libuv_file_watcher = true,
 				hijack_netrw_behavior = "open_current",
 				filtered_items = {

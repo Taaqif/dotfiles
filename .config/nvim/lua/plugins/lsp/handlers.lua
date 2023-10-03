@@ -1,5 +1,4 @@
 local illuminate_ok, illuminate = pcall(require, "illuminate")
-local navic_ok, navic = pcall(require, "nvim-navic")
 
 local M = {}
 
@@ -24,8 +23,8 @@ M.on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
-	local enable_trouble = false
-	local enable_glance = true
+	local enable_trouble = true
+	local enable_glance = false
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -116,8 +115,11 @@ M.on_attach = function(client, bufnr)
 		illuminate.on_attach(client)
 	end
 
-	if navic_ok and client.server_capabilities.documentSymbolProvider then
-		navic.attach(client, bufnr)
+	if client.server_capabilities.documentSymbolProvider then
+		local navic_ok, navic = pcall(require, "nvim-navic")
+		if navic_ok then
+			navic.attach(client, bufnr)
+		end
 	end
 end
 

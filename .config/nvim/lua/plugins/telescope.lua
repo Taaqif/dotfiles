@@ -8,6 +8,7 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-telescope/telescope-live-grep-args.nvim",
 		"nvim-telescope/telescope-media-files.nvim",
+		"debugloop/telescope-undo.nvim",
 	},
 
 	init = function()
@@ -29,6 +30,8 @@ return {
 		)
 		keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", "Help")
 		keymap("n", "<leader>fl", "<cmd>Telescope resume<cr>", "Last Search")
+		keymap("n", "<leader>fl", "<cmd>Telescope resume<cr>", "Last Search")
+		keymap("n", "<leader>fu", "<cmd>Telescope undo<cr>", "Last Search")
 		keymap("n", "<leader>fM", "<cmd>Telescope man_pages<cr>", "Man Pages")
 		keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", "Recent File")
 		keymap("n", "<leader>fR", "<cmd>Telescope registers<cr>", "Registers")
@@ -114,6 +117,7 @@ return {
 				},
 				["ui-select"] = {
 					results_title = false,
+					cache_picker = false,
 					layout_config = {
 						width = function(_, max_columns, _)
 							return math.min(max_columns, 80)
@@ -135,6 +139,8 @@ return {
 						},
 					},
 				},
+				undo = {
+				},
 			},
 		})
 
@@ -146,6 +152,7 @@ return {
 			"live_grep_args",
 			"media_files",
 			"projects",
+			"undo",
 		}
 
 		pcall(function()

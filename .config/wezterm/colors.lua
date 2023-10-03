@@ -84,9 +84,9 @@ return {
 		brights = { "#eddeb5", "#ea6962", "#a9b665", "#d8a657", "#7daea3", "#d3869b", "#89b482", "#d4be98" },
 
 		tab_bar = {
-			background = "#2a2a37",
+			background = "#32302f",
 			new_tab = {
-				bg_color = "#2a2a37",
+				bg_color = "#32302f",
 				fg_color = "#808080",
 			},
 			active_tab = {
@@ -112,7 +112,7 @@ return {
 		},
 		right_status = {
 			{
-				bg_color = "#2a2a37",
+				bg_color = "#32302f",
 				fg_color = "#b0b0b0",
 			},
 			{

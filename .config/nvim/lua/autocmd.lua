@@ -3,9 +3,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"qf",
 		"help",
 		"man",
+		"lir",
 		"lspinfo",
 		"spectre_panel",
-		"lir",
 		"DressingSelect",
 		"tsplayground",
 		"Markdown",
@@ -25,9 +25,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		local buf_ft = vim.bo.filetype
 		if buf_ft == "" or buf_ft == nil then
 			vim.cmd([[
-      nnoremap <silent> <buffer> q :close<CR> 
-      nnoremap <silent> <buffer> <c-j> j<CR> 
-      nnoremap <silent> <buffer> <c-k> k<CR> 
       set nobuflisted 
     ]])
 		end
@@ -57,19 +54,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("DirChanged", {
 	pattern = "*",
 	command = [[call chansend(v:stderr, printf("\033]7;file://%s\033\\", v:event.cwd))]],
-})
-
-
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
-	pattern = "*",
-	callback = function()
-    -- vim.opt_local.cursorline = false
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
-	pattern = "*",
-	callback = function()
-    -- vim.opt_local.cursorline = true
-	end,
 })

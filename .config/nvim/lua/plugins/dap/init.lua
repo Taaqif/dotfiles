@@ -5,7 +5,7 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 		"mxsdev/nvim-dap-vscode-js",
 	},
-	lazy = true,
+	lazy = false,
 	init = function()
 		local wk = require("which-key")
 		wk.register({
@@ -134,7 +134,6 @@ return {
 		require("mason-nvim-dap").setup({
 			automatic_setup = true,
 		})
-		require("mason-nvim-dap").setup_handlers({})
 		require("dap-vscode-js").setup({
 			debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
 			debugger_cmd = { "js-debug-adapter" },
