@@ -98,7 +98,6 @@ return {
         mapping = {
 
           ["<C-e>"] = cmp.mapping({
-            dj
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
           }),
