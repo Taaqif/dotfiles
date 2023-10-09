@@ -18,7 +18,9 @@ return {
 
 	config = function()
 		local treesitter_context_ok, treesitter_context = pcall(require, "treesitter-context")
-		treesitter_context.setup({})
+		treesitter_context.setup({
+			max_lines = 3
+		})
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
 				"c",
