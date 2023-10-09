@@ -1,7 +1,7 @@
 gui:
-  showIcons: true
+  nerdFontsVersion: "3"
 os:
-  editCommand: 'nvim' 
+  editPreset: 'nvim' 
 keybinding:
   universal:
     appendNewline: '<tab>'
