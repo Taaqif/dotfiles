@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
 local colors = require("colors")
-COLOR = colors["kanagawa"]
+COLOR = colors["gruvbox_material_dark_hard"]
 
 local keybinds = require("keybinds")
 require("on")
@@ -83,8 +83,6 @@ return {
 	window_frame = {
 		font = font_with_fallback("Operator Mono SSm Lig Book", { style = "Normal" }),
 		font_size = 9.0,
-		active_titlebar_bg = "#2a2a37",
-		inactive_titlebar_bg = "#2a2a37",
 	},
 	-- enable_scroll_bar = true,
 	-- window_background_opacity = 0.95,
