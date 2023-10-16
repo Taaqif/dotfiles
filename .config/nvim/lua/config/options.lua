@@ -17,10 +17,10 @@ if vim.fn.has("wsl") == 1 then
     },
   }
 end
-opt.list = true
-opt.listchars = {
-  eol = "↵",
-  trail = "·",
-  space = "·",
-  tab = "  ",
-}
+-- opt.list = true
+-- opt.listchars = {
+--   eol = "↵",
+--   trail = "·",
+--   space = "·",
+--   tab = "  ",
+-- }
