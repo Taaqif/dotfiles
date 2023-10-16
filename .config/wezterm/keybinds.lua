@@ -18,7 +18,6 @@ local direction_keys = {
 	l = "Right",
 }
 
-w.log_info("Hello!")
 local function split_nav(resize_or_move, key)
 	return {
 		key = key,
