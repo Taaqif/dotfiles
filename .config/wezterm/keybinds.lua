@@ -1,13 +1,49 @@
 local M = {}
-local wezterm = require("wezterm")
-local act = wezterm.action
+local w = require("wezterm")
+local act = w.action
 local utils = require("utils")
+local function is_vim(pane)
+	-- this is set by the smart splits plugin, and unset on ExitPre in Neovim (https://github.com/mrjones2014/smart-splits.nvim)
+	return pane:get_user_vars().IS_NVIM == "true"
+end
+local direction_keys = {
+	Left = "h",
+	Down = "j",
+	Up = "k",
+	Right = "l",
+	-- reverse lookup
+	h = "Left",
+	j = "Down",
+	k = "Up",
+	l = "Right",
+}
 
+w.log_info("Hello!")
+local function split_nav(resize_or_move, key)
+	return {
+		key = key,
+		mods = resize_or_move == "resize" and "CTRL|SHIFT" or "CTRL",
+		action = w.action_callback(function(win, pane)
+			if is_vim(pane) then
+				-- pass the keys through to vim/nvim
+				win:perform_action({
+					SendKey = { key = key, mods = resize_or_move == "resize" and "CTRL|SHIFT" or "CTRL" },
+				}, pane)
+			else
+				if resize_or_move == "resize" then
+					win:perform_action({ AdjustPaneSize = { direction_keys[key], 3 } }, pane)
+				else
+					win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
+				end
+			end
+		end),
+	}
+end
 M.keybinds = {
 	{
 		key = " ",
 		mods = "LEADER|CTRL",
-		action = wezterm.action.SendKey({
+		action = w.action.SendKey({
 			key = " ",
 			mods = "CTRL",
 		}),
@@ -24,7 +60,7 @@ M.keybinds = {
 	{
 		key = "P",
 		mods = "CTRL",
-		action = wezterm.action.ActivateCommandPalette,
+		action = w.action.ActivateCommandPalette,
 	},
 	{
 		key = "r",
@@ -67,6 +103,17 @@ M.keybinds = {
 	{ key = "Enter", mods = "ALT", action = "QuickSelect" },
 	{ key = "/", mods = "ALT", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "p", mods = "ALT", action = "ShowLauncher" },
+
+	-- move between split panes
+	split_nav("move", "h"),
+	split_nav("move", "j"),
+	split_nav("move", "k"),
+	split_nav("move", "l"),
+	-- resize panes
+	split_nav("resize", "h"),
+	split_nav("resize", "j"),
+	split_nav("resize", "k"),
+	split_nav("resize", "l"),
 }
 
 M.key_tables = {
@@ -82,8 +129,8 @@ M.key_tables = {
 		-- Cancel the mode by pressing escape
 		{ key = "Escape", action = "PopKeyTable" },
 	},
-	copy_mode = wezterm.gui.default_key_tables().copy_mode,
-	search_mode = wezterm.gui.default_key_tables().search_mode,
+	copy_mode = w.gui.default_key_tables().copy_mode,
+	search_mode = w.gui.default_key_tables().search_mode,
 }
 
 M.mouse_bindings = {
