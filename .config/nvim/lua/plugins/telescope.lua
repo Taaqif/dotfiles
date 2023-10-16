@@ -3,6 +3,19 @@ return {
     "telescope.nvim",
     opts = {
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "-L",
+          "--hidden",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+        },
+        hidden = true,
+        file_ignore_patterns = { "node_modules", ".git/", ".git\\" },
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
@@ -16,6 +29,7 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
+      extensions = {},
     },
   },
 }
