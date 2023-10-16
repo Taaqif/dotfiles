@@ -102,28 +102,28 @@ return {
     },
     keys = {
       {
-        "<A-h>",
+        "<C-S-h>",
         function()
           require("smart-splits").resize_left()
         end,
         desc = "resize left",
       },
       {
-        "<A-j>",
+        "<C-S-j>",
         function()
           require("smart-splits").resize_down()
         end,
         desc = "resize right",
       },
       {
-        "<A-k>",
+        "<C-S-k>",
         function()
           require("smart-splits").resize_up()
         end,
         desc = "resize up",
       },
       {
-        "<A-l>",
+        "<C-S-l>",
         function()
           require("smart-splits").resize_right()
         end,
