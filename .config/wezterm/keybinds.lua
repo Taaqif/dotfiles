@@ -87,6 +87,8 @@ M.keybinds = {
 	{ key = "7", mods = "LEADER", action = act({ ActivateTab = 6 }) },
 	{ key = "8", mods = "LEADER", action = act({ ActivateTab = 7 }) },
 	{ key = "9", mods = "LEADER", action = act({ ActivateTab = 8 }) },
+	{ key = "]", mods = "CTRL", action = act({ ActivateTabRelative = 1 }) },
+	{ key = "[", mods = "CTRL", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "]", mods = "LEADER", action = act({ ActivateTabRelative = 1 }) },
 	{ key = "[", mods = "LEADER", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "-", mods = "LEADER", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
