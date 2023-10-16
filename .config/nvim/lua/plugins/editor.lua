@@ -94,4 +94,98 @@ return {
       -- configurations go here
     },
   },
+  {
+    "mrjones2014/smart-splits.nvim",
+    lazy = false,
+    opts = {
+      log_level = "debug",
+    },
+    keys = {
+      {
+        "<C-S-h>",
+        function()
+          require("smart-splits").resize_left()
+        end,
+        desc = "resize left",
+      },
+      {
+        "<C-S-j>",
+        function()
+          require("smart-splits").resize_down()
+        end,
+        desc = "resize right",
+      },
+      {
+        "<C-S-k>",
+        function()
+          require("smart-splits").resize_up()
+        end,
+        desc = "resize up",
+      },
+      {
+        "<C-S-l>",
+        function()
+          require("smart-splits").resize_right()
+        end,
+        desc = "resize right",
+      },
+      -- moving between splits
+      {
+        "<C-h>",
+        function()
+          require("smart-splits").move_cursor_left()
+        end,
+        desc = "move left",
+      },
+      {
+        "<C-j>",
+        function()
+          require("smart-splits").move_cursor_down()
+        end,
+        desc = "move down",
+      },
+      {
+        "<C-k>",
+        function()
+          require("smart-splits").move_cursor_up()
+        end,
+        desc = "move up",
+      },
+      {
+        "<C-l>",
+        function()
+          require("smart-splits").move_cursor_right()
+        end,
+        desc = "move right",
+      },
+      {
+        "<leader>bh",
+        function()
+          require("smart-splits").swap_buf_left()
+        end,
+        desc = "swap left",
+      },
+      {
+        "<leader>bj",
+        function()
+          require("smart-splits").swap_buf_down()
+        end,
+        desc = "swap down",
+      },
+      {
+        "<leader>bk",
+        function()
+          require("smart-splits").swap_buf_up()
+        end,
+        desc = "swap up",
+      },
+      {
+        "<leader>bl",
+        function()
+          require("smart-splits").swap_buf_right()
+        end,
+        desc = "swap right",
+      },
+    },
+  },
 }
