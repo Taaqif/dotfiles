@@ -1,7 +1,7 @@
 gui:
   showIcons: true
 os:
-  editCommand: 'nvim' 
+  editPreset: "nvim"
 keybinding:
   universal:
-    appendNewline: '<tab>'
+    appendNewline: "<tab>"
