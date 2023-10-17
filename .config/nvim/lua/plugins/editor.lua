@@ -1,7 +1,17 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({ toggle = true })
+        end,
+        desc = "Explorer NeoTree",
+      },
+    },
     opts = {
+      popup_border_style = "rounded",
       filesystem = {
         filtered_items = {
           visible = true,
