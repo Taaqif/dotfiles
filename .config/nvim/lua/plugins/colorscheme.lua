@@ -6,18 +6,26 @@ return {
       local pallete = gruvbox.palette
       return {
         transparent_mode = true,
+        inverse = false,
         overrides = {
           NotifyBackground = { bg = pallete.dark1 },
 
-          -- FloatTitle = { bg = pallete.dark_red, fg = pallete.dark1 },
-          -- FloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
-          -- NormalFloat = { bg = pallete.dark1 },
-          --
-          -- NeoTreeFloatTitle = { bg = pallete.dark_red, fg = pallete.dark1 },
-          -- NeoTreeFloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
-          -- NeoTreeNormal = { bg = pallete.dark1 },
-          -- NeoTreeFloatNormal = { bg = pallete.dark1 },
-          -- NeoTreeNormalNC = { bg = pallete.dark1 },
+          FloatTitle = { bg = pallete.dark_red, fg = pallete.dark1 },
+          FloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
+          NormalFloat = { bg = pallete.dark1 },
+
+          NeoTreeFloatTitle = { bg = pallete.dark_red, fg = pallete.light1 },
+          NeoTreeFloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
+          NeoTreeNormal = { bg = pallete.dark1 },
+          NeoTreeFloatNormal = { bg = pallete.dark1 },
+          NeoTreeNormalNC = { bg = pallete.dark1 },
+          NeoTreeCursorLine = { bg = pallete.dark2 },
+
+          NoiceCmdlinePopup = { bg = pallete.dark2 },
+          NoiceConfirm = { bg = pallete.dark2 },
+          NoiceCmdlinePopupBorder = { fg = pallete.dark2, bg = pallete.dark2 },
+          NoiceCmdlinePopupTitle = { bg = pallete.dark_red, fg = pallete.light1 },
+          NoiceMini = { bg = pallete.dark2 },
 
           TelescopeResultsTitle = { fg = pallete.dark1, bg = pallete.dark1 },
           TelescopePreviewTitle = { fg = pallete.dark1, bg = pallete.dark1 },
