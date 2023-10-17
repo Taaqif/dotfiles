@@ -2,7 +2,7 @@ local opt = vim.opt
 
 opt.scrolloff = 8
 opt.showbreak = "↪ "
-opt.wrap = true
+opt.wrap = false
 opt.clipboard = "unnamedplus"
 
 if vim.fn.has("wsl") == 1 then
