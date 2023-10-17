@@ -17,7 +17,7 @@ return {
           NeoTreeFloatTitle = { bg = pallete.dark_red, fg = pallete.light1 },
           NeoTreeFloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
           NeoTreeNormal = { bg = pallete.dark1 },
-          NeoTreeFloatNormal = { bg = pallete.dark1 },
+          NeoTreeFloatNormal = { bg = pallete.dark2 },
           NeoTreeNormalNC = { bg = pallete.dark1 },
           NeoTreeCursorLine = { bg = pallete.dark2 },
 
