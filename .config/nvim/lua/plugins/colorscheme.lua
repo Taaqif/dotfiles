@@ -21,10 +21,11 @@ return {
           NeoTreeNormalNC = { bg = pallete.dark1 },
           NeoTreeCursorLine = { bg = pallete.dark2 },
 
-          NoiceCmdlinePopup = { bg = pallete.dark2 },
-          NoiceConfirm = { bg = pallete.dark2 },
-          NoiceCmdlinePopupBorder = { fg = pallete.dark2, bg = pallete.dark2 },
+          NoiceCmdlinePopup = { bg = pallete.dark3 },
+          NoiceCmdlinePopupBorder = { fg = pallete.dark3, bg = pallete.dark3 },
           NoiceCmdlinePopupTitle = { bg = pallete.dark_red, fg = pallete.light1 },
+          NoiceCmdlinePopupResults = { bg = pallete.dark2 },
+          NoiceCmdlinePopupResultsBorder = { bg = pallete.dark2, fg = pallete.dark2 },
           NoiceMini = { bg = pallete.dark2 },
 
           TelescopeResultsTitle = { fg = pallete.dark1, bg = pallete.dark1 },
