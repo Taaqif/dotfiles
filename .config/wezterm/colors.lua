@@ -3,7 +3,7 @@ return {
 		foreground = "#dcd7ba",
 		background = "#1f1f28",
 
-		compose_cursor = '#7fb4ca',
+		compose_cursor = "#7fb4ca",
 
 		cursor_bg = "#c8c093",
 		cursor_fg = "#c8c093",
@@ -33,6 +33,10 @@ return {
 				bg_color = "#595959",
 				fg_color = "#b0b0b0",
 			},
+		},
+	},
+	["kanagawa_custom"] = {
+		tab_bar = {
 			copy_mode = {
 				bg_color = "#e6c384",
 				fg_color = "#1C1B19",
@@ -47,7 +51,6 @@ return {
 				fg_color = "#b0b0b0",
 			},
 		},
-
 		right_status = {
 			{
 				bg_color = "#2a2a37",
@@ -97,6 +100,10 @@ return {
 				bg_color = "#595959",
 				fg_color = "#b0b0b0",
 			},
+		},
+	},
+	["gruvbox_material_dark_hard_custom"] = {
+		tab_bar = {
 			copy_mode = {
 				bg_color = "#ff9f65",
 				fg_color = "#1C1B19",

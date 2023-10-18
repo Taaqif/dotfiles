@@ -52,7 +52,7 @@ local SUB_IDX = {
 
 local function get_os_icon(title)
 	local title_lower = string.lower(title)
-  local is_windows = string.find(title_lower, ".exe") and not string.find(title_lower, "wslhost.exe")
+	local is_windows = string.find(title_lower, ".exe") and not string.find(title_lower, "wslhost.exe")
 	if is_windows then
 		-- windows
 		return utf8.char(0xe70f)
@@ -94,7 +94,7 @@ wezterm.on("update-right-status", function(window, pane)
 	local elements = {}
 	local num_cells = 0
 
-	local right_status_colors = COLOR.right_status
+	local right_status_colors = COLOR_CUSTOM.right_status
 
 	local function push(text, is_last)
 		local cell_no = num_cells + 1
@@ -136,8 +136,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	if has_unseen_output then
-		background = COLOR.tab_bar.unseen_tab.bg_color
-		foreground = COLOR.tab_bar.unseen_tab.fg_color
+		background = COLOR_CUSTOM.tab_bar.unseen_tab.bg_color
+		foreground = COLOR_CUSTOM.tab_bar.unseen_tab.fg_color
 	end
 
 	if tab.is_active then
@@ -146,12 +146,12 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
 			id = id .. "視 "
-			background = COLOR.tab_bar.copy_mode.bg_color
-			foreground = COLOR.tab_bar.copy_mode.fg_color
+			background = COLOR_CUSTOM.tab_bar.copy_mode.bg_color
+			foreground = COLOR_CUSTOM.tab_bar.copy_mode.fg_color
 		end
 	elseif hover then
-		background = COLOR.tab_bar.hover_tab.bg_color
-		foreground = COLOR.tab_bar.hover_tab.fg_color
+		background = COLOR_CUSTOM.tab_bar.hover_tab.bg_color
+		foreground = COLOR_CUSTOM.tab_bar.hover_tab.fg_color
 	end
 
 	if tab.active_pane.is_zoomed then
