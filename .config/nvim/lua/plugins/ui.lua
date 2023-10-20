@@ -75,7 +75,7 @@ return {
           cond = function()
             return vim.g["loaded_wakatime"] == 1
           end,
-          icon = "󱑆",
+          icon = "󱑎",
         },
       }
       return opts
