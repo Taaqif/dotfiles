@@ -77,6 +77,13 @@ return {
       end
 
       hi("NonAscii", { gui = "NONE", cterm = "NONE", term = "NONE", guibg = "#444444" })
+
+      local short_hex_color = function(_, match)
+        local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+        local hex = string.format("#%s%s%s%s%s%s", r, r, g, g, b, b)
+        return MiniHipatterns.compute_hex_color_group(hex, "bg")
+      end
+
       return {
         tailwind = {
           enabled = true,
@@ -88,6 +95,7 @@ return {
         highlighters = {
           hex_color = hipatterns.gen_highlighter.hex_color({ priority = 2000 }),
           non_ascii = { pattern = "[\128-\255]", group = "NonAscii" },
+          short_hex_color = { pattern = "#%x%x%x%f[%X]", group = short_hex_color },
         },
       }
     end,

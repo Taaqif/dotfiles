@@ -24,6 +24,7 @@ local get_wakatime_time = function()
 end
 
 -- Yield statusline value
+-- https://github.com/wakatime/vim-wakatime/issues/110
 local wakatime = function()
   local WAKATIME_UPDATE_INTERVAL = 60000
 
@@ -48,8 +49,42 @@ return {
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opt)
+      opt.theme = "hyper"
       opt.config.week_header = {
         enable = true,
+      }
+      opt.config.packages = { enable = false }
+      opt.config.shortcut = {
+        {
+          action = "Telescope find_files",
+          desc = " Find file",
+          icon = " ",
+          key = "f",
+        },
+        {
+          action = "Telescope oldfiles",
+          desc = " Recent files",
+          icon = " ",
+          key = "r",
+        },
+        {
+          action = "Telescope live_grep",
+          desc = " Find text",
+          icon = " ",
+          key = "g",
+        },
+        {
+          action = 'lua require("persistence").load()',
+          desc = " Restore Session",
+          icon = " ",
+          key = "s",
+        },
+        {
+          action = "qa",
+          desc = " Quit",
+          icon = " ",
+          key = "q",
+        },
       }
       return opt
     end,

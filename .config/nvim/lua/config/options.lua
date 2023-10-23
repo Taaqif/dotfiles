@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.scrolloff = 8
 opt.showbreak = "↪ "
 opt.wrap = false
+opt.spelloptions = "camel"
 opt.clipboard = "unnamedplus"
 
 if vim.fn.has("wsl") == 1 then

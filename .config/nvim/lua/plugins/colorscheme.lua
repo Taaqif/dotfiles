@@ -7,7 +7,18 @@ return {
       return {
         transparent_mode = true,
         inverse = false,
+        undercurl = false,
         overrides = {
+          GruvboxRedUnderline = { underline = true, sp = pallete.bright_red },
+          GruvboxGreenUnderline = { underline = true, sp = pallete.bright_green },
+          GruvboxYellowUnderline = { underline = true, sp = pallete.bright_yellow },
+          GruvboxBlueUnderline = { underline = true, sp = pallete.bright_blue },
+          GruvboxPurpleUnderline = { underline = true, sp = pallete.bright_purple },
+          GruvboxAquaUnderline = { underline = true, sp = pallete.bright_aqua },
+          GruvboxOrangeUnderline = { underline = true, sp = pallete.bright_orange },
+
+          LspInlayHint = { fg = "#524a45" },
+
           NotifyBackground = { bg = pallete.dark1 },
 
           FloatTitle = { bg = pallete.dark_red, fg = pallete.dark1 },
@@ -21,11 +32,11 @@ return {
           NeoTreeNormalNC = { bg = pallete.dark1 },
           NeoTreeCursorLine = { bg = pallete.dark2 },
 
-          NoiceCmdlinePopup = { bg = pallete.dark3 },
-          NoiceCmdlinePopupBorder = { fg = pallete.dark3, bg = pallete.dark3 },
+          NoiceCmdlinePopup = { bg = pallete.dark2 },
+          NoiceCmdlinePopupBorder = { fg = pallete.dark2, bg = pallete.dark2 },
           NoiceCmdlinePopupTitle = { bg = pallete.dark_red, fg = pallete.light1 },
-          NoiceCmdlinePopupResults = { bg = pallete.dark2 },
-          NoiceCmdlinePopupResultsBorder = { bg = pallete.dark2, fg = pallete.dark2 },
+          NoiceCmdlinePopupResults = { bg = pallete.dark1 },
+          NoiceCmdlinePopupResultsBorder = { bg = pallete.dark1, fg = pallete.dark1 },
           NoiceMini = { bg = pallete.dark2 },
 
           TelescopeResultsTitle = { fg = pallete.dark1, bg = pallete.dark1 },
