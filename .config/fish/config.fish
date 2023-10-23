@@ -14,6 +14,7 @@ set -Ux LS_COLORS "di=34:ln=35:so=32:pi=33:ex=37:bd=34;46:cd=34;43:su=30;41:sg=3
 alias lg='lazygit'
 
 test -s /home/tye/.nvm/nvm.fish; and source /home/tye/.nvm/nvm.fish
+set --universal nvm_default_version v18
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
