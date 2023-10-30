@@ -89,8 +89,8 @@ return {
 	-- enable_scroll_bar = true,
 	-- window_background_opacity = 0.95,
 	-- window_decorations = "RESIZE",
-	window_background_opacity = 0,
-	win32_system_backdrop = "Mica",
+	window_background_opacity = 0.8,
+	win32_system_backdrop = "Acrylic",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
 	set_environment_variables = {
