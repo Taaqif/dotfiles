@@ -3,7 +3,7 @@ local Job = require("plenary.job")
 local async = require("plenary.async")
 
 ---@diagnostic disable
-local state = { comp_wakatime_time = "", homeDir = vim.fn.expand("~") }
+local state = { comp_wakatime_time = "", homeDir = vim.fn.expand("~"), bad_call = false }
 
 local get_wakatime_time = function()
   local tx, rx = async.control.channel.oneshot()
@@ -15,7 +15,10 @@ local get_wakatime_time = function()
     end,
   })
   if not ok then
-    vim.notify("Bad WakaTime call: " .. job, "warn")
+    if not state.bad_call then
+      vim.notify("Bad WakaTime call: " .. job, "warn")
+      state.bad_call = true
+    end
     return ""
   end
 
