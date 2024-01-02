@@ -20,6 +20,11 @@ set --universal nvm_default_version v18
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# Android
+set -xg ANDROID_HOME $HOME/android
+set -xg ANDROID_SDK_ROOT $ANDROID_HOME
+set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
+
 # pnpm
 set -gx PNPM_HOME "/home/tye/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
