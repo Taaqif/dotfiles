@@ -108,7 +108,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local os_icon = tab.active_pane.user_vars.os_icon
 	local id = ""
 	if os_icon ~= nil then
-		id = id .. os_icon .. " "
+		id = id .. " " .. os_icon .. " "
 	else
 		id = id .. " "
 	end
