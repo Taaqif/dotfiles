@@ -50,17 +50,6 @@ local SUB_IDX = {
 	"₂₀",
 }
 
-local function get_os_icon(title)
-	local title_lower = string.lower(title)
-	local is_windows = string.find(title_lower, ".exe") and not string.find(title_lower, "wslhost.exe")
-	if is_windows then
-		-- windows
-		return utf8.char(0xe70f)
-	end
-	-- linux
-	return utf8.char(0xf17c)
-end
-
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
 
@@ -116,9 +105,13 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local os_icon = get_os_icon(tab.active_pane.title)
+	local os_icon = tab.active_pane.user_vars.os_icon
 	local id = ""
-	id = id .. " " .. os_icon .. " "
+	if os_icon ~= nil then
+		id = id .. os_icon .. " "
+	else
+		id = id .. " "
+	end
 	id = id .. tostring(tab.tab_index + 1) .. " "
 	local left_arrow = SOLID_LEFT_ARROW
 	if tab.tab_index == 0 then
@@ -145,7 +138,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		foreground = COLOR.tab_bar.active_tab.fg_color
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
-			id = id .. "視 "
+			id = id .. "󰕢 "
 			background = COLOR_CUSTOM.tab_bar.copy_mode.bg_color
 			foreground = COLOR_CUSTOM.tab_bar.copy_mode.fg_color
 		end
@@ -155,7 +148,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	if tab.active_pane.is_zoomed then
-		id = id .. "ﬕ "
+		id = id .. "󰘖 "
 	end
 
 	local shell_icon = ""
