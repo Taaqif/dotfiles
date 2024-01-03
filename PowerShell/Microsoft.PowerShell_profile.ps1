@@ -35,7 +35,7 @@ function Invoke-Starship-PreCommand {
     # Set OSC1337 os_icon
     $os_icon_base64 = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($env:STARSHIP_DISTRO))
 
-    $host.ui.Write("$ansi_escape]1337;SetUserVar=os_icon=$os_icon_base64$ansi_escape`a")
+    $host.ui.Write("$ansi_escape]1337;SetUserVar=os_icon=$os_icon_base64$ansi_escape\")
     $host.ui.Write($prompt)
 }
 
