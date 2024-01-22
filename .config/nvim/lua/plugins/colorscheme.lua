@@ -21,10 +21,23 @@ return {
     opts = function()
       local gruvbox = require("gruvbox")
       local pallete = gruvbox.palette
+      local palette_overrides = {
+        bright_red = "#ea6962",
+        bright_green = "#89b482",
+        bright_yellow = "#d8a657",
+        bright_blue = "#7daea3",
+        bright_purple = "#d3869b",
+        bright_aqua = "#a9b665",
+        bright_orange = "#e78a4e",
+      }
+      for color, hex in pairs(palette_overrides) do
+        pallete[color] = hex
+      end
       return {
         transparent_mode = true,
         inverse = false,
         undercurl = false,
+        palette_overrides = palette_overrides,
         overrides = {
           GruvboxRedUnderline = { underline = true, sp = pallete.bright_red },
           GruvboxGreenUnderline = { underline = true, sp = pallete.bright_green },
@@ -66,7 +79,6 @@ return {
           TelescopePreviewNormal = { bg = pallete.dark1 },
           TelescopePreviewBorder = { bg = pallete.dark1, fg = pallete.dark1 },
         },
-        contrast = "soft",
       }
     end,
   },
