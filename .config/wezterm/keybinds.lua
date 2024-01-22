@@ -63,7 +63,7 @@ M.keybinds = {
 	},
 	{
 		key = "r",
-		mods = "ALT",
+		mods = "LEADER",
 		action = act({
 			ActivateKeyTable = {
 				name = "resize_pane",
