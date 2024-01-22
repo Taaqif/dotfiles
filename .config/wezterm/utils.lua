@@ -1,3 +1,4 @@
+local wezterm = require("wezterm")
 local M = {}
 
 function M.basename(s)
@@ -57,21 +58,37 @@ function M.convert_useful_path(dir)
 	return M.basename(cwd)
 end
 
-function M.split_from_url(dir)
+function M.split_from_url(cwd_uri)
 	local cwd = ""
 	local hostname = ""
-	local cwd_uri = dir:sub(8)
-	local slash = cwd_uri:find("/")
-	if slash then
-		hostname = cwd_uri:sub(1, slash - 1)
-		-- Remove the domain name portion of the hostname
-		local dot = hostname:find("[.]")
-		if dot then
-			hostname = hostname:sub(1, dot - 1)
+	if type(cwd_uri) == "userdata" then
+		-- Running on a newer version of wezterm and we have
+		-- a URL object here, making this simple!
+
+		cwd = cwd_uri.file_path
+		hostname = cwd_uri.host or wezterm.hostname()
+	else
+		-- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
+		-- which doesn't have the Url object
+		cwd_uri = cwd_uri:sub(8)
+		local slash = cwd_uri:find("/")
+		if slash then
+			hostname = cwd_uri:sub(1, slash - 1)
+			-- and extract the cwd from the uri, decoding %-encoding
+			cwd = cwd_uri:sub(slash):gsub("%%(%x%x)", function(hex)
+				return string.char(tonumber(hex, 16))
+			end)
 		end
-		cwd = cwd_uri:sub(slash)
-		-- cwd = M.convert_useful_path(cwd)
 	end
+	-- Remove the domain name portion of the hostname
+	local dot = hostname:find("[.]")
+	if dot then
+		hostname = hostname:sub(1, dot - 1)
+	end
+	if hostname == "" then
+		hostname = wezterm.hostname()
+	end
+
 	return hostname, cwd
 end
 
