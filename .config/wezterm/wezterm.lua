@@ -19,7 +19,6 @@ end
 return {
 	font_size = 11.0,
 	check_for_updates = true,
-	show_update_window = true,
 	term = "xterm-256color",
 	tab_bar_at_bottom = true,
 	line_height = 1,
@@ -89,7 +88,7 @@ return {
 	-- enable_scroll_bar = true,
 	-- window_background_opacity = 0.95,
 	-- window_decorations = "RESIZE",
-	window_background_opacity = 0.6,
+	window_background_opacity = 0.7,
 	win32_system_backdrop = "Acrylic",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
