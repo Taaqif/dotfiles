@@ -57,6 +57,7 @@ return {
         enable = true,
       }
       opt.config.packages = { enable = false }
+      opt.config.project = { enable = false }
       opt.config.shortcut = {
         {
           action = "Telescope find_files",
