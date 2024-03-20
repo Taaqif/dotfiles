@@ -5,7 +5,7 @@ return {
       {
         "<leader>e",
         function()
-          require("neo-tree.command").execute({ toggle = true })
+          require("neo-tree.command").execute({ toggle = true, reveal = true })
         end,
         desc = "Explorer NeoTree",
       },
