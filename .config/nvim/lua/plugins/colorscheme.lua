@@ -67,7 +67,7 @@ return {
           NoiceCmdlinePopupTitle = { bg = pallete.dark_red, fg = pallete.light1 },
           NoiceCmdlinePopupResults = { bg = pallete.dark1 },
           NoiceCmdlinePopupResultsBorder = { bg = pallete.dark1, fg = pallete.dark1 },
-          NoiceMini = { bg = pallete.dark2 },
+          -- NoiceMini = { bg = pallete.dark2 },
 
           TelescopeResultsTitle = { fg = pallete.dark1, bg = pallete.dark1 },
           TelescopePreviewTitle = { fg = pallete.dark1, bg = pallete.dark1 },
