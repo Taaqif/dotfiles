@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.lazygit_config = false
+
 opt.scrolloff = 8
 opt.showbreak = "↪ "
 opt.wrap = false
