@@ -209,8 +209,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     version = "*",
-    opts = {},
-    event = "LazyFile",
+    config = true,
     init = function()
       vim.api.nvim_create_autocmd("User", {
         pattern = "GitConflictDetected",
