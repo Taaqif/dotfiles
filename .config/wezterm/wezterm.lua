@@ -24,6 +24,7 @@ return {
 	line_height = 1,
 	-- default_domain = 'WSL:Ubuntu',
 	default_prog = { "pwsh" },
+	prefer_to_spawn_tabs = true,
 	use_ime = true,
 	initial_rows = 32,
 	initial_cols = 120,
