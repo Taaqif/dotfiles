@@ -113,6 +113,15 @@ return {
     },
   },
   {
+    "EtiamNullam/deferred-clipboard.nvim",
+    enabled = true,
+    lazy = false,
+    opts = {
+      fallback = "unnamedplus",
+      force_init_unnamed = true,
+    },
+  },
+  {
     -- NOTE: Wezterm.exe needs to linked to wezterm in wsl for smart splits to work
     -- cd /bin && sudo ln -s /mnt/c/Program Files/WezTerm/wezterm.exe wezterm
     "mrjones2014/smart-splits.nvim",
