@@ -5,6 +5,8 @@ set -Ux NEOVIM_WIN_DIR "/mnt/c/Program Files/Neovim"
 fish_add_path /home/tye/.cargo/bin
 fish_add_path /home/tye/.local/share/bob/nvim-bin
 fish_add_path /mnt/c/Program\ Files/WezTerm
+fish_add_path /mnt/c/Windows/System32
+fish_add_path /mnt/c/Windows/System32/WindowsPowershell/v1.0
 if status is-interactive
     # Commands to run in interactive sessions can go here
     zoxide init fish | source
