@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
 local colors = require("colors")
-local color_key = "gruvbox_material_dark_hard"
+local color_key = "kanagawa"
 COLOR = colors[color_key]
 COLOR_CUSTOM = colors[color_key .. "_custom"]
 
