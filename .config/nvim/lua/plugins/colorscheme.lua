@@ -36,7 +36,7 @@ return {
       return {
         transparent_mode = true,
         inverse = false,
-        undercurl = false,
+        undercurl = true,
         palette_overrides = palette_overrides,
         overrides = {
           GruvboxRedUnderline = { underline = true, sp = pallete.bright_red },
@@ -96,7 +96,7 @@ return {
     "rebelot/kanagawa.nvim",
     opts = {
       transparent = true,
-      undercurl = false,
+      undercurl = true,
       overrides = function(c)
         local palette = c.palette
         local theme = c.theme
