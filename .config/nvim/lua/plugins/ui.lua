@@ -51,6 +51,7 @@ end
 return {
   {
     "nvimdev/dashboard-nvim",
+    enabled = false,
     opts = function(_, opt)
       opt.theme = "hyper"
       opt.config.week_header = {

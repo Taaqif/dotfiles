@@ -1,6 +1,17 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    init = function()
+      -- open neo-tree on startup
+      if vim.fn.argc(-1) == 1 then
+        local stat = vim.uv.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          vim.cmd("Neotree toggle current")
+        end
+      else
+        vim.cmd("Neotree toggle current")
+      end
+    end,
     keys = {
       {
         "<leader>e",
@@ -13,6 +24,7 @@ return {
     opts = {
       popup_border_style = "rounded",
       filesystem = {
+        hijack_netrw_behavior = "open_current",
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
