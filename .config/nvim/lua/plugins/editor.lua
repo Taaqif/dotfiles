@@ -124,6 +124,9 @@ return {
       -- configurations go here
     },
   },
+
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
+
   {
     -- NOTE: Wezterm.exe needs to linked to wezterm in wsl for smart splits to work
     -- cd /bin && sudo ln -s /mnt/c/Program Files/WezTerm/wezterm.exe wezterm
