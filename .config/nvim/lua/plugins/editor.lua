@@ -125,6 +125,16 @@ return {
     },
   },
   {
+    "rhysd/conflict-marker.vim",
+    init = function()
+      vim.cmd("highlight ConflictMarkerBegin guibg=#2f7366")
+      vim.cmd("highlight ConflictMarkerOurs guibg=#2e5049")
+      vim.cmd("highlight ConflictMarkerTheirs guibg=#344f69")
+      vim.cmd("highlight ConflictMarkerEnd guibg=#2f628e")
+      vim.cmd("highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81")
+    end,
+  },
+  {
     -- NOTE: Wezterm.exe needs to linked to wezterm in wsl for smart splits to work
     -- cd /bin && sudo ln -s /mnt/c/Program Files/WezTerm/wezterm.exe wezterm
     "mrjones2014/smart-splits.nvim",
