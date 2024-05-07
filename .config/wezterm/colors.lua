@@ -1,7 +1,7 @@
 return {
 	["kanagawa"] = {
 		foreground = "#dcd7ba",
-		background = "#1f1f28",
+		-- background = "#1f1f28",
 
 		compose_cursor = "#7fb4ca",
 
@@ -20,9 +20,11 @@ return {
 		indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 
 		tab_bar = {
-			background = "#2a2a37",
+			-- background = "#2a2a37",
+			background = "rgb(0,0,0 / 0%)",
 			new_tab = {
-				bg_color = "#2a2a37",
+				bg_color = "rgb(0,0,0 / 0%)",
+				-- bg_color = "#2a2a37",
 				fg_color = "#808080",
 			},
 			active_tab = {
@@ -53,7 +55,8 @@ return {
 		},
 		right_status = {
 			{
-				bg_color = "#2a2a37",
+				-- bg_color = "#2a2a37",
+				bg_color = "rgb(0,0,0 / 0%)",
 				fg_color = "#b0b0b0",
 			},
 			{
@@ -76,7 +79,7 @@ return {
 	},
 	["gruvbox_material_dark_hard"] = {
 		foreground = "#D4BE98",
-		background = "#282828",
+		-- background = "#282828",
 		cursor_bg = "#D4BE98",
 		cursor_border = "#D4BE98",
 		cursor_fg = "#282828",
@@ -87,9 +90,11 @@ return {
 		brights = { "#eddeb5", "#ea6962", "#a9b665", "#d8a657", "#7daea3", "#d3869b", "#89b482", "#d4be98" },
 
 		tab_bar = {
-			background = "#32302f",
+			-- background = "#32302f",
+			background = "rgb(0,0,0 / 0%)",
 			new_tab = {
-				bg_color = "#32302f",
+				bg_color = "rgb(0,0,0 / 0%)",
+				-- bg_color = "#32302f",
 				fg_color = "#808080",
 			},
 			active_tab = {
@@ -119,7 +124,8 @@ return {
 		},
 		right_status = {
 			{
-				bg_color = "#32302f",
+				bg_color = "rgb(0,0,0 / 0%)",
+				-- bg_color = "#32302f",
 				fg_color = "#b0b0b0",
 			},
 			{
