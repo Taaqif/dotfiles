@@ -6,6 +6,10 @@ os:
 keybinding:
   universal:
     appendNewline: "<tab>"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
 customCommands:
   - key: "<c-P>"
     description: "Push to a specific remote repository"
