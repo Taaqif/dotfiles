@@ -6,7 +6,6 @@
 
 [delta]
   navigate = true
-  light = false
   true-color = always
   features = decorations
 
