@@ -9,6 +9,17 @@ return {
           vim.cmd("Neotree toggle current")
         end
       else
+        local mode = vim.api.nvim_get_mode().mode
+        if mode == "i" or not vim.bo.modifiable then
+          return
+        end
+        local opts = {
+          ["bufhidden"] = "wipe",
+          ["buflisted"] = false,
+        }
+        for opt, val in pairs(opts) do
+          vim.opt_local[opt] = val
+        end
         vim.cmd("Neotree toggle current")
       end
     end,
