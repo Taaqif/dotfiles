@@ -61,7 +61,7 @@ wezterm.on("update-right-status", function(window, pane)
 
 	-- table.insert(cells, pane:get_title())
 
-	local date = wezterm.strftime("%a %-d %b %I:%M %p ")
+	local date = wezterm.strftime("%a %-d %b %I:%M %p")
 	table.insert(cells, date)
 	local text = pane:get_domain_name()
 	if text ~= "local" and text ~= "" then
