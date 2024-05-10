@@ -78,10 +78,18 @@ return {
         {
           event = "neo_tree_buffer_enter",
           handler = function(_)
-            vim.opt_local.signcolumn = "auto"
-            vim.cmd([[
-            setlocal relativenumber
-            ]])
+            if vim.bo.filetype == "neo-tree" then
+              local utils = require("neo-tree.utils")
+              if utils.is_floating() then
+                vim.cmd([[
+                setlocal winhighlight=Normal:NormalFloat,FloatBorder:FloatBorder
+                ]])
+              end
+              vim.opt_local.signcolumn = "auto"
+              vim.cmd([[
+                setlocal relativenumber
+              ]])
+            end
           end,
         },
       },

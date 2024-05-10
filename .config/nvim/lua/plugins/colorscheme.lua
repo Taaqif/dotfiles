@@ -57,9 +57,9 @@ return {
 
           NeoTreeFloatTitle = { bg = pallete.dark_red, fg = pallete.light1 },
           NeoTreeFloatBorder = { fg = pallete.dark1, bg = pallete.dark1 },
-          NeoTreeNormal = { bg = pallete.dark1 },
+          NeoTreeNormal = { bg = "NONE" },
           NeoTreeFloatNormal = { bg = pallete.dark2 },
-          NeoTreeNormalNC = { bg = pallete.dark1 },
+          NeoTreeNormalNC = { bg = "NONE" },
           NeoTreeCursorLine = { bg = pallete.dark2 },
 
           NoiceCmdlinePopup = { bg = pallete.dark2 },
@@ -119,9 +119,9 @@ return {
 
           NeoTreeFloatTitle = { bg = theme.syn.special2, fg = theme.ui.bg },
           NeoTreeFloatBorder = { fg = theme.ui.bg, bg = theme.ui.bg },
-          NeoTreeNormal = { bg = theme.ui.bg },
+          NeoTreeNormal = { bg = "NONE" },
           NeoTreeFloatNormal = { bg = theme.ui.bg },
-          NeoTreeNormalNC = { bg = theme.ui.bg },
+          NeoTreeNormalNC = { bg = "NONE" },
 
           NoiceCmdlinePopup = { bg = theme.ui.bg },
           NoiceCmdlinePopupBorder = { fg = theme.ui.bg, bg = theme.ui.pg },
