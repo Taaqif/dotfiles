@@ -143,8 +143,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			foreground = COLOR_CUSTOM.tab_bar.copy_mode.fg_color
 		end
 	elseif hover then
-		background = COLOR_CUSTOM.tab_bar.hover_tab.bg_color
-		foreground = COLOR_CUSTOM.tab_bar.hover_tab.fg_color
+		background = COLOR.tab_bar.inactive_tab_hover.bg_color
+		foreground = COLOR.tab_bar.inactive_tab_hover.fg_color
 	end
 
 	if tab.active_pane.is_zoomed then

@@ -22,6 +22,11 @@ return {
 		tab_bar = {
 			-- background = "#2a2a37",
 			background = "rgb(0,0,0 / 0%)",
+			new_tab_hover = {
+				bg_color = "#2a2a37",
+				fg_color = "#808080",
+				italic = false,
+			},
 			new_tab = {
 				bg_color = "rgb(0,0,0 / 0%)",
 				-- bg_color = "#2a2a37",
@@ -35,17 +40,17 @@ return {
 				bg_color = "#595959",
 				fg_color = "#b0b0b0",
 			},
+			inactive_tab_hover = {
+				fg_color = "#7e9cd8",
+				bg_color = "#1C1B19",
+				italic = false,
+			},
 		},
 	},
 	["kanagawa_custom"] = {
 		tab_bar = {
 			copy_mode = {
 				bg_color = "#e6c384",
-				fg_color = "#1C1B19",
-			},
-			hover_tab = {
-
-				bg_color = "#7e9cd8",
 				fg_color = "#1C1B19",
 			},
 			unseen_tab = {
@@ -92,6 +97,11 @@ return {
 		tab_bar = {
 			-- background = "#32302f",
 			background = "rgb(0,0,0 / 0%)",
+			new_tab_hover = {
+				fg_color = "#E06C75",
+				bg_color = "#1C1B19",
+				italic = false,
+			},
 			new_tab = {
 				bg_color = "rgb(0,0,0 / 0%)",
 				-- bg_color = "#32302f",
@@ -105,16 +115,17 @@ return {
 				bg_color = "#595959",
 				fg_color = "#b0b0b0",
 			},
+			inactive_tab_hover = {
+				italic = false,
+				fg_color = "#E06C75",
+				bg_color = "#1C1B19",
+			},
 		},
 	},
 	["gruvbox_material_dark_hard_custom"] = {
 		tab_bar = {
 			copy_mode = {
 				bg_color = "#ff9f65",
-				fg_color = "#1C1B19",
-			},
-			hover_tab = {
-				bg_color = "#E06C60",
 				fg_color = "#1C1B19",
 			},
 			unseen_tab = {

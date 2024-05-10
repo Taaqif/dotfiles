@@ -1,6 +1,10 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
+local CLOSE_ICON = ""
+local MAXIMIZE_ICON = "󰁌"
+local HIDE_ICON = ""
+local NEW_ICON = ""
 local colors = require("colors")
 local color_key = "kanagawa"
 COLOR = colors[color_key]
@@ -21,6 +25,44 @@ return {
 	check_for_updates = true,
 	term = "xterm-256color",
 	tab_bar_at_bottom = true,
+	tab_bar_style = {
+		window_maximize_hover = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Text = " " .. MAXIMIZE_ICON .. " " },
+		}),
+		window_close_hover = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Text = " " .. CLOSE_ICON .. " " },
+		}),
+		window_hide_hover = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Text = " " .. HIDE_ICON .. " " },
+		}),
+		window_maximize = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Text = " " .. MAXIMIZE_ICON .. " " },
+		}),
+		window_close = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Text = " " .. CLOSE_ICON .. " " },
+		}),
+		window_hide = wezterm.format({
+			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Text = " " .. HIDE_ICON .. " " },
+		}),
+		new_tab = wezterm.format({
+			{ Text = " " .. NEW_ICON .. " " },
+		}),
+		new_tab_hover = wezterm.format({
+			{ Text = " " .. NEW_ICON .. " " },
+		}),
+	},
 	line_height = 1,
 	-- default_domain = 'WSL:Ubuntu',
 	default_prog = { "pwsh" },
@@ -88,7 +130,7 @@ return {
 	},
 	-- enable_scroll_bar = true,
 	-- window_background_opacity = 0.95,
-	window_decorations = "RESIZE",
+	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
 	window_background_opacity = 0.6,
 	win32_system_backdrop = "Acrylic",
 	force_reverse_video_cursor = true,
