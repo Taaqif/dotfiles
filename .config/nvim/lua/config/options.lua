@@ -21,10 +21,11 @@ if vim.fn.has("wsl") == 1 then
     cache_enabled = 0,
   }
 end
--- opt.list = true
--- opt.listchars = {
---   eol = "↵",
---   trail = "·",
---   space = "·",
---   tab = "  ",
--- }
+opt.list = true
+opt.listchars = {
+  eol = "↵",
+  tab = "» ",
+  trail = "·",
+  space = "·",
+  nbsp = "␣",
+}
