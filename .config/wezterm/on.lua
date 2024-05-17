@@ -1,54 +1,6 @@
 local wezterm = require("wezterm")
 
 local utils = require("utils")
-local SOLID_LEFT_ARROW = ""
-local SOLID_LEFT_MOST = "█"
-local SOLID_RIGHT_ARROW = ""
-
-local SUP_IDX = {
-	"¹",
-	"²",
-	"³",
-	"⁴",
-	"⁵",
-	"⁶",
-	"⁷",
-	"⁸",
-	"⁹",
-	"¹⁰",
-	"¹¹",
-	"¹²",
-	"¹³",
-	"¹⁴",
-	"¹⁵",
-	"¹⁶",
-	"¹⁷",
-	"¹⁸",
-	"¹⁹",
-	"²⁰",
-}
-local SUB_IDX = {
-	"₁",
-	"₂",
-	"₃",
-	"₄",
-	"₅",
-	"₆",
-	"₇",
-	"₈",
-	"₉",
-	"₁₀",
-	"₁₁",
-	"₁₂",
-	"₁₃",
-	"₁₄",
-	"₁₅",
-	"₁₆",
-	"₁₇",
-	"₁₈",
-	"₁₉",
-	"₂₀",
-}
 
 wezterm.on("update-right-status", function(window, pane)
 	local cells = {}
@@ -92,7 +44,7 @@ wezterm.on("update-right-status", function(window, pane)
 		table.insert(elements, { Text = " " .. text .. " " })
 		if not is_last then
 			table.insert(elements, { Foreground = { Color = right_status_colors[cell_no + 1].bg_color } })
-			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+			table.insert(elements, { Text = utils.icons.SOLID_LEFT_ARROW })
 		end
 		num_cells = num_cells + 1
 	end
@@ -113,9 +65,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		id = id .. " "
 	end
 	id = id .. tostring(tab.tab_index + 1) .. " "
-	local left_arrow = SOLID_LEFT_ARROW
+	local left_arrow = utils.icons.SOLID_LEFT_ARROW
 	if tab.tab_index == 0 then
-		left_arrow = SOLID_LEFT_MOST
+		left_arrow = utils.icons.SOLID_LEFT_MOST
 	end
 	local background = COLOR.tab_bar.inactive_tab.bg_color
 	local foreground = COLOR.tab_bar.inactive_tab.fg_color
@@ -138,7 +90,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		foreground = COLOR.tab_bar.active_tab.fg_color
 		local is_copy_mode = string.find(tab.active_pane.title, "Copy mode:")
 		if is_copy_mode then
-			id = id .. "󰕢 "
+			id = id .. utils.icons.COPY .. " "
 			background = COLOR_CUSTOM.tab_bar.copy_mode.bg_color
 			foreground = COLOR_CUSTOM.tab_bar.copy_mode.fg_color
 		end
@@ -148,13 +100,13 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	end
 
 	if tab.active_pane.is_zoomed then
-		id = id .. "󰘖 "
+		id = id .. utils.icons.ZOOM .. " "
 	end
 
 	local shell_icon = ""
 
 	if tab.active_pane.title:find("nvim") then
-		shell_icon = utf8.char(0xe62b)
+		shell_icon = utils.icons.VIM
 	end
 
 	if shell_icon ~= "" then
@@ -163,7 +115,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	local no_of_panes = #tab.panes
 	if no_of_panes > 1 then
-		id = id .. SUP_IDX[no_of_panes]
+		id = id .. utils.icons.SUP_IDX[no_of_panes]
 	end
 
 	local edge_foreground = background
@@ -178,7 +130,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = id },
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
+		{ Text = utils.icons.SOLID_RIGHT_ARROW },
 		{ Attribute = { Intensity = "Normal" } },
 	}
 end)

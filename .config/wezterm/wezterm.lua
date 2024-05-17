@@ -1,10 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local utils = require("utils")
-local CLOSE_ICON = ""
-local MAXIMIZE_ICON = "󰁌"
-local HIDE_ICON = ""
-local NEW_ICON = ""
 local colors = require("colors")
 local color_key = "kanagawa"
 COLOR = colors[color_key]
@@ -29,38 +25,42 @@ return {
 		window_maximize_hover = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
-			{ Text = " " .. MAXIMIZE_ICON .. " " },
+			{ Text = " " .. utils.icons.MAXIMIZE .. " " },
 		}),
 		window_close_hover = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
-			{ Text = " " .. CLOSE_ICON .. " " },
+			{ Text = " " .. utils.icons.CLOSE .. " " },
 		}),
 		window_hide_hover = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.fg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.bg_color } },
-			{ Text = " " .. HIDE_ICON .. " " },
+			{ Text = " " .. utils.icons.HIDE .. " " },
 		}),
 		window_maximize = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
-			{ Text = " " .. MAXIMIZE_ICON .. " " },
+			{ Text = " " .. utils.icons.MAXIMIZE .. " " },
 		}),
 		window_close = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
-			{ Text = " " .. CLOSE_ICON .. " " },
+			{ Text = " " .. utils.icons.CLOSE .. " " },
 		}),
 		window_hide = wezterm.format({
 			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
 			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
-			{ Text = " " .. HIDE_ICON .. " " },
+			{ Text = " " .. utils.icons.HIDE .. " " },
 		}),
 		new_tab = wezterm.format({
-			{ Text = " " .. NEW_ICON .. " " },
+			{ Text = "  " .. utils.icons.NEW .. " " },
 		}),
 		new_tab_hover = wezterm.format({
-			{ Text = " " .. NEW_ICON .. " " },
+			{ Background = { Color = COLOR.tab_bar.active_tab.bg_color } },
+			{ Foreground = { Color = COLOR.tab_bar.active_tab.fg_color } },
+			{ Text = utils.icons.SOLID_RIGHT_ARROW },
+			{ Text = " " .. utils.icons.NEW .. " " },
+			{ Text = utils.icons.SOLID_LEFT_ARROW },
 		}),
 	},
 	line_height = 1,
