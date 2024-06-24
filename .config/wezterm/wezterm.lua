@@ -129,8 +129,8 @@ return {
 	-- enable_scroll_bar = true,
 	-- window_background_opacity = 0.95,
 	window_decorations = "INTEGRATED_BUTTONS|RESIZE",
-	window_background_opacity = 0.6,
-	win32_system_backdrop = "Acrylic",
+	window_background_opacity = 0,
+	win32_system_backdrop = "Mica",
 	force_reverse_video_cursor = true,
 	colors = COLOR,
 	set_environment_variables = {
