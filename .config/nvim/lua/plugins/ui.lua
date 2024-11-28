@@ -3,13 +3,15 @@ local Job = require("plenary.job")
 local async = require("plenary.async")
 
 ---@diagnostic disable
-local state = { comp_wakatime_time = "", homeDir = vim.fn.expand("~"), bad_call = false }
+local state = { comp_wakatime_time = "", homeDir = vim.fn.expand("~"), bad_call = false, show_full_text = true }
 
 local get_wakatime_time = function()
   local tx, rx = async.control.channel.oneshot()
+  local full_text = { "--today" }
+  local short_text = { "--today", "--today-hide-categories", "true" }
   local ok, job = pcall(Job.new, Job, {
     command = state.homeDir .. "/.wakatime/wakatime-cli",
-    args = { "--today" },
+    args = short_text,
     on_exit = function(j, _)
       tx(j:result()[1] or "")
     end,
