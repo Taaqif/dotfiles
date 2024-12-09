@@ -7,7 +7,7 @@ $cmd_duration\
 $time\
 $line_break\
 [╰─](245)$character"""
-continuation_prompt = "[╰ ](245)"
+continuation_prompt = "[╰──󰁔](245)"
 
 [character]
 # success_symbol = "[✨](bold green)" 
