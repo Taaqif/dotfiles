@@ -88,3 +88,6 @@ Function Invoke-Lfcd {
 
 Set-Alias -Name lfcd -Value Invoke-Lfcd -Option AllScope -Scope Global -Force
 Set-Alias -Name lg -Value lazygit -Option AllScope -Scope Global -Force
+
+# fnm 
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
