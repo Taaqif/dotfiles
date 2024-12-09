@@ -39,13 +39,13 @@ return {
         undercurl = true,
         palette_overrides = palette_overrides,
         overrides = {
-          GruvboxRedUnderline = { underline = true, sp = pallete.bright_red },
-          GruvboxGreenUnderline = { underline = true, sp = pallete.bright_green },
-          GruvboxYellowUnderline = { underline = true, sp = pallete.bright_yellow },
-          GruvboxBlueUnderline = { underline = true, sp = pallete.bright_blue },
-          GruvboxPurpleUnderline = { underline = true, sp = pallete.bright_purple },
-          GruvboxAquaUnderline = { underline = true, sp = pallete.bright_aqua },
-          GruvboxOrangeUnderline = { underline = true, sp = pallete.bright_orange },
+          GruvboxRedUnderline = { sp = pallete.bright_red },
+          GruvboxGreenUnderline = { sp = pallete.bright_green },
+          GruvboxYellowUnderline = { sp = pallete.bright_yellow },
+          GruvboxBlueUnderline = { sp = pallete.bright_blue },
+          GruvboxPurpleUnderline = { sp = pallete.bright_purple },
+          GruvboxAquaUnderline = { sp = pallete.bright_aqua },
+          GruvboxOrangeUnderline = { sp = pallete.bright_orange },
 
           LspInlayHint = { fg = "#524a45" },
 
