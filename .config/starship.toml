@@ -9,11 +9,11 @@ $line_break\
 [╰─](245)$character"""
 continuation_prompt = "[╰ ](245)"
 
-[character] 
-success_symbol = "[✨](bold green)" 
-# success_symbol = "[ ](green)" 
-error_symbol = "[💢](bold red)"
-# error_symbol = "[](red)" 
+[character]
+# success_symbol = "[✨](bold green)" 
+success_symbol = "[─󰁔](green)"
+# error_symbol = "[💢](bold red)"
+error_symbol = "[─󰁔](red)"
 
 [fill]
 symbol = " "
@@ -42,8 +42,8 @@ behind = "[ $count ](red)"
 staged = '[ $count ](green)'
 up_to_date = "[](green)"
 modified = "[ $count ](yellow)"
-deleted= "[ $count ](red)"
-renamed= "[󰜶 $count ](yellow)"
+deleted = "[ $count ](red)"
+renamed = "[󰜶 $count ](yellow)"
 untracked = "[ $count ](blue)"
 stashed = "[󰋻 $count ](cyan)"
 conflicted = "[ $count](red)"
