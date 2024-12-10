@@ -49,10 +49,11 @@ z & Right::Komorebic("stack right")
 z & `;::Komorebic("unstack")
 z & [::Komorebic("cycle-stack previous")
 z & ]::Komorebic("cycle-stack next")
+z & `::Komorebic("cycle-layout next")
 
 ; Resize
 z & =::Komorebic("resize-axis horizontal increase")
-z & -::Komorebic("resize-axis horizontal decrease")
+z & _::Komorebic("resize-axis horizontal decrease")
 #HotIf GetKeyState("Alt")
 z & =::Komorebic("resize-axis vertical increase")
 z & _::Komorebic("resize-axis vertical decrease")

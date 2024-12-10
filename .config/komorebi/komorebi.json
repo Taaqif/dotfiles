@@ -26,12 +26,36 @@
   },
   "monitors": [
     {
+      // monitor 1
       "workspaces": [
         {
-          "name": "I",
-          "layout": "UltrawideVerticalStack"
+          "name": "default",
+          "layout": "BSP"
+        }
+      ]
+    },
+    {
+      // monitor 2
+      "workspaces": [
+        {
+          "name": "long",
+          "layout": "Rows"
+        }
+      ]
+    },
+    {
+      // monitor 3
+      "workspaces": [
+        {
+          "name": "extra-long",
+          "layout": "BSP"
         }
       ]
     }
-  ]
+  ],
+  "display_index_preferences": {
+    "0": "SHP14B9-4&c8506ef&0&UID265988",
+    "1": "BNQ78E6-4&c8506ef&0&UID200195",
+    "2": "SAM0F71-4&c8506ef&0&UID208387"
+  }
 }
