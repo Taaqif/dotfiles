@@ -9,13 +9,12 @@
   "border_width": 8,
   "border_offset": -1,
   "theme": {
-    "palette": "Base16",
-    "name": "Ashes",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
+    "palette": "Catppuccin",
+    "name": "Frappe"
   },
   "animation": {
-    "enabled": false
+    "enabled": false,
+    "style": "EaseInOutBounce"
   },
   "stackbar": {
     "height": 40,
