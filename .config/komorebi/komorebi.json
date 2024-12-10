@@ -23,6 +23,22 @@
       "width": 300
     }
   },
+  "ignore_rules": [
+    [
+      // Outsystems popups
+      {
+        "matching_strategy": "Equals",
+        "kind": "Exe",
+        "id": "ServiceStudio.exe"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "Regex",
+        "id": "(Condition$)|(^Aggregate)|(Progress)|(Value$)|([Jj]ava[Ss]cript)"
+      }
+    ]
+  ],
+  "floating_applications": [],
   "monitors": [
     {
       // monitor 1
