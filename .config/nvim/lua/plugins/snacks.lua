@@ -5,7 +5,8 @@ return {
   opts = {
     lazygit = {
       theme = {
-        [241] = { fg = "Visual" },
+        activeBorderColor = { fg = "Special", bold = true },
+        inactiveBorderColor = { fg = "Visual" },
       },
     },
   },
