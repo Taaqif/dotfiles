@@ -91,3 +91,8 @@ Set-Alias -Name lg -Value lazygit -Option AllScope -Scope Global -Force
 
 # fnm 
 fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+
+# komorebi
+$Env:KOMOREBI_CONFIG_HOME = "${env:USERPROFILE}\.config\komorebi"
+$Env:KOMOREBI_AHK_EXE = "AutoHotkey64.exe"
+
