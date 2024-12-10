@@ -36,6 +36,25 @@
         "matching_strategy": "Regex",
         "id": "(Condition$)|(^Aggregate)|(Progress)|(Value$)|([Jj]ava[Ss]cript)"
       }
+    ],
+    {
+      //ShareX - Screenshot tool
+      "matching_strategy": "Equals",
+      "id": "ShareX.exe",
+      "kind": "Exe"
+    },
+    [
+      // Teams mini view
+      {
+        "matching_strategy": "Equals",
+        "id": "ms-teams.exe",
+        "kind": "Exe"
+      },
+      {
+        "id": "Meeting compact view",
+        "kind": "Title",
+        "matching_strategy": "StartsWith"
+      }
     ]
   ],
   "floating_applications": [],
