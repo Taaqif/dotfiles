@@ -10,7 +10,7 @@
   "border_offset": -1,
   "theme": {
     "palette": "Catppuccin",
-    "name": "Frappe"
+    "name": "Mocha"
   },
   "animation": {
     "enabled": false,
@@ -58,30 +58,32 @@
     ]
   ],
   "floating_applications": [],
+  "bar_configurations": [
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor1.json",
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor2.json",
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor3.json"
+  ],
   "monitors": [
     {
-      // monitor 1
       "workspaces": [
         {
-          "name": "default",
+          "name": "1",
           "layout": "BSP"
         }
       ]
     },
     {
-      // monitor 2
       "workspaces": [
         {
-          "name": "long",
+          "name": "1",
           "layout": "Rows"
         }
       ]
     },
     {
-      // monitor 3
       "workspaces": [
         {
-          "name": "extra-long",
+          "name": "1",
           "layout": "BSP"
         }
       ]
