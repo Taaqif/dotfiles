@@ -2,6 +2,8 @@ local M = {}
 local w = require("wezterm")
 local act = w.action
 local utils = require("utils")
+local balance = require("balance-panes")
+
 local function is_vim(pane)
 	-- this is set by the smart splits plugin, and unset on ExitPre in Neovim (https://github.com/mrjones2014/smart-splits.nvim)
 	return pane:get_user_vars().IS_NVIM == "true"
@@ -104,6 +106,15 @@ M.keybinds = {
 	{ key = "Enter", mods = "ALT", action = "QuickSelect" },
 	{ key = "/", mods = "ALT", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "p", mods = "ALT", action = "ShowLauncher" },
+
+	{
+		key = "b",
+		mods = "LEADER",
+		action = act.Multiple({
+			w.action_callback(balance.balance_panes("x")),
+			w.action_callback(balance.balance_panes("y")),
+		}),
+	},
 
 	-- move between split panes
 	split_nav("move", "h"),
