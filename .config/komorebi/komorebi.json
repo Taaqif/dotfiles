@@ -68,7 +68,13 @@
         "kind": "Class",
         "matching_strategy": "StartsWith"
       }
-    ]
+    ],
+    // Arc browser Popups
+    {
+      "matching_strategy": "Equals",
+      "id": "Arc extension popup",
+      "kind": "Title"
+    }
   ],
   "floating_applications": [],
   "bar_configurations": [
