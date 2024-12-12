@@ -55,6 +55,19 @@
         "kind": "Title",
         "matching_strategy": "StartsWith"
       }
+    ],
+    [
+      // SSMS Popups
+      {
+        "matching_strategy": "Equals",
+        "id": "Ssms.exe",
+        "kind": "Exe"
+      },
+      {
+        "id": "WindowsForms10",
+        "kind": "Class",
+        "matching_strategy": "StartsWith"
+      }
     ]
   ],
   "floating_applications": [],
