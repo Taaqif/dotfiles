@@ -96,6 +96,53 @@ return {
     },
   },
   {
+    "ibhagwan/fzf-lua",
+    opts = function(_, opts)
+      local actions = require("fzf-lua.actions")
+      opts.files = {
+        cwd_prompt = false,
+        actions = {
+          ["alt-i"] = { actions.toggle_ignore },
+          ["alt-u"] = { actions.toggle_hidden },
+        },
+      }
+      opts.grep = {
+        rg_opts = "--column --line-number --hidden --no-heading --color=always --smart-case --max-columns=4096 -e",
+        rg_glob = true,
+        glob_flag = "--iglob",
+        glob_separator = "%s%-%-",
+        actions = {
+          ["alt-i"] = { actions.toggle_ignore },
+          ["alt-u"] = { actions.toggle_hidden },
+        },
+      }
+      local img_previewer ---@type string[]?
+      for _, v in ipairs({
+        { cmd = "viu", args = { "-b" } },
+        { cmd = "ueberzug", args = { "layer", "--use-escape-codes", "-o", "iterm2" } },
+        { cmd = "chafa", args = { "{file}", "--format=symbols" } },
+      }) do
+        if vim.fn.executable(v.cmd) == 1 then
+          img_previewer = vim.list_extend({ v.cmd }, v.args)
+          break
+        end
+      end
+      opts.previewers = {
+        builtin = {
+          extensions = {
+            ["png"] = img_previewer,
+            ["jpg"] = img_previewer,
+            ["jpeg"] = img_previewer,
+            ["gif"] = img_previewer,
+            ["webp"] = img_previewer,
+          },
+          ueberzug_scaler = "fit_contain",
+        },
+      }
+      return opts
+    end,
+  },
+  {
     "echasnovski/mini.hipatterns",
     opts = function()
       local hipatterns = require("mini.hipatterns")

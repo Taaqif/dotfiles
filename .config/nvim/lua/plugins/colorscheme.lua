@@ -78,6 +78,12 @@ return {
           TelescopeResultsBorder = { fg = pallete.dark1, bg = pallete.dark1 },
           TelescopePreviewNormal = { bg = pallete.dark1 },
           TelescopePreviewBorder = { bg = pallete.dark1, fg = pallete.dark1 },
+
+          FzfLuaNormal = { bg = pallete.dark1 },
+          FzfLuaBorder = { bg = pallete.dark1, fg = pallete.dark1 },
+          FzfLuaTitle = { bg = pallete.dark_red, fg = pallete.light1 },
+          FzfLuaPreviewNormal = { bg = pallete.dark2 },
+          FzfLuaPreviewBorder = { bg = pallete.dark2, fg = pallete.dark2 },
         },
       }
     end,
