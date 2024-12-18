@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.bar.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.31/schema.bar.json",
   "monitor": {
     "index": 1,
     "work_area_offset": {
@@ -8,6 +8,13 @@
       "right": 0,
       "bottom": 40
     }
+  },
+  "max_label_width": 500,
+  "transparency_alpha": 0,
+  "grouping": {
+    "kind": "Widget",
+    "rounding": 100,
+    "style": "DefaultWithGlowB3O0S2"
   },
   "font_family": "JetBrains Mono",
   "theme": {
@@ -19,7 +26,7 @@
       "Komorebi": {
         "workspaces": {
           "enable": true,
-          "hide_empty_workspaces": true
+          "hide_empty_workspaces": false
         },
         "layout": {
           "enable": true
@@ -31,7 +38,13 @@
       }
     }
   ],
+  "center_widgets": [],
   "right_widgets": [
+    {
+      "Media": {
+        "enable": true
+      }
+    },
     {
       "Date": {
         "enable": true,

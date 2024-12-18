@@ -25,7 +25,7 @@
   },
   "ignore_rules": [
     [
-      // Outsystems popups
+      // All Outsystems windows except main window
       {
         "matching_strategy": "Equals",
         "kind": "Exe",
@@ -33,8 +33,8 @@
       },
       {
         "kind": "Title",
-        "matching_strategy": "Regex",
-        "id": "(Condition$)|(^Aggregate)|(Progress)|(Value$)|([Jj]ava[Ss]cript)"
+        "matching_strategy": "DoesNotEqual",
+        "id": "Service Studio"
       }
     ],
     {
@@ -86,7 +86,19 @@
     {
       "workspaces": [
         {
-          "name": "1",
+          "name": " I ",
+          "layout": "BSP"
+        },
+        {
+          "name": " II ",
+          "layout": "BSP"
+        },
+        {
+          "name": " III ",
+          "layout": "BSP"
+        },
+        {
+          "name": " IV ",
           "layout": "BSP"
         }
       ]
@@ -94,7 +106,19 @@
     {
       "workspaces": [
         {
-          "name": "1",
+          "name": " I ",
+          "layout": "Rows"
+        },
+        {
+          "name": " II ",
+          "layout": "Rows"
+        },
+        {
+          "name": " III ",
+          "layout": "Rows"
+        },
+        {
+          "name": " IV ",
           "layout": "Rows"
         }
       ]
@@ -102,7 +126,19 @@
     {
       "workspaces": [
         {
-          "name": "1",
+          "name": " I ",
+          "layout": "BSP"
+        },
+        {
+          "name": " II ",
+          "layout": "BSP"
+        },
+        {
+          "name": " III ",
+          "layout": "BSP"
+        },
+        {
+          "name": " IV ",
           "layout": "BSP"
         }
       ]
