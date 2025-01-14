@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.31/schema.bar.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.bar.json",
   "monitor": {
     "index": 2,
     "work_area_offset": {
@@ -40,6 +40,11 @@
   ],
   "center_widgets": [],
   "right_widgets": [
+    {
+      "Update": {
+        "enable": true
+      }
+    },
     {
       "Media": {
         "enable": true
