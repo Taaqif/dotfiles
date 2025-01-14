@@ -77,6 +77,14 @@
     }
   ],
   "floating_applications": [],
+  "object_name_change_applications": [
+    {
+      "matching_strategy": "Equals",
+      "kind": "Exe",
+      "id": "floorp.exe"
+    }
+  ],
+  "slow_application_identifiers": [],
   "bar_configurations": [
     "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor1.json",
     "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.monitor2.json",
