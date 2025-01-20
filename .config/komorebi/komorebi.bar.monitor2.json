@@ -41,11 +41,6 @@
   "center_widgets": [],
   "right_widgets": [
     {
-      "Media": {
-        "enable": true
-      }
-    },
-    {
       "Date": {
         "enable": true,
         "format": "DayDateMonthYear"

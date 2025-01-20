@@ -68,6 +68,10 @@ Komorebic(cmd) {
 
   ; Window manager options
   z & r::Komorebic("retile")
+  z & q::{
+    Komorebic("stop --ahk --bar")
+    Komorebic("start --ahk --bar")
+  }
 
   ; Resize
   z & =::Komorebic("resize-axis vertical increase")
