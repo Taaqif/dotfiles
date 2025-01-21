@@ -68,6 +68,7 @@ Komorebic(cmd) {
 
   ; Window manager options
   z & r::Komorebic("retile")
+  z & p::Komorebic("stop --ahk --bar")
   z & q::{
     Komorebic("stop --ahk --bar")
     Komorebic("start --ahk --bar")
