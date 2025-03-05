@@ -5,7 +5,7 @@ Komorebic(cmd) {
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
 
-#HotIf GetKeyState("Alt", "P") and !GetKeyState("Shift", "P")
+#HotIf GetKeyState("Alt", "P") and !GetKeyState("Shift", "P") and !GetKeyState("Ctrl", "P")
 
 ; Alt + z
   z & q::Komorebic("close")
@@ -47,6 +47,15 @@ Komorebic(cmd) {
   ; Resize
   z & =::Komorebic("resize-axis horizontal increase")
   z & _::Komorebic("resize-axis horizontal decrease")
+#HotIf
+
+; Ctrl + Alt + z
+#HotIf GetKeyState("Alt", "P") and GetKeyState("Ctrl", "P")
+  z & h::Komorebic("stack left")
+  z & j::Komorebic("stack down")
+  z & k::Komorebic("stack up")
+  z & l::Komorebic("stack right")
+#HotIf
 
 ; Shift + Alt + z
 #HotIf GetKeyState("Alt", "P") and GetKeyState("Shift", "P")
@@ -77,4 +86,4 @@ Komorebic(cmd) {
   ; Resize
   z & =::Komorebic("resize-axis vertical increase")
   z & _::Komorebic("resize-axis vertical decrease")
-
+#HotIf

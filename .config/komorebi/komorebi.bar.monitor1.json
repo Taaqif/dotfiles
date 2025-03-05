@@ -1,17 +1,21 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.bar.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.bar.json",
   "monitor": {
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": 80,
+      "top": 70,
       "right": 0,
-      "bottom": 80
+      "bottom": 70
     }
   },
   "font_size": 13,
   "max_label_width": 1000,
   "transparency_alpha": 0,
+  "height": 60,
+  "margin": {
+    "vertical": 20
+  },
   "grouping": {
     "kind": "Widget",
     "rounding": 100,
