@@ -3,7 +3,7 @@ local opt = vim.opt
 vim.g.trouble_lualine = false
 opt.scrolloff = 8
 opt.showbreak = "↪ "
-opt.wrap = false
+opt.wrap = true
 opt.spelloptions = "camel"
 opt.clipboard = "unnamedplus"
 
