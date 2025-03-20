@@ -13,6 +13,7 @@
     "palette": "Catppuccin",
     "name": "Mocha"
   },
+  "resize_delta": 200,
   "animation": {
     "enabled": false,
     "fps": 120,
