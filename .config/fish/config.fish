@@ -30,6 +30,6 @@ set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools
 # pnpm
 set -gx PNPM_HOME "/home/tye/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
