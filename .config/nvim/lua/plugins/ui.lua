@@ -130,4 +130,12 @@ return {
       return opts
     end,
   },
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        separator_style = "slope",
+      },
+    },
+  },
 }

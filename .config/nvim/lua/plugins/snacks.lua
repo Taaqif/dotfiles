@@ -11,4 +11,7 @@ return {
       },
     },
   },
+  keys = {
+    { "<leader>ff", LazyVim.pick("files", { hidden = true }), desc = "Find Files (Root Dir)" },
+  },
 }
