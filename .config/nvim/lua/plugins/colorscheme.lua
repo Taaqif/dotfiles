@@ -113,10 +113,10 @@ return {
           BufferLineMiniIconsYellowSelected = { bg = pallete.dark2, fg = pallete.bright_yellow },
 
           BufferLineTabSeparator = { bg = pallete.dark1, fg = pallete.dark1 },
-          BufferLineTabSeparatorVisible = { bg = pallete.dark1, fg = pallete.dark1 },
           BufferLineTabSeparatorSelected = { bg = pallete.dark3, fg = pallete.dark1 },
           BufferLineTabSelected = { bg = pallete.dark3, fg = pallete.light1, bold = true, italic = true },
 
+          BufferLineSeparatorVisible = { bg = pallete.dark1, fg = pallete.dark1 },
           BufferLineSeparator = { bg = pallete.dark1, fg = pallete.dark1 },
           BufferLineSeparatorSelected = { bg = pallete.dark2, fg = pallete.dark1 },
         },
