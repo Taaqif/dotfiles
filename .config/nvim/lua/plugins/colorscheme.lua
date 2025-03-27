@@ -86,6 +86,7 @@ return {
           FzfLuaPreviewBorder = { bg = pallete.dark2, fg = pallete.dark2 },
 
           BufferLineBufferSelected = { bg = pallete.dark2, fg = pallete.light1, bold = true, italic = true },
+          BufferLineDuplicateSelected = { bg = pallete.dark2, fg = pallete.light1, italic = true },
           BufferLineIndicatorSelected = { bg = pallete.dark2, fg = pallete.light1 },
           BufferLineCloseButtonSelected = { bg = pallete.dark2, fg = pallete.light1 },
           BufferLineModifiedSelected = { bg = pallete.dark2, fg = pallete.bright_green, bold = true, italic = true },
@@ -112,6 +113,7 @@ return {
           BufferLineMiniIconsYellowSelected = { bg = pallete.dark2, fg = pallete.bright_yellow },
 
           BufferLineTabSeparator = { bg = pallete.dark1, fg = pallete.dark1 },
+          BufferLineTabSeparatorVisible = { bg = pallete.dark1, fg = pallete.dark1 },
           BufferLineTabSeparatorSelected = { bg = pallete.dark3, fg = pallete.dark1 },
           BufferLineTabSelected = { bg = pallete.dark3, fg = pallete.light1, bold = true, italic = true },
 
