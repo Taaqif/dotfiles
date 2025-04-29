@@ -20,7 +20,7 @@ New-Symlink -Path "${env:USERPROFILE}/.config/starship.toml" -Target ".\.config\
 New-Symlink -Path "${env:USERPROFILE}/.config/wezterm" -Target ".\.config\wezterm\" -ItemType "Junction"
 
 # lazygit
-New-Symlink -Path "${env:USERPROFILE}/.config/lazygit" -Target ".\.config\lazygit\" -ItemType "Junction"
+New-Symlink -Path "${env:USERPROFILE}/AppData/Local/lazygit/config.yml" -Target ".\.config\lazygit\config.yml" -ItemType "HardLink"
 
 # nvim
 New-Symlink -Path "${env:LOCALAPPDATA}/nvim" -Target ".\.config\nvim\" -ItemType "Junction"
