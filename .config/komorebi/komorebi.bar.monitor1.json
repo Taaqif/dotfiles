@@ -4,9 +4,9 @@
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": 70,
+      "top": 80,
       "right": 0,
-      "bottom": 70
+      "bottom": 80
     }
   },
   "font_size": 13,

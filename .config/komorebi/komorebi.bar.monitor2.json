@@ -4,9 +4,9 @@
     "index": 1,
     "work_area_offset": {
       "left": 0,
-      "top": 25,
+      "top": 40,
       "right": 0,
-      "bottom": 20
+      "bottom": 30
     }
   },
   "max_label_width": 500,
