@@ -4,9 +4,9 @@
     "index": 2,
     "work_area_offset": {
       "left": 0,
-      "top": 25,
+      "top": 35,
       "right": 0,
-      "bottom": 20
+      "bottom": 35
     }
   },
   "transparency_alpha": 0,
