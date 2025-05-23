@@ -28,4 +28,4 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- start vim with copilot disabled by default
-vim.cmd("silent! Copilot disable")
+-- vim.cmd("silent! Copilot disable")
