@@ -1,5 +1,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local is_apple = wezterm.target_triple:find("apple") ~= nil
+local is_linux = wezterm.target_triple:find("linux") ~= nil
+local is_windows = wezterm.target_triple:find("windows") ~= nil
 local utils = require("utils")
 local colors = require("colors")
 local keybinds = require("keybinds")
@@ -104,7 +107,7 @@ config.font_rules = {
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 2,
+	top = 0,
 	bottom = 0,
 }
 
@@ -127,8 +130,14 @@ config.window_frame = {
 	font_size = 9.0,
 }
 
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_background_opacity = 0
+if is_windows then
+	config.window_background_opacity = 0
+	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+else
+	config.window_decorations = "RESIZE"
+	config.window_background_opacity = 0.7
+end
+config.macos_window_background_blur = 90
 config.win32_system_backdrop = "Mica"
 config.force_reverse_video_cursor = true
 config.colors = COLOR
