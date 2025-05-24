@@ -64,7 +64,6 @@ config.tab_bar_style = {
 	}),
 }
 config.line_height = 1
-config.default_prog = { "pwsh" }
 config.prefer_to_spawn_tabs = true
 config.use_ime = true
 config.initial_rows = 32
@@ -132,6 +131,7 @@ config.window_frame = {
 
 if is_windows then
 	config.window_background_opacity = 0
+	config.default_prog = { "pwsh" }
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 else
 	config.window_decorations = "RESIZE"
