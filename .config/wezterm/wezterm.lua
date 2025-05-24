@@ -133,12 +133,12 @@ if is_windows then
 	config.window_background_opacity = 0
 	config.default_prog = { "pwsh" }
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-else
+	config.win32_system_backdrop = "Mica"
+elseif is_apple then
 	config.window_decorations = "RESIZE"
-	config.window_background_opacity = 0.7
+	config.window_background_opacity = 0.5
+	config.macos_window_background_blur = 100
 end
-config.macos_window_background_blur = 90
-config.win32_system_backdrop = "Mica"
 config.force_reverse_video_cursor = true
 config.colors = COLOR
 config.set_environment_variables = {
