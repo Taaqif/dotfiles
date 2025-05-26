@@ -16,8 +16,10 @@ new_symlink() {
   echo "Linking $path -> $abs_target"
   ln -s "$abs_target" "$path"
 }
+mkdir -p $HOME/.config
 
 # fish config
+mkdir -p $HOME/.config/fish
 new_symlink "$HOME/.config/fish" "./.config/fish"
 
 # WSL config
@@ -30,10 +32,13 @@ new_symlink "$HOME/.config/.gitconfig" "./.config/.gitconfig"
 new_symlink "$HOME/.config/starship.toml" "./.config/starship.toml"
 
 # wezterm config
+mkdir -p $HOME/.config/wezterm
 new_symlink "$HOME/.config/wezterm" "./.config/wezterm"
 
 # lazygit config
+mkdir -p $HOME/.config/lazygit
 new_symlink "$HOME/.config/lazygit/config.yml" "./.config/lazygit/config.yml"
 
 # nvim config
+mkdir -p $HOME/.config/nvim
 new_symlink "$HOME/.config/nvim" "./.config/nvim"
