@@ -38,7 +38,7 @@ New-Symlink -Path "${env:USERPROFILE}/.config/.gitconfig" -Target ".\.config\.gi
 New-Symlink -Path "$PROFILE" -Target "./PowerShell/Microsoft.PowerShell_profile.ps1" -ItemType "HardLink"
 
 # Wakatime config
-New-Symlink -Path "${env:USERPROFILE}/.config/.wakatime.cfg" -Target ".\.config\.wakatime.cfg" -ItemType "HardLink"
+Copy-Item -Path ".\.config\.wakatime.cfg" -Destination "${env:USERPROFILE}\.wakatime.cfg"
 
 # Starship
 New-Symlink -Path "${env:USERPROFILE}/.config/starship.toml" -Target ".\.config\starship.toml" -ItemType "HardLink"
