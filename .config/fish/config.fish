@@ -29,6 +29,16 @@ set -xg ANDROID_HOME $HOME/android
 set -xg ANDROID_SDK_ROOT $ANDROID_HOME
 set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
 
+# yazi
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 # pnpm
 set -gx PNPM_HOME "/home/tye/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
