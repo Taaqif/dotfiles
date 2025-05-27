@@ -32,7 +32,7 @@ Install-Module Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -C
 New-Symlink -Path "${env:USERPROFILE}/.config/komorebi" -Target ".\.config\komorebi\" -ItemType "Junction"
 
 # Git Config
-New-Symlink -Path "${env:USERPROFILE}/.config/.gitconfig" -Target ".\.config\.gitconfig" -ItemType "HardLink"
+Copy-Item -Path ".\.config\.gitconfig" -Destination "${env:USERPROFILE}\.gitconfig"
 
 # Powershell Profile
 New-Symlink -Path "$PROFILE" -Target "./PowerShell/Microsoft.PowerShell_profile.ps1" -ItemType "HardLink"
