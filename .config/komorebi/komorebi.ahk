@@ -11,6 +11,9 @@ Komorebic(cmd) {
   z & q::Komorebic("close")
   z & m::Komorebic("minimize")
 
+  ; komorebic toggle-shortcuts
+  z & i::Komorebic("toggle-shortcuts")
+
   ; Focus windows
   z & h::Komorebic("focus left")
   z & j::Komorebic("focus down")

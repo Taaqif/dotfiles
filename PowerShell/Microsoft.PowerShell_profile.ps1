@@ -104,5 +104,5 @@ fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
 
 # komorebi
 $Env:KOMOREBI_CONFIG_HOME = "${env:USERPROFILE}\.config\komorebi"
-$Env:KOMOREBI_AHK_EXE = "AutoHotkey64.exe"
+$Env:KOMOREBI_AHK_EXE = "C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe"
 
