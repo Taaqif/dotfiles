@@ -3,6 +3,7 @@ set -Ux EDITOR nvim
 set -Ux TERM xterm-256color
 set -Ux NEOVIM_WIN_DIR "/mnt/c/Program Files/Neovim"
 fish_add_path /home/tye/.cargo/bin
+fish_add_path /home/tye/.dotnet/tools
 fish_add_path /home/tye/.local/share/bob/nvim-bin
 fish_add_path /mnt/c/Program\ Files/WezTerm
 fish_add_path /mnt/c/Windows/System32
@@ -25,9 +26,12 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # Android
+set -xg ANDROID_HOME_WIN /mnt/c/Users/TyePeck/AppData/Local/Android/Sdk
 set -xg ANDROID_HOME $HOME/android
+# set -xg ANDROID_HOME $ANDROID_HOME_WIN
 set -xg ANDROID_SDK_ROOT $ANDROID_HOME
-set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
+# set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
+set -xg PATH $ANDROID_HOME/cmdline-tools/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
 
 # yazi
 function y
