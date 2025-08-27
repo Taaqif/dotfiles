@@ -89,10 +89,20 @@ Function Invoke-Lfcd {
 Set-Alias -Name lfcd -Value Invoke-Lfcd -Option AllScope -Scope Global -Force
 Set-Alias -Name lg -Value lazygit -Option AllScope -Scope Global -Force
 
+function y {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp -Encoding UTF8
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath ([System.IO.Path]::GetFullPath($cwd))
+    }
+    Remove-Item -Path $tmp
+}
+
 # fnm 
 fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
 
 # komorebi
 $Env:KOMOREBI_CONFIG_HOME = "${env:USERPROFILE}\.config\komorebi"
-$Env:KOMOREBI_AHK_EXE = "AutoHotkey64.exe"
+$Env:KOMOREBI_AHK_EXE = "C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe"
 

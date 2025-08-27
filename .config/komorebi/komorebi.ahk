@@ -11,6 +11,9 @@ Komorebic(cmd) {
   z & q::Komorebic("close")
   z & m::Komorebic("minimize")
 
+  ; komorebic toggle-transparency
+  z & u::Komorebic("toggle-transparency")
+
   ; Focus windows
   z & h::Komorebic("focus left")
   z & j::Komorebic("focus down")
