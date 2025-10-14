@@ -143,7 +143,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     opts = function()
       local hipatterns = require("mini.hipatterns")
       local function hi(group, opts)
