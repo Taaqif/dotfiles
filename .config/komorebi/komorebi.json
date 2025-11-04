@@ -17,9 +17,10 @@
   "transparency_alpha": 230,
   "resize_delta": 200,
   "animation": {
-    "enabled": true,
-    "fps": 60,
-    "style": "EaseOutBack"
+    "enabled": false,
+    "fps": 120,
+    "duration": 50,
+    "style": "Linear"
   },
   "stackbar": {
     "height": 20,
