@@ -92,6 +92,9 @@ config.set_environment_variables = {
 	VTE_VERSION = "6003",
 }
 
+config.mux_enable_ssh_agent = false
+config.default_ssh_auth_sock = "\\\\.\\pipe\\openssh-ssh-agent"
+
 if is_windows then
 	config.window_background_opacity = 0
 	config.default_prog = { "pwsh" }
