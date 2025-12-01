@@ -1,0 +1,5 @@
+/* snippet: hide-line-numbers-on-mobile */
+.is-mobile .cm-gutters .cm-gutter .relative-line-numbers-mono,
+.is-mobile .cm-gutters .cm-gutter.cm-lineNumbers {
+  display: none !important;
+}

@@ -1,0 +1,38 @@
+body .full-width-page {
+  --file-line-width: 100%;
+}
+
+.full-width-table.markdown-source-view.is-readable-line-width,
+.full-width-table.markdown-preview-view.is-readable-line-width {
+  container-name: content-view;
+  container-type: inline-size;
+}
+
+@container content-view (width > 50px) {
+  /* editing view */
+  .full-width-table .cm-embed-block.cm-table-widget {
+    width: calc(100cqi - var(--file-margins));
+    margin-left: calc(
+      max(calc(100cqi - var(--file-margins)) - var(--file-line-width), 1rem) /
+        2 * -1
+    ) !important;
+  }
+  .full-width-table .cm-embed-block.cm-table-widget .table-wrapper {
+    width: 100%;
+  }
+  /* reading view */
+  .full-width-table .markdown-preview-view div.el-table,
+  .full-width-table.markdown-preview-view div.el-table {
+    width: 100cqi;
+    margin-left: calc(
+      max(100cqi - var(--file-line-width), 1rem) / 2 * -1
+    ) !important;
+  }
+  /* centering the table a bit */
+  .full-width-table .cm-embed-block.cm-table-widget table,
+  .full-width-table .markdown-preview-view div > table,
+  .full-width-table.markdown-preview-view div > table {
+    margin-inline: auto;
+    width: 100%;
+  }
+}

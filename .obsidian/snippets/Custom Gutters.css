@@ -1,0 +1,22 @@
+/* offset the gutters so they dont add extra margin */
+.markdown-source-view.mod-cm6 .cm-contentContainer:has(> .cm-gutters) {
+  margin-inline-start: calc(var(--file-folding-offset) * -1.8);
+}
+
+.markdown-source-view.mod-cm6 .cm-gutters {
+  position: relative;
+  margin-inline-end: calc(var(--file-folding-offset) * 1.8);
+}
+
+.ͼ1 .cm-gutter {
+  position: absolute;
+  min-width: 25px;
+}
+.ͼ1 .cm-gutterElement {
+  text-align: right;
+  padding: 0 3px 0 5px;
+}
+
+.is-mobile .markdown-source-view.mod-cm6 .cm-gutters {
+  margin-inline-start: 0;
+}

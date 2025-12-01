@@ -1,0 +1,4 @@
+/* hide line numbers in tables */
+table .cm-gutters {
+  display: none !important;
+}

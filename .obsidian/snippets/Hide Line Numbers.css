@@ -1,0 +1,5 @@
+/* snippet: hide-line-numbers */
+.cm-gutters .cm-gutter .relative-line-numbers-mono,
+.cm-gutters .cm-gutter.cm-lineNumbers {
+  display: none !important;
+}
