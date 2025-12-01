@@ -37,6 +37,9 @@ Copy-Item -Path ".\.config\.gitconfig" -Destination "${env:USERPROFILE}\.gitconf
 # Powershell Profile
 New-Symlink -Path "$PROFILE" -Target "./PowerShell/Microsoft.PowerShell_profile.ps1" -ItemType "HardLink"
 
+# WSL Config
+New-Symlink -Path "${env:USERPROFILE}/.wslconfig" -Target ".\.config\.wslconfig" -ItemType "HardLink"
+
 # Wakatime config
 Copy-Item -Path ".\.config\.wakatime.cfg" -Destination "${env:USERPROFILE}\.wakatime.cfg"
 
