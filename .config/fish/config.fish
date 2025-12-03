@@ -3,6 +3,8 @@ set -Ux EDITOR nvim
 set -Ux TERM xterm-256color
 set -Ux NEOVIM_WIN_DIR "/mnt/c/Program Files/Neovim"
 fish_add_path /home/tye/.cargo/bin
+fish_add_path /usr/local/go/bin
+fish_add_path ~/go/bin
 fish_add_path /home/tye/.dotnet/tools
 fish_add_path /home/tye/.local/share/bob/nvim-bin
 fish_add_path /mnt/c/Program\ Files/WezTerm
