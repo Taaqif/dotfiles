@@ -7,9 +7,9 @@ keybinding:
   universal:
     appendNewline: "<tab>"
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --diff-so-fancy
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --diff-so-fancy
 customCommands:
   - key: "<c-P>"
     description: "Push to a specific remote repository"
