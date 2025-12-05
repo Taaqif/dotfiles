@@ -15,9 +15,14 @@ return {
           },
         },
         tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
+          settings = {
+            tailwindCSS = {
+              classFunctions = { "cn" },
+            },
+          },
+          -- root_dir = function(...)
+          --   return require("lspconfig.util").root_pattern(".git")(...)
+          -- end,
         },
         tsserver = {
           -- root_dir = function(...)
