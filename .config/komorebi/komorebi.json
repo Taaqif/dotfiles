@@ -45,6 +45,12 @@
       }
     ],
     {
+      // Zoho vault
+      "kind": "Exe",
+      "id": "Vault_Desktop.exe",
+      "matching_strategy": "Equals"
+    },
+    {
       //ShareX - Screenshot tool
       "matching_strategy": "Equals",
       "id": "ShareX.exe",
