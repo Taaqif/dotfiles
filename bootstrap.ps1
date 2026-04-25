@@ -49,6 +49,9 @@ New-Symlink -Path "${env:USERPROFILE}/.config/starship.toml" -Target ".\.config\
 # wezterm
 New-Symlink -Path "${env:USERPROFILE}/.config/wezterm" -Target ".\.config\wezterm\" -ItemType "Junction"
 
+# alacrity
+New-Symlink -Path "${env:USERPROFILE}/.config/alacrity" -Target ".\.config\alacrity\" -ItemType "Junction"
+
 # lazygit
 New-Symlink -Path "${env:USERPROFILE}/AppData/Local/lazygit/config.yml" -Target ".\.config\lazygit\config.yml" -ItemType "HardLink"
 

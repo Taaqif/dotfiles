@@ -28,6 +28,14 @@ cp "./.config/.gitconfig" "$HOME/.gitconfig"
 # Starship config
 new_symlink "$HOME/.config/starship.toml" "./.config/starship.toml"
 
+# tmux config
+mkdir -p "$HOME/.config/tmux"
+new_symlink "$HOME/.config/tmux/tmux.conf" "./.config/tmux/tmux.conf"
+
+# alacrity config
+mkdir -p "$HOME/.config/alacrity"
+new_symlink "$HOME/.config/alacrity" "./.config/alacrity"
+
 # wezterm config
 mkdir -p "$HOME/.config/wezterm"
 new_symlink "$HOME/.config/wezterm" "./.config/wezterm"
