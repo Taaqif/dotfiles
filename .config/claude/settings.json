@@ -1,0 +1,35 @@
+{
+  "env": {
+    "MAX_THINKING_TOKENS": "10000",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "model": "sonnet",
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "caveman@caveman": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "theme": "dark-daltonized",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); five_h=$(echo \"$input\" | jq -r '.rate_limits.five_hour.used_percentage // empty'); five_t=$(echo \"$input\" | jq -r '.rate_limits.five_hour.resets_at // empty'); seven_d=$(echo \"$input\" | jq -r '.rate_limits.seven_day.used_percentage // empty'); seven_t=$(echo \"$input\" | jq -r '.rate_limits.seven_day.resets_at // empty'); format_cd() { local ts=$1; [ -z \"$ts\" ] && echo \"\" && return; local now=$(date +%s); local diff=$((ts - now)); [ $diff -lt 0 ] && echo \"0m\" && return; local d=$((diff / 86400)); local h=$(((diff % 86400) / 3600)); local m=$(((diff % 3600) / 60)); if [ $d -gt 0 ]; then echo \"${d}d\"; elif [ $h -gt 0 ]; then echo \"${h}h${m}m\"; else echo \"${m}m\"; fi; }; out=\"\"; [ -n \"$five_h\" ] && out=\"5h: $(printf '%.0f' \"$five_h\")% ($(format_cd \"$five_t\")) \"; [ -n \"$seven_d\" ] && out=\"${out}7d: $(printf '%.0f' \"$seven_d\")% ($(format_cd \"$seven_t\"))\"; echo \"$out\""
+  }
+}
