@@ -8,8 +8,15 @@ Import-Module -Name Terminal-Icons
 # Set-PoshPrompt -Theme bubblesline
 # $env:POSH_GIT_ENABLED = $true
 
+# Some hosts (e.g. redirected/captured terminals) report TERM=dumb and don't
+# support virtual terminal sequences; skip VT-dependent features there to
+# avoid noisy warnings/errors on startup.
+$script:SupportsVT = $Host.UI.SupportsVirtualTerminal -and ($env:TERM -ne "dumb")
+
 Import-Module -Name PSReadLine
-Set-PSReadLineOption -PredictionSource History
+if ($script:SupportsVT) {
+    Set-PSReadLineOption -PredictionSource History
+}
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
@@ -39,7 +46,9 @@ function Invoke-Starship-PreCommand {
     $host.ui.Write($prompt)
 }
 
-Invoke-Expression (& starship init powershell)
+if ($script:SupportsVT) {
+    Invoke-Expression (& starship init powershell)
+}
 
 # bartib
 $env:BARTIB_FILE = "./time.bartib"

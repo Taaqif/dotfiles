@@ -93,7 +93,7 @@ config.set_environment_variables = {
 }
 
 config.mux_enable_ssh_agent = false
-config.enable_kitty_keyboard = true
+config.enable_kitty_keyboard = false
 config.default_ssh_auth_sock = "\\\\.\\pipe\\openssh-ssh-agent"
 
 if is_windows then
