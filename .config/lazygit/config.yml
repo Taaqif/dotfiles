@@ -3,15 +3,14 @@ gui:
   nerdFontsVersion: "3"
 os:
   editPreset: "nvim"
-keybinding:
-  universal:
-    appendNewline: "<tab>"
+# keybinding:
+#   universal:
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never --diff-so-fancy
+      command: delta --dark --paging=never --diff-so-fancy
 customCommands:
-  - key: "<c-P>"
+  - key: "<c-p>"
     description: "Push to a specific remote repository"
     context: "global"
     loadingText: "Pushing ..."
